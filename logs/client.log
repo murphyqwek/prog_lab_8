@@ -206,3 +206,26 @@ MusicBand: {id: "4", name: "123", coordinates:Coordinates {x=123, y=123}, creati
 MusicBand: {id: "3", name: "uju", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon Mar 24 00:00:00 MSK 2025", number of participants: "34432", albums count: "1231435", genre: "JAZZ", label: "Label: sales 4.562"}
 MusicBand: {id: "4", name: "123", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon Mar 24 00:00:00 MSK 2025", number of participants: "123", albums count: "123", genre: "JAZZ", label: "Label: sales 54345.0"}
 }
+2025-03-24 18:41:18 [main] INFO   - Запуск приложения
+2025-03-24 18:41:46 [main] INFO   - Запуск приложения
+2025-03-24 18:41:57 [main] INFO   - Вызов команды show
+2025-03-24 18:41:57 [main] INFO  NetworkSender - Отправка сообщения на сервер
+2025-03-24 18:41:57 [main] INFO  NetworkSender - ClientCommandRequest {commandName: show, arguments: }
+2025-03-24 18:41:57 [main] INFO  NetworkSender - Сообщение отправлено
+2025-03-24 18:41:57 [main] INFO   - Ожидание ответа от сервера...
+2025-03-24 18:41:57 [main] INFO   - Сообщение от сервера пришло
+2025-03-24 18:41:58 [main] INFO  NetworkClient - ServerResponse {type: SUCCESS, message: Коллекция пуста}
+2025-03-24 18:41:58 [main] ERROR Run - Ошибка общения с сервером
+2025-03-24 18:41:58 [main] ERROR Run - Сервер вернул не тот тип данных, который ожидался
+2025-03-24 18:41:58 [main] INFO  Run - Завершения работы
+2025-03-24 18:42:13 [main] INFO   - Запуск приложения
+2025-03-24 18:42:15 [main] INFO   - Вызов команды show
+2025-03-24 18:42:15 [main] INFO  NetworkSender - Отправка сообщения на сервер
+2025-03-24 18:42:15 [main] INFO  NetworkSender - ClientCommandRequest {commandName: show, arguments: }
+2025-03-24 18:42:15 [main] INFO  NetworkSender - Сообщение отправлено
+2025-03-24 18:42:15 [main] INFO   - Ожидание ответа от сервера...
+2025-03-24 18:42:15 [main] INFO   - Сообщение от сервера пришло
+2025-03-24 18:42:16 [main] INFO  NetworkClient - ServerResponse {type: SUCCESS, message: Коллекция пуста}
+2025-03-24 18:42:16 [main] ERROR Run - Ошибка общения с сервером
+2025-03-24 18:42:16 [main] ERROR Run - Сервер вернул не тот тип данных, который ожидался
+2025-03-24 18:42:16 [main] INFO  Run - Завершения работы

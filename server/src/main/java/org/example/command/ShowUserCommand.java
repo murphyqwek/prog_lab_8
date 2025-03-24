@@ -42,10 +42,6 @@ public class ShowUserCommand extends UserCommand {
 
         var collection = collectionManager.getCollection();
 
-        if(collection.isEmpty()) {
-            return new ServerResponse(ServerResponseType.SUCCESS, "Коллекция пуста");
-        }
-
         StringBuilder builder = new StringBuilder();
 
         var sortedCollection = collection.stream().sorted().toList();

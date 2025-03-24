@@ -49,9 +49,6 @@ public class FilterContainsNameUserCommand extends UserCommand {
             throw new CommandArgumentExcetpion("Аргумент не может быть пустой строкой");
         }
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Поиск совпадений:\n");
-
         var collection = this.collectionManager.getCollection();
 
         var selectedCollection = collection.stream().filter(mb -> mb.getName().contains(argument)).sorted().toList();
