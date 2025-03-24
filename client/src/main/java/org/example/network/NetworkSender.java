@@ -18,7 +18,7 @@ import java.nio.channels.DatagramChannel;
  */
 
 public class NetworkSender {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getRootLogger();
     /**
      * Метод для отправки команд пользователя на сервер
      * @param clientCommandRequest

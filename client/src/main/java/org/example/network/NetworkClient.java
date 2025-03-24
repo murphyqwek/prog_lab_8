@@ -24,7 +24,7 @@ import java.util.concurrent.TimeoutException;
  */
 
 public class NetworkClient {
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
     private final InetSocketAddress serverAddress;
     private final DatagramChannel channel;
 

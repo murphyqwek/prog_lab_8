@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
  */
 
 public class Run {
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
     private ClientCommandManager commandManager;
     private IOManager ioManager;
     private NetworkClient networkClient;

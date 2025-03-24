@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ShowUserCommand extends UserCommand {
     private final NetworkClient networkClient;
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
 
     /**
      * Конструктор класса
