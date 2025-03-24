@@ -18,7 +18,7 @@ import java.util.*;
  */
 
 public class ServerCommandManager {
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
     private final HashMap<String, UserCommand> commands;
     private final CommandHistoryManager commandHistoryManager;
     /**

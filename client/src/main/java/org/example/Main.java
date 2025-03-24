@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Main {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getRootLogger();
 
     public static void main(String[] args) {
         NetworkClient networkClient;

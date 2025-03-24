@@ -43,7 +43,7 @@ public class Server {
         this.selector = Selector.open();
 
         DatagramChannel channel = DatagramChannel.open();
-        channel.bind(new InetSocketAddress("localhost", this.port));
+        channel.bind(new InetSocketAddress("0.0.0.0", this.port));
         channel.configureBlocking(false);
 
         channel.register(selector, SelectionKey.OP_READ);
