@@ -74,8 +74,8 @@ public class Run {
                 System.exit(0);
             }
             else {
-                logger.warn("Ответ сервера пришел с пометкой ошибка");
-                logger.error(e.getMessage());
+                ioManager.writeError("Ответ сервера пришел поврежденным или с пометкой ошибка");
+                ioManager.writeLine(e.getMessage());
             }
         }
 

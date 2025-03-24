@@ -1,5 +1,7 @@
 package org.example.command;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
@@ -18,6 +20,7 @@ import java.util.List;
 
 public class ShowUserCommand extends UserCommand {
     private final NetworkClient networkClient;
+    private final Logger logger = LogManager.getLogger();
 
     /**
      * Конструктор класса
@@ -58,6 +61,7 @@ public class ShowUserCommand extends UserCommand {
         }
 
         if(responseWithList.getMusicBandList().stream().anyMatch(mb -> !mb.isValid())) {
+            logger.warn("Сообщение пришло поврежденным");
             throw new ServerErrorResponseExcpetion("Сообщение пришло поврежденным", false);
         }
 

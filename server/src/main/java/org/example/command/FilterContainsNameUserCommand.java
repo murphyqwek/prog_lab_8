@@ -3,6 +3,7 @@ package org.example.command;
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
+import org.example.base.response.ServerResponseWithMusicBandList;
 import org.example.manager.CollectionManager;
 
 import java.io.Serializable;
@@ -53,10 +54,8 @@ public class FilterContainsNameUserCommand extends UserCommand {
 
         var collection = this.collectionManager.getCollection();
 
-        collection.stream().filter(mb -> mb.getName().contains(argument)).sorted().forEach(mb -> stringBuilder.append(mb.getName()).append("\n"));
+        var selectedCollection = collection.stream().filter(mb -> mb.getName().contains(argument)).sorted().toList();
 
-        String response = stringBuilder.toString();
-
-        return new ServerResponse(ServerResponseType.SUCCESS, response);
+        return new ServerResponseWithMusicBandList(ServerResponseType.SUCCESS, "", selectedCollection);
     }
 }

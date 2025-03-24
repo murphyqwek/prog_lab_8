@@ -1,8 +1,12 @@
 package org.example.command;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ServerResponseWithMusicBandList;
+import org.example.exception.ServerErrorResponseExcpetion;
 import org.example.network.NetworkClient;
 
 import java.io.Serializable;
@@ -17,7 +21,8 @@ import java.util.List;
  */
 
 public class FilterContainsNameUserCommand extends UserCommand {
-    private NetworkClient networkClient;
+    private final NetworkClient networkClient;
+    private final Logger logger = LogManager.getRootLogger();
     /**
      * Конструктор класса
      * @param networkClient класс для управления коллекцией
@@ -49,6 +54,22 @@ public class FilterContainsNameUserCommand extends UserCommand {
         networkClient.sendUserCommand(response);
         ioManager.writeLine("Отправка команды...");
 
-        printResponse(networkClient);
+        var serverResponse = networkClient.getServerResponse();
+
+        if(!(serverResponse instanceof ServerResponseWithMusicBandList responseWithList)) {
+            throw new ServerErrorResponseExcpetion("Сервер вернул не тот тип данных, который ожидался", true);
+        }
+
+        if(responseWithList.getMusicBandList().isEmpty()) {
+            ioManager.writeLine("Коллекция пуста");
+            return;
+        }
+
+        if(responseWithList.getMusicBandList().stream().anyMatch(mb -> !mb.isValid())) {
+            logger.warn("Сообщение пришло поврежденным");
+            throw new ServerErrorResponseExcpetion("Сообщение пришло поврежденным", false);
+        }
+
+        responseWithList.getMusicBandList().stream().forEach(mb -> ioManager.writeLine(mb));
     }
 }

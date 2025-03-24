@@ -68,20 +68,29 @@ public class NetworkClient {
                 throw new ServerErrorResponseExcpetion(serverResponse.getMessage(), false);
             }
 
+            if(serverResponse.getType() == ServerResponseType.CORRUPTED) {
+                logger.warn("Ответ сервера пришел поврежденным");
+                throw new ServerErrorResponseExcpetion("Ответ сервера пришел поврежденным", false);
+            }
+
 
             logger.info(serverResponse.toString());
             return serverResponse;
         }
         catch (IOException e) {
+            logger.error("Не удалось получить ответ от сервера");
             throw new ServerErrorResponseExcpetion("Не удалось получить ответ от сервера", true);
         }
         catch (InterruptedException ex) {
+            logger.error(ex.getMessage());
             throw new ServerErrorResponseExcpetion(ex.getMessage(), true);
         }
         catch (TimeoutException ex) {
+            logger.error("Timeout - сервер не отвечает");
             throw new ServerErrorResponseExcpetion("Timeout - сервер не отвечает", true);
         }
         catch (ClassNotFoundException ex) {
+            logger.error("Сервер вернул неожиданный ответ");
             throw new ServerErrorResponseExcpetion("Сервер вернул неожиданный ответ", true);
         }
     }
