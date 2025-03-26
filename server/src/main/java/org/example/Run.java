@@ -36,7 +36,7 @@ public class Run {
         this.filepath = filepath;
         this.ioManager = new StandartIOManager();
         this.csvCollectionManager = new CsvCollectionManager(filepath);
-        this.server = new Server(commandManager, port);
+        this.server = new Server(commandManager, port, t-> saveCollection());
         setup();
     }
 
@@ -79,7 +79,11 @@ public class Run {
         server.cycle();
     }
 
-    public void saveCollection() throws IOException {
-        csvCollectionManager.saveCollection(collectionManager.getCollection());
+    public void saveCollection() {
+        try {
+            csvCollectionManager.saveCollection(collectionManager.getCollection());
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 }

@@ -44,7 +44,7 @@ public class Main {
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
-                } catch (IOException e) {
+                } catch (RuntimeException e) {
                     System.err.println("Ошибка работы сервера: " + e.getMessage());
                     logger.error("Не удалось сохранить коллекцию");
                 }
@@ -55,6 +55,11 @@ public class Main {
         } catch (IOException e) {
             System.err.println("Ошибка работы сервера: " + e.getMessage());
             logger.error("Ошибка работы сервера: " + e.getMessage());
+        } catch (Exception ex) {
+            logger.error("Неожиданная ошибка");
+            logger.error(ex.getMessage());
+            logger.error("Аварийное завершение");
+            System.exit(-1);
         }
     }
 }

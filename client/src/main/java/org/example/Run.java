@@ -56,13 +56,13 @@ public class Run {
      */
     private void cycle() {
         ioManager.writeLine("Введите команду: ");
-
         String command = "";
         try {
             command = ioManager.readLine();
             commandManager.execute(command);
         }
         catch (NoSuchElementException e) {
+            ioManager.writeLine("Завершение работы");
             logger.info("Завершения работы");
             System.exit(0);
         }
@@ -70,10 +70,15 @@ public class Run {
             if(e.isConnectionError()) {
                 logger.error("Ошибка общения с сервером");
                 logger.error(e.getMessage());
-                logger.info("Завершения работы");
-                System.exit(0);
+                logger.info("Завершение работы");
+                ioManager.writeError("Ошибка сервера");
+                ioManager.writeError(e.getMessage());
+                ioManager.writeLine("Завершение работы");
+                System.exit(1);
             }
             else {
+                logger.warn("Ответ сервера пришел поврежденным или с пометкой ошибка");
+                logger.warn(e.getMessage());
                 ioManager.writeError("Ответ сервера пришел поврежденным или с пометкой ошибка");
                 ioManager.writeLine(e.getMessage());
             }

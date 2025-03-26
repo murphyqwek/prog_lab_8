@@ -79,7 +79,12 @@ public class ScriptManager {
                 clientCommandManager.execute(line);
             }
             catch (ServerErrorResponseExcpetion ex) {
-                throw ex;
+                if(ex.isConnectionError()) {
+                    throw ex;
+                }
+            }
+            catch (RecursionException e) {
+                throw e;
             }
             catch(Exception e) {
                 throw new DamageScriptException();
