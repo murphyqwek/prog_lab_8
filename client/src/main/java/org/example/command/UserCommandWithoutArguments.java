@@ -16,9 +16,7 @@ import java.util.List;
  * @version 1.0
  */
 
-public class UserCommandWithoutArguments extends UserCommand {
-    private final NetworkClient networkClient;
-
+public class UserCommandWithoutArguments extends NetworkUserCommand {
     /**
      * Конструктор класса
      *
@@ -27,21 +25,29 @@ public class UserCommandWithoutArguments extends UserCommand {
      * @param ioManager   класс для работы с вводом-выводом
      */
     public UserCommandWithoutArguments(String name, String description, IOManager ioManager, NetworkClient networkClient) {
-        super(name, description, ioManager);
-        this.networkClient = networkClient;
+        super(name, description, ioManager, networkClient);
     }
 
     @Override
     public void execute(List<String> args) throws CommandArgumentExcetpion, CouldnotSendExcpetion {
+        var clientCommandRequest = getClientCommandRequest(args);
+
+        sendClientCommandResponse(clientCommandRequest);
+    }
+
+    /**
+     * Метод для формирования клиентского запроса
+     *
+     * @param args
+     * @return
+     */
+    @Override
+    public ClientCommandRequest getClientCommandRequest(List<String> args) throws CommandArgumentExcetpion {
         if(!args.isEmpty()) {
             throw new CommandArgumentExcetpion("Команда не принимает никаких аргументов");
         }
 
         ClientCommandRequest clientCommandRequest = new ClientCommandRequest(this.getName(), Collections.emptyList());
-
-        networkClient.sendUserCommand(clientCommandRequest);
-        ioManager.writeLine("Отправка команды...");
-
-        printResponse(networkClient);
+        return clientCommandRequest;
     }
 }

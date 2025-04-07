@@ -19,18 +19,14 @@ import java.util.List;
  * @version 1.0
  */
 
-public class UpdateUserCommand extends UserCommand {
-    private NetworkClient networkClient;
-
+public class UpdateUserCommand extends NetworkUserCommand {
     /**
      * Конструктор класса
      * @param networkClient класс для работы с коллекцией
      * @param ioManager класс для работы с вводом-выводом
      */
     public UpdateUserCommand(NetworkClient networkClient, IOManager ioManager) {
-        super("update", "update id {element} : обновить значение элемента коллекции, id которого равен заданному", ioManager);
-
-        this.networkClient = networkClient;
+        super("update", "update id {element} : обновить значение элемента коллекции, id которого равен заданному", ioManager, networkClient);
     }
 
     /**
@@ -41,6 +37,23 @@ public class UpdateUserCommand extends UserCommand {
      */
     @Override
     public void execute(List<String> args) throws CommandArgumentExcetpion, CouldnotSendExcpetion {
+        var clientResponse = getClientCommandRequest(args);
+
+        if(clientResponse == null) {
+            return;
+        }
+
+        sendClientCommandResponse(clientResponse);
+    }
+
+    /**
+     * Метод для формирования клиентского запроса
+     *
+     * @param args
+     * @return
+     */
+    @Override
+    public ClientCommandRequest getClientCommandRequest(List<String> args) throws CommandArgumentExcetpion {
         if(args.size() != 1) {
             throw new CommandArgumentExcetpion(getName() + " принимает только один однострочный аргумент - id элемента");
         }
@@ -53,10 +66,10 @@ public class UpdateUserCommand extends UserCommand {
         }
         catch (NumberFormatException e) {
             ioManager.writeError("Ошибка исполнения команды: id должно быть целым числом");
-            return;
+            return null;
         } catch (InterruptedException e) {
             ioManager.writeError("Ввод прерван");
-            return;
+            return null;
         }
 
         List<Serializable> arguments = new ArrayList<>();
@@ -65,9 +78,6 @@ public class UpdateUserCommand extends UserCommand {
 
         ClientCommandRequest response = new ClientCommandRequest(this.getName(), arguments);
 
-        networkClient.sendUserCommand(response);
-        ioManager.writeLine("Отправка команды...");
-
-        printResponse(networkClient);
+        return response;
     }
 }

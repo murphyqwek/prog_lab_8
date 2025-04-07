@@ -2,8 +2,13 @@ package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.iomanager.IOManager;
+import org.example.base.response.ClientCommandRequest;
+import org.example.exception.CouldnotSendExcpetion;
+import org.example.network.NetworkClient;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -35,7 +40,6 @@ public class ExitCommand extends UserCommand{
         if(!args.isEmpty()) {
             throw new CommandArgumentExcetpion(getName() + " не принимает никаких аргументов");
         }
-
         ioManager.writeLine("Завершение программы");
         System.exit(0);
     }

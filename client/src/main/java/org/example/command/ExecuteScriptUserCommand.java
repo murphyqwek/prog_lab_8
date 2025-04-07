@@ -2,6 +2,8 @@ package org.example.command;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.base.iomanager.IOManager;
 import org.example.base.exception.*;
 import org.example.exception.ServerErrorResponseExcpetion;
@@ -17,6 +19,7 @@ import org.example.script.ScriptManager;
 
 public class ExecuteScriptUserCommand extends UserCommand {
     private final NetworkClient networkClient;
+    private final Logger logger = LogManager.getRootLogger();
     /**
      * Конструктор класса
      * @param networkClient класс для общения с сервером
@@ -39,28 +42,18 @@ public class ExecuteScriptUserCommand extends UserCommand {
             throw new CommandArgumentExcetpion(getName() + " ожидает получить 1 аргумент");
         }
 
-        ScriptManager scriptManager = new ScriptManager(args.get(0), networkClient);
+        ScriptManager scriptManager = new ScriptManager(networkClient);
 
         try {
-            scriptManager.runScript();
+            scriptManager.runScript(args.get(0));
+            ioManager.writeLine("Скрипт успешно выполнен");
+        } catch (DamageScriptException e) {
+            ioManager.writeError("Ошибка исполнения скрипта - скрипт поврежден");
+        } catch (ServerErrorResponseExcpetion e) {
+            logger.error("Ошибка со стороны сервера, выполнение скрипта остановлено");
+            ioManager.writeError("Ошибка со стороны сервера, выполнение скрипта остановлено");
+        } catch (RecursionException e) {
+            ioManager.writeError("Обнаружена рекурсия. Выполнение скрипта приостановлена");
         }
-        catch (DamageScriptException | RecursionException e) {
-            if(scriptManager.getRecursionDepth() == 0) {
-                if (e instanceof RecursionException) {
-                    ioManager.writeError("Обнаружена рекурсия. Выполнение скрипта приостановлена");
-                }
-                else if (e instanceof DamageScriptException) {
-                    ioManager.writeError("Ошибка исполнения скрипта - скрипт поврежден");
-                }
-                else if (e instanceof ServerErrorResponseExcpetion) {
-                    ioManager.writeError("Ошибка со стороны сервера, выполнение скрипта остановлено");
-                }
-                return;
-            }
-
-            throw e;
-        }
-
-        ioManager.writeLine("Скрипт успешно выполнен");
     }
 }

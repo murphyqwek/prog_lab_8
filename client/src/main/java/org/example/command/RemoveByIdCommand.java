@@ -16,7 +16,7 @@ import java.util.List;
  * @version 1.0
  */
 
-public class RemoveByIdCommand extends UserCommand {
+public class RemoveByIdCommand extends NetworkUserCommand {
     private NetworkClient networkClient;
 
     /**
@@ -25,7 +25,7 @@ public class RemoveByIdCommand extends UserCommand {
      * @param out класс для работы с вводом-выводом
      */
     public RemoveByIdCommand(NetworkClient networkClient, IOManager out) {
-        super("remove_by_id", "remove_by_id id : удалить элемент из коллекции по его id", out);
+        super("remove_by_id", "remove_by_id id : удалить элемент из коллекции по его id", out, networkClient);
 
         this.networkClient = networkClient;
     }
@@ -38,6 +38,19 @@ public class RemoveByIdCommand extends UserCommand {
      */
     @Override
     public void execute(List<String> args) throws CommandArgumentExcetpion {
+        var clientResponse = getClientCommandRequest(args);
+
+        sendClientCommandResponse(clientResponse);
+    }
+
+    /**
+     * Метод для формирования клиентского запроса
+     *
+     * @param args
+     * @return
+     */
+    @Override
+    public ClientCommandRequest getClientCommandRequest(List<String> args) throws CommandArgumentExcetpion {
         if(args.size() != 1) {
             throw new CommandArgumentExcetpion("Неверное количество аргументов");
         }
@@ -56,10 +69,6 @@ public class RemoveByIdCommand extends UserCommand {
         arguments.add(id);
 
         ClientCommandRequest response = new ClientCommandRequest(this.getName(), arguments);
-
-        networkClient.sendUserCommand(response);
-        ioManager.writeLine("Отправка команды...");
-
-        printResponse(networkClient);
+        return response;
     }
 }

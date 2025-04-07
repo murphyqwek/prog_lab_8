@@ -19,16 +19,13 @@ import java.util.List;
  * @version 1.0
  */
 
-public class AddIfMaxUserCommand extends UserCommand {
-    NetworkClient networkClient;
-
+public class AddIfMaxUserCommand extends NetworkUserCommand {
     /**
      * Конструктор класса
      * @param ioManager класс для управления ввода-вывода
      */
     public AddIfMaxUserCommand(NetworkClient networkClient, IOManager ioManager) {
-        super("add_if_max", "add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции", ioManager);
-        this.networkClient = networkClient;
+        super("add_if_max", "add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции", ioManager, networkClient);
     }
 
     /**
@@ -39,6 +36,19 @@ public class AddIfMaxUserCommand extends UserCommand {
      */
     @Override
     public void execute(List<String> args) throws CommandArgumentExcetpion, CouldnotSendExcpetion {
+        var response = getClientCommandRequest(args);
+
+        sendClientCommandResponse(response);
+    }
+
+    /**
+     * Метод для формирования клиентского запроса
+     *
+     * @param args
+     * @return
+     */
+    @Override
+    public ClientCommandRequest getClientCommandRequest(List<String> args) throws CommandArgumentExcetpion {
         if(!args.isEmpty()) {
             throw new CommandArgumentExcetpion(getName() + " не принимает однострочных аргументов");
         }
@@ -49,17 +59,13 @@ public class AddIfMaxUserCommand extends UserCommand {
             userMusicBand = new MusicBandFieldReader(ioManager).executeMusicBand(id);
         } catch (InterruptedException e) {
             ioManager.writeError("Ввод прерван");
-            return;
+            return null;
         }
 
         List<Serializable> arguments = new ArrayList<>();
         arguments.add(userMusicBand);
 
         ClientCommandRequest response = new ClientCommandRequest(this.getName(), arguments);
-
-        networkClient.sendUserCommand(response);
-        ioManager.writeLine("Отправка команды...");
-
-        printResponse(networkClient);
+        return response;
     }
 }

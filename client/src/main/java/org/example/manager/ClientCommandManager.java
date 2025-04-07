@@ -55,7 +55,7 @@ public class ClientCommandManager {
         String commandName = arguments.get(0);
         arguments.remove(0);
 
-        UserCommand executingCommand = this.commands.get(commandName);
+        UserCommand executingCommand = getUserCommandByName(commandName);
         if(executingCommand == null) {
             System.err.println("Неопознанная команда: " + commandName);
             logger.error("Неопознанная команда: " + commandName);
@@ -77,7 +77,7 @@ public class ClientCommandManager {
      * @param input входное значение
      * @return список, где первый элемент - имя команды, а остальные - аргументы к этой команде
      */
-    private ArrayList<String> parsingInputCommand(String input) {
+    public ArrayList<String> parsingInputCommand(String input) {
         input = input.trim();
 
         ArrayList<String> commands = new ArrayList<>();
@@ -86,6 +86,10 @@ public class ClientCommandManager {
         }
 
         return commands;
+    }
+
+    public UserCommand getUserCommandByName(String name) {
+        return this.commands.get(name);
     }
 
     /**

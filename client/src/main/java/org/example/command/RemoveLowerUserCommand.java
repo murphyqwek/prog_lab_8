@@ -18,18 +18,14 @@ import java.util.List;
  * @version 1.0
  */
 
-public class RemoveLowerUserCommand extends UserCommand {
-    private final NetworkClient networkClient;
-
+public class RemoveLowerUserCommand extends NetworkUserCommand{
     /**
      * Конструктор класса
      * @param networkClient класс для работы с коллекцией
      * @param ioManager класс для работы с вводом-выводом
      */
     public RemoveLowerUserCommand(NetworkClient networkClient, IOManager ioManager) {
-        super("remove_lower", "remove_lower {element} : удалить из коллекции все элементы, меньшие, чем заданный", ioManager);
-
-        this.networkClient = networkClient;
+        super("remove_lower", "remove_lower {element} : удалить из коллекции все элементы, меньшие, чем заданный", ioManager, networkClient);
     }
 
     /**
@@ -40,6 +36,23 @@ public class RemoveLowerUserCommand extends UserCommand {
      */
     @Override
     public void execute(List<String> args) throws CommandArgumentExcetpion {
+        var clientResponse = getClientCommandRequest(args);
+
+        if(clientResponse == null) {
+            return;
+        }
+
+        sendClientCommandResponse(clientResponse);
+    }
+
+    /**
+     * Метод для формирования клиентского запроса
+     *
+     * @param args
+     * @return
+     */
+    @Override
+    public ClientCommandRequest getClientCommandRequest(List<String> args) throws CommandArgumentExcetpion {
         if(!args.isEmpty()) {
             throw new CommandArgumentExcetpion(getName() + " не принимает никаких однострочных аргументов");
         }
@@ -50,7 +63,7 @@ public class RemoveLowerUserCommand extends UserCommand {
             userMusicBand = new MusicBandFieldReader(ioManager).executeMusicBand(id);
         } catch (InterruptedException e) {
             ioManager.writeError("Ввод прерван");
-            return;
+            return null;
         }
 
         List<Serializable> arguments = new ArrayList<>();
@@ -58,9 +71,6 @@ public class RemoveLowerUserCommand extends UserCommand {
 
         ClientCommandRequest response = new ClientCommandRequest(this.getName(), arguments);
 
-        networkClient.sendUserCommand(response);
-        ioManager.writeLine("Отправка команды...");
-
-        printResponse(networkClient);
+        return response;
     }
 }

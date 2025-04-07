@@ -12,4 +12,8 @@ public class DamageScriptException extends RuntimeException {
     public DamageScriptException() {
         super();
     }
+
+    public DamageScriptException(String message) {
+        super(message);
+    }
 }

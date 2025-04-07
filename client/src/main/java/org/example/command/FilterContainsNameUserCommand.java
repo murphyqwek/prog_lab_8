@@ -6,6 +6,7 @@ import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
 import org.example.base.response.ServerResponseWithMusicBandList;
+import org.example.exception.CouldnotSendExcpetion;
 import org.example.exception.ServerErrorResponseExcpetion;
 import org.example.network.NetworkClient;
 
@@ -20,8 +21,7 @@ import java.util.List;
  * @version 1.0
  */
 
-public class FilterContainsNameUserCommand extends UserCommand {
-    private final NetworkClient networkClient;
+public class FilterContainsNameUserCommand extends NetworkUserCommand{
     private final Logger logger = LogManager.getRootLogger();
     /**
      * Конструктор класса
@@ -29,8 +29,7 @@ public class FilterContainsNameUserCommand extends UserCommand {
      * @param out класс для работы с вводом-выводом
      */
     public FilterContainsNameUserCommand(NetworkClient networkClient, IOManager out) {
-        super("filter_contains_name", "filter_contains_name name : вывести элементы, значение поля name которых содержит заданную подстроку", out);
-        this.networkClient = networkClient;
+        super("filter_contains_name", "filter_contains_name name : вывести элементы, значение поля name которых содержит заданную подстроку", out, networkClient);
     }
 
     /**
@@ -41,17 +40,17 @@ public class FilterContainsNameUserCommand extends UserCommand {
      */
     @Override
     public void execute(List<String> args) throws CommandArgumentExcetpion {
-        String argument = String.join(" ", args);
-        if(argument.isEmpty()) {
-            throw new CommandArgumentExcetpion("Неверный аргумент");
-        }
+        var response = getClientCommandRequest(args);
 
-        List<Serializable> arguments = new ArrayList<>();
-        arguments.add(argument);
+        sendClientCommandResponse(response);
+    }
 
-        ClientCommandRequest response = new ClientCommandRequest(this.getName(), arguments);
-
-        networkClient.sendUserCommand(response);
+    /**
+     * @param clientCommandRequest
+     */
+    @Override
+    public void sendClientCommandResponse(ClientCommandRequest clientCommandRequest) throws CouldnotSendExcpetion {
+        networkClient.sendUserCommand(clientCommandRequest);
         ioManager.writeLine("Отправка команды...");
 
         var serverResponse = networkClient.getServerResponse();
@@ -71,5 +70,25 @@ public class FilterContainsNameUserCommand extends UserCommand {
         }
 
         responseWithList.getMusicBandList().stream().forEach(mb -> ioManager.writeLine(mb));
+    }
+
+    /**
+     * Метод для формирования клиентского запроса
+     *
+     * @param args
+     * @return
+     */
+    @Override
+    public ClientCommandRequest getClientCommandRequest(List<String> args) throws CommandArgumentExcetpion {
+        String argument = String.join(" ", args);
+        if(argument.isEmpty()) {
+            throw new CommandArgumentExcetpion("Неверный аргумент");
+        }
+
+        List<Serializable> arguments = new ArrayList<>();
+        arguments.add(argument);
+
+        ClientCommandRequest response = new ClientCommandRequest(this.getName(), arguments);
+        return response;
     }
 }

@@ -6,6 +6,7 @@ import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
 import org.example.base.response.ServerResponseWithMusicBandList;
+import org.example.exception.CouldnotSendExcpetion;
 import org.example.exception.ServerErrorResponseExcpetion;
 import org.example.network.NetworkClient;
 
@@ -18,8 +19,7 @@ import java.util.List;
  * @version 1.0
  */
 
-public class ShowUserCommand extends UserCommand {
-    private final NetworkClient networkClient;
+public class ShowUserCommand extends NetworkUserCommand {
     private final Logger logger = LogManager.getRootLogger();
 
     /**
@@ -28,8 +28,7 @@ public class ShowUserCommand extends UserCommand {
      * @param ioManager   класс для работы с вводом-выводом
      */
     public ShowUserCommand(IOManager ioManager, NetworkClient networkClient) {
-        super("show", "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении", ioManager);
-        this.networkClient = networkClient;
+        super("show", "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении", ioManager, networkClient);
     }
 
     /**
@@ -40,12 +39,16 @@ public class ShowUserCommand extends UserCommand {
      */
     @Override
     public void execute(List<String> args) throws CommandArgumentExcetpion, ServerErrorResponseExcpetion {
-        if(!args.isEmpty()) {
-            throw new CommandArgumentExcetpion("Команда не принимает никаких аргументов");
-        }
+        var clientCommandRequest = getClientCommandRequest(args);
 
-        ClientCommandRequest clientCommandRequest = new ClientCommandRequest(this.getName(), Collections.emptyList());
+        sendClientCommandResponse(clientCommandRequest);
+    }
 
+    /**
+     * @param clientCommandRequest
+     */
+    @Override
+    public void sendClientCommandResponse(ClientCommandRequest clientCommandRequest) throws CouldnotSendExcpetion {
         networkClient.sendUserCommand(clientCommandRequest);
         ioManager.writeLine("Отправка команды...");
 
@@ -66,5 +69,21 @@ public class ShowUserCommand extends UserCommand {
         }
 
         responseWithList.getMusicBandList().stream().forEach(mb -> ioManager.writeLine(mb));
+    }
+
+    /**
+     * Метод для формирования клиентского запроса
+     *
+     * @param args
+     * @return
+     */
+    @Override
+    public ClientCommandRequest getClientCommandRequest(List<String> args) throws CommandArgumentExcetpion {
+        if(args == null || !args.isEmpty()) {
+            throw new CommandArgumentExcetpion("Команда не принимает никаких аргументов");
+        }
+
+        ClientCommandRequest clientCommandRequest = new ClientCommandRequest(this.getName(), Collections.emptyList());
+        return clientCommandRequest;
     }
 }

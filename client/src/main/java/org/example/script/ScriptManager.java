@@ -13,9 +13,7 @@ import org.example.base.iomanager.FileIOManager;
 import org.example.base.parser.CsvCollectionManager;
 import org.example.network.NetworkClient;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashSet;
+import java.util.List;
 
 /**
  * ScriptManager - класс для запуска скриптов и мониторинга рекрусии.
@@ -25,84 +23,42 @@ import java.util.HashSet;
  */
 
 public class ScriptManager {
-    private static final HashSet<String> recursionSet;
-    private final String filepath;
     private final NetworkClient networkClient;
     private final ClientCommandManager clientCommandManager;
     private final Logger logger = LogManager.getRootLogger();
 
-    static {
-        recursionSet = new HashSet<>();
-    }
 
     /**
      * Конструктор класса
-     * @param filepath путь к скрипту
      * @param networkClient класс для общения с сервером
      */
-    public ScriptManager(String filepath, NetworkClient networkClient) {
-        this.filepath = new File(filepath).getAbsolutePath();
+    public ScriptManager(NetworkClient networkClient) {
         this.networkClient = networkClient;
         this.clientCommandManager = new ClientCommandManager();
     }
 
     /**
      * Метод для запуска исполнения скриптов
+     * @param filepath путь к скрипту
      * @throws RecursionException если возникла рекурсия
      * @throws DamageScriptException если файл скрипта поврежден и не может быть корректно выполенен
      */
-    public void runScript() throws RecursionException, DamageScriptException {
-        logger.info("Запуск скрипта: " + filepath);
-        if(recursionSet.contains(new File(filepath).getAbsolutePath())) {
-            logger.warn("Обнаружена рекурсия");
-            throw new RecursionException();
+    public void runScript(String filepath) throws RecursionException, DamageScriptException {
+        logger.info("Запуск менедежра скриптов");
+        logger.info("Загрузка всех команд");
+
+        List<RecursionExecutable> toExecute;
+
+        var scriptExtractor = new ScriptExtractor(networkClient, filepath);
+        toExecute = scriptExtractor.extractCommandsFromScript();
+
+        logger.info("Скрипт прочитан, ошибок нет");
+
+        for(var executable : toExecute) {
+            executable.execute();
         }
 
-        recursionSet.add(filepath);
-
-        FileReaderIterator fileReaderIterator;
-        try {
-            fileReaderIterator = new FileReaderIterator(filepath);
-        } catch (IOException e) {
-            recursionSet.remove(filepath);
-            throw new DamageScriptException();
-        }
-
-        ClientCommandManagerSetuper.SetupCommandManager(new FileIOManager(fileReaderIterator), networkClient, clientCommandManager);
-
-
-        while(fileReaderIterator.hasNext()) {
-            String line = fileReaderIterator.next();
-            line = line.replace("\n", "").replace("\r", "");
-
-            try {
-                clientCommandManager.execute(line);
-            }
-            catch (ServerErrorResponseExcpetion ex) {
-                if(ex.isConnectionError()) {
-                    throw ex;
-                }
-            }
-            catch (RecursionException e) {
-                throw e;
-            }
-            catch(Exception e) {
-                throw new DamageScriptException();
-            }
-            finally {
-                recursionSet.remove(filepath);
-                fileReaderIterator.close();
-            }
-        }
-
-
-    }
-
-    /**
-     * Метод для получения текущей глубины рекурсии
-     */
-    public int getRecursionDepth() {
-        return recursionSet.size();
+        logger.info("Скрипт выполнен успешно");
     }
 
 }

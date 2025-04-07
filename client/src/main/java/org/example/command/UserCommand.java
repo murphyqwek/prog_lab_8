@@ -2,6 +2,7 @@ package org.example.command;
 
 import org.example.base.iomanager.IOManager;
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.response.ClientCommandRequest;
 import org.example.base.response.ServerResponseType;
 import org.example.exception.CouldnotSendExcpetion;
 import org.example.exception.ServerErrorResponseExcpetion;
@@ -41,17 +42,6 @@ public abstract class UserCommand implements Comparable<UserCommand> {
      */
     public abstract void execute(List<String> args) throws CommandArgumentExcetpion, ServerErrorResponseExcpetion;
 
-    public void printResponse(NetworkClient networkClient) {
-        var response = networkClient.getServerResponse();
-
-        if(response.getType() == ServerResponseType.CORRUPTED) {
-            ioManager.writeError(response.getMessage());
-            return;
-        }
-
-        ioManager.writeLine(response.getMessage());
-    }
-
     /**
      * Метод для установки нового IOManager
      * @param ioManager новый IOManager
@@ -83,6 +73,7 @@ public abstract class UserCommand implements Comparable<UserCommand> {
     public String getDescription() {
         return this.description;
     }
+
 
     /**
      * Метод для сравнения двух команд. Сравнение происходит по имени
