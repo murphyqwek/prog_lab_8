@@ -1,0 +1,15 @@
+org.example
+org.example.base.exception
+org.example.base.fieldReader
+org.example.base.file
+org.example.base.iomanager
+org.example.base.model
+org.example.base.parser
+org.example.base.response
+org.example.command
+org.example.exception
+org.example.manager
+org.example.network
+org.example.script
+org.example.server
+org.example.server.util

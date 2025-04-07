@@ -1,0 +1,10 @@
+help
+add
+nirvana
+123
+123
+90
+90
+JAZZ
+4.3
+execute_script ./script45136.txt
