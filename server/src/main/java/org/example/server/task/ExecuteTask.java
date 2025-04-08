@@ -11,8 +11,6 @@ import org.example.manager.UserManager;
 import org.example.server.Server;
 import org.example.server.UserData;
 
-import java.io.IOException;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.channels.DatagramChannel;
 
@@ -52,7 +50,16 @@ public class ExecuteTask implements Runnable {
             return;
         }
 
-        //TODO: вызов commandMenager'а
+        var serverResponse = serverCommandManager.execute(request.getCommandName(), request.getArguments(), request.getLogin());
+
+        if(serverResponse.getType() == ServerResponseType.SUCCESS) {
+            logger.info("Сообщение обработано успешно: " + serverResponse);
+        }
+        else {
+            logger.warn("Во время обработки сообщении произошла ошибка: " + serverResponse);
+        }
+
+        server.send(channel, address, serverResponse);
     }
 
     public boolean checkisAuthorized(String login, String password) {
