@@ -52,7 +52,7 @@ public class ServerCommandManager {
      * @param argument аргументы к команде
      * @throws UnknownCommandException если не удалось определить команду
      */
-    public ServerResponse execute(String commandName, List<Serializable> argument){
+    public ServerResponse execute(String commandName, List<Serializable> argument, String login){
         UserCommand executingCommand = this.commands.get(commandName);
         if(executingCommand == null) {
             logger.warn("Неопознанная команда " + commandName);
@@ -62,7 +62,7 @@ public class ServerCommandManager {
         try {
             logger.info("Вызов команды " + commandName);
             commandHistoryManager.addCommand(executingCommand);
-            return executingCommand.execute(argument);
+            return executingCommand.execute(argument, login);
         }
         catch (CommandArgumentExcetpion e) {
             logger.error(String.format("ОШИБКА исполнения команды %s: %s", commandName, e.getMessage()));

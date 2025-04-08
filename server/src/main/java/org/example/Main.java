@@ -13,35 +13,23 @@ public class Main {
 
     public static void main(String[] args) {
         int port = 2720;
-        String collectionFile = "./collection.csv";
-
         if(args.length == 1) {
-            collectionFile = args[0];
-        }
-
-        if(args.length == 2) {
             try {
                 port = Integer.parseInt(args[1]);
             } catch (NumberFormatException e) { }
         }
 
-        try {
-            Path logDir = Paths.get("logs");
-            Files.createDirectories(logDir);
-        } catch (Exception e) {
-            System.err.println("Ошибка при создании каталога логов: " + e.getMessage());
-            return;
-        }
 
-        logger.info("Инициализация сервера. Порт: " + port + " путь к файлу коллекции: " + collectionFile);
+        logger.info("Инициализация сервера. Порт: " + port);
 
         try {
-            Run run = new Run(port, collectionFile);
+            Run run = new Run(port);
 
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                 try {
-                    run.saveCollection();
-                    Thread.sleep(100);
+                    run.shutdown();
+                    logger.info("Выключение сервера...");
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 } catch (RuntimeException e) {

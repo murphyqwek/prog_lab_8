@@ -185,7 +185,7 @@ public class MusicBand implements Comparable<MusicBand>, Serializable {
      */
     @Override
     public int compareTo(MusicBand o) {
-        return this.id - o.id;
+        return (int) (this.albumsCount - o.albumsCount);
     }
 
     /**

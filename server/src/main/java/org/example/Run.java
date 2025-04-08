@@ -5,15 +5,18 @@ import org.apache.logging.log4j.Logger;
 import org.example.base.exception.DeserializationException;
 import org.example.base.model.MusicBand;
 import org.example.base.parser.CsvCollectionManager;
+import org.example.database.CollectionDataBaseService;
+import org.example.database.HeliousDataBase;
+import org.example.database.UserDataBaseService;
 import org.example.manager.CollectionManager;
 import org.example.manager.ServerCommandManager;
 import org.example.manager.ServerCommandManagerSetuper;
+import org.example.manager.UserManager;
 import org.example.server.Server;
 import org.example.base.iomanager.*;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
+import java.sql.SQLException;
 
 /**
  * Run - класс для запуска приложения.
@@ -23,67 +26,68 @@ import java.util.Collection;
 
 public class Run {
     private final Logger logger = LogManager.getRootLogger();
-    private final Server server;
-    private final IOManager ioManager;
+    private Server server;
     private final CollectionManager collectionManager;
     private final ServerCommandManager commandManager;
-    private final CsvCollectionManager csvCollectionManager;
-    private final String filepath;
 
-    public Run(int port, String filepath) throws IOException {
+    private UserDataBaseService userDataBaseService;
+    private CollectionDataBaseService collectionDataBaseService;
+
+    private final int port;
+
+    public Run(int port) throws IOException {
         this.collectionManager = new CollectionManager();
         this.commandManager = new ServerCommandManager();
-        this.filepath = filepath;
-        this.ioManager = new StandartIOManager();
-        this.csvCollectionManager = new CsvCollectionManager(filepath);
-        this.server = new Server(commandManager, port, t-> saveCollection());
+        this.port = port;
         setup();
     }
 
-    private void uploadCollection() {
-        File f = new File(this.filepath);
-
+    private void setupDataBased() {
         try {
-            if (!f.isFile()) {
-                f.createNewFile();
-                return;
-            }
-        }
-        catch (IOException e) {
-            logger.error("Не удалось создать файл коллекции, проверьте, что вы имеете права на создания и модифицирование файлов");
-            System.exit(0);
-        }
+            var connection = new HeliousDataBase("s467579", "PeqkzPCjCkOrpElt").getConnection();
+            userDataBaseService = new UserDataBaseService(connection);
+            collectionDataBaseService = new CollectionDataBaseService(connection);
 
-        try {
-            Collection<MusicBand> collection = csvCollectionManager.uploadCollection();
-
-            for(var mb : collection) {
-                this.collectionManager.addNewMusicBand(mb);
-            }
-        } catch (IOException e) {
-            logger.error("Не удалось загрузить файл, так как он не существует или уже открыт");
-            System.exit(0);
-        } catch (DeserializationException e) {
-            logger.error("Не удалось загрузить коллекцию, так как файл поврежден");
-            System.exit(0);
+            userDataBaseService.init();
+            collectionDataBaseService.init();
+        } catch (SQLException e) {
+            logger.error("Не удалось подключиться к базе данных или её проинициализировать:\n" + e.getMessage());
+            logger.error("Аварийное отключение");
+            System.exit(1);
         }
     }
 
-    private void setup() {
+    private void uploadCollection() {
+        try {
+            for(var element : collectionDataBaseService.loadInMemory()) {
+                collectionManager.addNewMusicBand(element.getMusicBand(), element.getOwner());
+            }
+        } catch (SQLException e) {
+            logger.error("Не удалось загрузить коллекцию из базы данных:\n" + e.getMessage());
+            logger.error("Аварийное отключение");
+            System.exit(1);
+        }
+    }
+
+    private void setup() throws IOException {
+        logger.info("Инициализация базы данных...");
+        setupDataBased();
+        logger.info("Базы данны проинициализированы");
+        logger.info("Начало загрузки коллекции...");
         uploadCollection();
         logger.info("Коллекция загружена");
-        ServerCommandManagerSetuper.setupCommandManager(collectionManager, commandManager);
+        ServerCommandManagerSetuper.setupCommandManager(collectionManager, commandManager, collectionDataBaseService);
+        logger.info("Инициализация сервера...");
+
+        UserManager userManager = new UserManager(userDataBaseService);
+        server = new Server(commandManager, port, userManager);
     }
 
     public void run() throws IOException {
         server.cycle();
     }
 
-    public void saveCollection() {
-        try {
-            csvCollectionManager.saveCollection(collectionManager.getCollection());
-        } catch (IOException e) {
-            throw new RuntimeException(e.getMessage());
-        }
+    public void shutdown() {
+        server.shutdown();
     }
 }

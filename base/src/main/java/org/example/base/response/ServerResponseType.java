@@ -10,4 +10,6 @@ public enum ServerResponseType {
     SUCCESS,
     ERROR,
     CORRUPTED, // Когда ответ от клиента пришел битым
+    FAILURE,
+    UNAUTHORIZED,
 }

@@ -36,7 +36,7 @@ public class FilterContainsNameUserCommand extends UserCommand {
      * @throws CommandArgumentExcetpion если количество требуемых аргументов не соответствует количеству переданных аргументов, а также если команда не принимает никаких аргументов, но список аргументов не пуст
      */
     @Override
-    public ServerResponse execute(List<Serializable> args) throws CommandArgumentExcetpion {
+    public ServerResponse execute(List<Serializable> args, String login) throws CommandArgumentExcetpion {
         if(args.size() != 1) {
             throw new CommandArgumentExcetpion("Неверное количество аргументов");
         }

@@ -3,6 +3,9 @@ package org.example.command;
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
+import org.example.database.CollectionDataBaseService;
+import org.example.exception.CannotConnectToDataBaseException;
+import org.example.exception.CouldnotAddMusicBandToDataBaseExcpetion;
 import org.example.manager.CollectionManager;
 import org.example.base.model.MusicBand;
 
@@ -19,15 +22,17 @@ import java.util.List;
 
 public class AddUserCommand extends UserCommand {
     private final CollectionManager collectionManager;
+    private final CollectionDataBaseService collectionDataBaseService;
 
     /**
      * Конструктор класса
      * @param collectionManager класс для управления коллекцией
      */
-    public AddUserCommand(CollectionManager collectionManager) {
+    public AddUserCommand(CollectionManager collectionManager, CollectionDataBaseService collectionDataBaseService) {
         super("add", "add {element}: добавить новый элемент в коллекцию");
 
         this.collectionManager = collectionManager;
+        this.collectionDataBaseService = collectionDataBaseService;
     }
 
     /**
@@ -37,7 +42,7 @@ public class AddUserCommand extends UserCommand {
      * @throws CommandArgumentExcetpion если количество требуемых аргументов не соответствует количеству переданных аргументов, а также если команда не принимает никаких аргументов, но список аргументов не пуст
      */
     @Override
-    public ServerResponse execute(List<Serializable> args) throws CommandArgumentExcetpion {
+    public ServerResponse execute(List<Serializable> args, String login) throws CommandArgumentExcetpion {
         if(args.size() != 1) {
             throw new CommandArgumentExcetpion("Неверное количество аргументов");
         }
@@ -54,7 +59,19 @@ public class AddUserCommand extends UserCommand {
             return new ServerResponse(ServerResponseType.CORRUPTED, "Данные повреждены");
         }
 
-        collectionManager.addNewMusicBand(newMusicBand);
+        String responseMessage = "";
+
+        try {
+            collectionDataBaseService.addNewMusicBand(newMusicBand, login);
+        } catch (CannotConnectToDataBaseException e) {
+            responseMessage = "Внутрення ошибка с базой данных";
+            return new ServerResponse(ServerResponseType.ERROR, responseMessage);
+        } catch (CouldnotAddMusicBandToDataBaseExcpetion e) {
+            responseMessage = "Не удалось добавить элемент в базу данных";
+            return new ServerResponse(ServerResponseType.ERROR, responseMessage);
+        }
+
+        collectionManager.addNewMusicBand(newMusicBand, login);
 
         return new ServerResponse(ServerResponseType.SUCCESS, "Группа успешно добавлена в коллекцию");
     }

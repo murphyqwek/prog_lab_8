@@ -34,7 +34,7 @@ public abstract class UserCommand implements Comparable<UserCommand> {
      * @param args список команд типа String
      * @throws CommandArgumentExcetpion если количество требуемых аргументов не соответствует количеству переданных аргументов, а также если команда не принимает никаких аргументов, но список аргументов не пуст
      */
-    public abstract ServerResponse execute(List<Serializable> args) throws CommandArgumentExcetpion;
+    public abstract ServerResponse execute(List<Serializable> args, String login) throws CommandArgumentExcetpion;
 
     /**
      * Метод для получения имени команды

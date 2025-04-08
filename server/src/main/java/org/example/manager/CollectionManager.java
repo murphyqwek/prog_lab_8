@@ -7,6 +7,7 @@ import org.example.base.exception.IdAlreadyExistsException;
 import org.example.base.model.MusicBand;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.IntStream;
 
 /**
@@ -17,7 +18,7 @@ import java.util.stream.IntStream;
  */
 public class CollectionManager {
     private final Logger logger = LogManager.getRootLogger();
-    private final ArrayList<MusicBand> collection;
+    private final CopyOnWriteArrayList<MusicBandWithOwner> collection;
     private int lastId;
     private final Date collectionCreationDate;
 
@@ -25,7 +26,7 @@ public class CollectionManager {
      * Конструктор класса
      */
     public CollectionManager() {
-        this.collection = new ArrayList<>();
+        this.collection = new CopyOnWriteArrayList<>();
         this.lastId = 1;
         this.collectionCreationDate = new Date();
     }
@@ -43,7 +44,22 @@ public class CollectionManager {
      * @return неизменяемую коллекцию
      */
     public List<MusicBand> getCollection() {
-        return Collections.unmodifiableList(this.collection);
+        return this.collection.stream().map(MusicBandWithOwner::getMusicBand).toList();
+    }
+
+    /**
+     * Метод для проверки, принадлежит ли пользователю элемент коллекции
+     * @param id
+     * @param owner
+     * @return
+     */
+    public boolean checkOwner(int id, String owner) {
+        var mb = getMusicBandWithOwnerById(id);
+        if(mb == null) {
+            throw new IllegalArgumentException();
+        }
+
+        return mb.getOwner().equals(owner);
     }
 
     /**
@@ -53,7 +69,15 @@ public class CollectionManager {
      */
     public MusicBand getMusicBandById(int id) {
         try {
-            return collection.stream().filter((mb) -> mb.getId() == id).findFirst().get();
+            return collection.stream().filter((mb) -> mb.getMusicBand().getId() == id).findFirst().get().getMusicBand();
+        }catch (ElementNotFoundException e) {
+            return null;
+        }
+    }
+
+    private MusicBandWithOwner getMusicBandWithOwnerById(int id) {
+        try {
+            return collection.stream().filter((mb) -> mb.getMusicBand().getId() == id).findFirst().get();
         }catch (ElementNotFoundException e) {
             return null;
         }
@@ -72,13 +96,13 @@ public class CollectionManager {
      * @param mb новый элемент типа MusicBand
      * @throws IdAlreadyExistsException если в коллекции уже есть элемент с таким же полем id
      */
-    public void addNewMusicBand(MusicBand mb) throws IdAlreadyExistsException {
+    public void addNewMusicBand(MusicBand mb, String login) throws IdAlreadyExistsException {
         if(containsId(mb.getId())) {
             throw new IdAlreadyExistsException(mb.getId());
         }
 
         this.lastId = Math.max(this.lastId, mb.getId());
-        this.collection.add(mb);
+        this.collection.add(new MusicBandWithOwner(mb, login));
         sort();
         logger.info("В коллекцию добавлен новый элемент");
     }
@@ -103,7 +127,8 @@ public class CollectionManager {
      * @param mb удаляемый элемент
      */
     private void removeMusicBand(MusicBand mb) {
-        this.collection.remove(mb);
+        var elementToRemove = this.collection.stream().filter((m) -> m.getMusicBand().equals(mb)).findFirst().get();
+        this.collection.remove(elementToRemove);
         sort();
         logger.info("Из коллекции был удален элемент: " + mb);
     }
@@ -121,12 +146,11 @@ public class CollectionManager {
      * @param newMusicBand новый элемент коллекции. Старый элемент коллекции находится по id нового элемента
      */
     public void updateMusicBand(MusicBand newMusicBand) {
-        OptionalInt index = IntStream.range(0, collection.size())
-                .filter(i -> collection.get(i).equals(newMusicBand))
-                .findFirst();
+        var musicBandWithOnwer = this.collection.stream().filter((m) -> m.getMusicBand().equals(newMusicBand)).findFirst();
 
-        index.ifPresent(i -> collection.set(i, newMusicBand));
-        if(index.isEmpty()) {
+        musicBandWithOnwer.ifPresent(m -> m.setMusicBand(newMusicBand));
+
+        if(musicBandWithOnwer.isEmpty()) {
             throw new ElementNotFoundException("Элемент не был найден в коллекции");
         }
 
@@ -147,14 +171,14 @@ public class CollectionManager {
      * @return true, если в коллекции уже есть элемент с заданным id, false в противном случае
      */
     public boolean containsId(int id) {
-        return collection.stream().anyMatch((mb) -> mb.getId() == id);
+        return collection.stream().anyMatch((mb) -> mb.getMusicBand().getId() == id);
     }
 
     public void sort() {
-        this.collection.sort(new Comparator<MusicBand>() {
+        this.collection.sort(new Comparator<MusicBandWithOwner>() {
             @Override
-            public int compare(MusicBand o1, MusicBand o2) {
-                return o1.compareTo(o2);
+            public int compare(MusicBandWithOwner o1, MusicBandWithOwner o2) {
+                return o1.getMusicBand().compareTo(o2.getMusicBand());
             }
         });
     }

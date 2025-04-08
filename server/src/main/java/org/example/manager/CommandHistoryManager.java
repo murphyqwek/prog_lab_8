@@ -32,7 +32,9 @@ public class CommandHistoryManager {
             throw new NullPointerException();
         }
 
-        commandHistory.addFirst(command);
+        synchronized (this) {
+            commandHistory.addFirst(command);
+        }
     }
 
     /**

@@ -3,6 +3,7 @@ package org.example.network;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ClientCommandRequestWithLoginAndPassword;
 import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
 import org.example.exception.CouldnotConnectException;
@@ -27,6 +28,14 @@ public class NetworkClient {
     private final Logger logger = LogManager.getRootLogger();
     private final InetSocketAddress serverAddress;
     private final DatagramChannel channel;
+    private String login;
+    private String password;
+
+    public NetworkClient(String ip, int port, String login, String password) {
+        this(ip, port);
+        this.login = login;
+        this.password = password;
+    }
 
     /**
      * Конструктор класса
@@ -36,6 +45,8 @@ public class NetworkClient {
      */
     public NetworkClient(String ip, int port) throws CouldnotConnectException {
         this.serverAddress = new InetSocketAddress(ip, port);
+        this.login = "";
+        this.password = "";
 
         try {
             this.channel = ClientConnection.connect(this.serverAddress);
@@ -47,7 +58,16 @@ public class NetworkClient {
     }
 
     public void sendUserCommand(ClientCommandRequest clientCommandRequest) {
-        NetworkSender.sendUserCommand(clientCommandRequest, channel);
+        ClientCommandRequestWithLoginAndPassword request = new ClientCommandRequestWithLoginAndPassword(clientCommandRequest, login, password);
+        NetworkSender.sendUserCommand(request, channel);
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
