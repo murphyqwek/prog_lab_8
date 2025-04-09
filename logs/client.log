@@ -778,3 +778,49 @@ MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, cr
 2025-04-09 14:18:01 [main] INFO   - Ожидание ответа от сервера...
 2025-04-09 14:18:03 [main] INFO   - Сообщение от сервера пришло
 2025-04-09 14:18:03 [main] INFO   - ServerResponse {type: FAILURE, message: Ваш логин не уникален}
+2025-04-09 15:03:21 [main] INFO   - Запуск приложения
+2025-04-09 15:03:31 [main] INFO   - Вызов команды show
+2025-04-09 15:03:31 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 15:03:31 [main] INFO   - show{ login: qweka; password: qweka}
+2025-04-09 15:03:31 [main] INFO   - Сообщение отправлено
+2025-04-09 15:03:31 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 15:03:32 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 15:03:32 [main] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 16:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-04-09 15:04:17 [main] INFO   - Запуск приложения
+2025-04-09 15:04:23 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 15:04:23 [main] INFO   - register{ login: test; password: test}
+2025-04-09 15:04:23 [main] INFO   - Сообщение отправлено
+2025-04-09 15:04:23 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 15:04:23 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 15:04:23 [main] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно зарегистрированы}
+2025-04-09 15:04:23 [main] INFO   - Регистрация прошла успешно!
+2025-04-09 15:04:25 [main] INFO   - Вызов команды show
+2025-04-09 15:04:25 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 15:04:25 [main] INFO   - show{ login: test; password: test}
+2025-04-09 15:04:25 [main] INFO   - Сообщение отправлено
+2025-04-09 15:04:25 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 15:04:25 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 15:04:25 [main] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно зарегистрированы}
+2025-04-09 15:04:25 [main] ERROR  - Ошибка общения с сервером
+2025-04-09 15:04:25 [main] ERROR  - Сервер вернул не тот тип данных, который ожидался
+2025-04-09 15:04:25 [main] INFO   - Завершение работы
+2025-04-09 15:04:41 [main] INFO   - Запуск приложения
+2025-04-09 15:04:47 [main] INFO   - Вызов команды show
+2025-04-09 15:04:47 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 15:04:47 [main] INFO   - show{ login: test; password: test}
+2025-04-09 15:04:47 [main] INFO   - Сообщение отправлено
+2025-04-09 15:04:47 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 15:04:47 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 15:04:47 [main] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 16:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-04-09 15:10:09 [main] INFO   - Запуск приложения
+2025-04-09 15:11:00 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 15:11:00 [main] INFO   - register{ login: kool; password: 123}
+2025-04-09 15:11:00 [main] INFO   - Сообщение отправлено
+2025-04-09 15:11:06 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 15:11:06 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 15:11:06 [main] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно зарегистрированы}
+2025-04-09 15:12:01 [main] INFO   - Регистрация прошла успешно!

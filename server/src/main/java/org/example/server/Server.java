@@ -63,6 +63,11 @@ public class Server {
 
     public void shutdown() {
         userManager.shutdown();
+        try {
+            channel.close();
+        } catch (IOException e) {
+            return;
+        }
     }
 
     public void cycle() throws IOException {

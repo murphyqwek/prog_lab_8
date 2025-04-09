@@ -46,7 +46,6 @@ public class ExecuteTask implements Runnable {
             ServerResponse response;
             try {
                 response = new RegisterServerCommand(userManager, address.getAddress()).execute(request.getArguments(), request.getLogin());
-                server.send(channel, address, response);
             } catch (CommandArgumentExcetpion ex) {
                 response = new ServerResponse(ServerResponseType.ERROR, ex.getMessage());
             }
