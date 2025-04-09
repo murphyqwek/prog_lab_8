@@ -11,12 +11,14 @@ import java.util.List;
 
 public class ClientCommandRequestWithLoginAndPassword extends ClientCommandRequest {
     private final ClientCommandRequest requestWrappe;
-    private String login;
-    private String password;
+    private final String login;
+    private final String password;
 
     public ClientCommandRequestWithLoginAndPassword(ClientCommandRequest request, String login, String password) {
         super(request.getCommandName(), request.getArguments());
         requestWrappe = request;
+        this.login = login;
+        this.password = password;
     }
 
     public String getLogin() {

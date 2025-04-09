@@ -16,6 +16,7 @@ import org.example.server.util.SerializationUtil;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.Selector;
 import java.nio.channels.SelectionKey;
@@ -66,20 +67,21 @@ public class Server {
 
     public void cycle() throws IOException {
         while (true) {
-            selector.select(100);
+            try {
+                ByteBuffer buffer = ByteBuffer.allocate(65536); // Размер буфера
+                SocketAddress clientAddress = channel.receive(buffer); // Блокирующий вызов
 
-            Iterator<SelectionKey> keyIterator = selector.selectedKeys().iterator();
-            while (keyIterator.hasNext()) {
-                SelectionKey key = keyIterator.next();
-                keyIterator.remove();
+                if (clientAddress != null) {
+                    buffer.flip();
+                    logger.info("Получены данные от {}", clientAddress);
 
-                if (key.isReadable()) {
-                    DatagramChannel channel = (DatagramChannel) key.channel();
-                    logger.info("Пришли новые данные, запускаем поток на чтение");
-                    ReadChannelTask readChannelTask = new ReadChannelTask(channel, this, userManager, commandManager);
+                    ReadChannelTask readChannelTask = new ReadChannelTask(channel, buffer, clientAddress, this, userManager, commandManager);
 
                     new Thread(readChannelTask).start();
                 }
+
+            } catch (IOException e) {
+                logger.error("Ошибка в основном цикле сервера: {}", e.getMessage());
             }
         }
     }

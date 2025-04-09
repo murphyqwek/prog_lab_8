@@ -56,18 +56,20 @@ public class UserManager {
      * @return
      */
     public UserData getAuthorizedUser(InetAddress address, String login, String password) throws UserIsNotAuthorizedException, CannotConnectToDataBaseException {
+        if (login == null || password == null) {
+            throw new UserIsNotAuthorizedException();
+        }
+
         var userSessions = sessions.get(address);
 
         UserData userData = new UserData(login, password, address);
 
-        if(userSessions == null) {
-            throw new UserIsNotAuthorizedException();
-        }
-
-        for(var userDataAutorized : userSessions) {
-            if(userDataAutorized.equals(userData)) {
-                userDataAutorized.updateActivity();
-                return userDataAutorized;
+        if(userSessions != null) {
+            for(var userDataAutorized : userSessions) {
+                if(userDataAutorized.equals(userData)) {
+                    userDataAutorized.updateActivity();
+                    return userDataAutorized;
+                }
             }
         }
 
@@ -106,6 +108,9 @@ public class UserManager {
      * @throws CannotConnectToDataBaseException
      */
     public boolean registerNewUser(UserData userData) throws CannotConnectToDataBaseException {
+        if(userData.getLogin() == null || userData.getPassword() == null) {
+            throw new NullPointerException("Login or password cannot be null");
+        }
         try {
             String hashPassword = hashPassword(userData.getPassword(), userData.getLogin(), pepper);
             userDataBase.registerNewUser(userData.getLogin(), hashPassword);

@@ -46,6 +46,7 @@ public class Run {
      */
     private void setup() {
         ClientCommandManagerSetuper.SetupCommandManager(this.ioManager, this.networkClient, this.commandManager);
+        networkClient.setUserLoginPasswordContainer(userLoginPasswordContainer);
     }
 
     /**
@@ -53,6 +54,7 @@ public class Run {
      */
     public void run() {
         getCredentialsAndRegiser();
+
 
         while(true) {
             cycle();

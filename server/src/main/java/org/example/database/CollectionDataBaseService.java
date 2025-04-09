@@ -42,7 +42,7 @@ public class CollectionDataBaseService {
     }
 
     public void addNewMusicBand(MusicBand newMusicBand, String ownerLogin) throws CouldnotAddMusicBandToDataBaseExcpetion, CannotConnectToDataBaseException {
-        String sqlInsert = "INSERT Collection (name, x, y, creationDate, numberOfParticipants, albumsCount, " +
+        String sqlInsert = "INSERT INTO Collection (name, x, y, creationDate, numberOfParticipants, albumsCount, " +
                             "genre, sales, owner) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id";
         try(PreparedStatement ps = connection.prepareStatement(sqlInsert)) {
             try {
@@ -55,7 +55,6 @@ public class CollectionDataBaseService {
                 ps.setString(7, newMusicBand.getGenre().toString());
                 ps.setDouble(8, newMusicBand.getLabel().getSales());
                 ps.setString(9, ownerLogin);
-                ps.executeUpdate();
 
                 try (ResultSet generatedKeys = ps.executeQuery()) {
                     if (generatedKeys.next()) {
@@ -80,8 +79,8 @@ public class CollectionDataBaseService {
     }
 
     public synchronized void updateMusicBand(MusicBand newMusicBand) throws CannotConnectToDataBaseException, CannotUpdateMusicBandException  {
-        String sqlInsert = "UPDATE Collection (name, x, y, creationDate, numberOfParticipants, albumsCount, " +
-                "genre, sales, owner) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+        String sqlInsert = "UPDATE Collection SET(name, x, y, creationDate, numberOfParticipants, albumsCount, " +
+                "genre, sales, owner) = (?, ?, ?, ?, ?, ?, ?, ?, ?) " +
                 "WHERE id = ?";
         try(PreparedStatement ps = connection.prepareStatement(sqlInsert)) {
             try {
@@ -103,6 +102,7 @@ public class CollectionDataBaseService {
 
             } catch (SQLException ex) {
                 logger.error("Не удалось обновить MusicBand в базе данных:\n" + newMusicBand.toString());
+                logger.error(ex);
                 throw new CannotUpdateMusicBandException();
             }
         }

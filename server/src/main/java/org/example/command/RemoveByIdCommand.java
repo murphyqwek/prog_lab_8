@@ -55,6 +55,10 @@ public class RemoveByIdCommand extends UserCommand {
             throw new CommandArgumentExcetpion("id должно быть числом");
         }
 
+        if(!collectionManager.checkOwner(id, login)) {
+            return new ServerResponse(ServerResponseType.FAILURE, "У вас нет прав на удаление этого объекта");
+        }
+
         try {
             collectionDataBaseService.deleteMusicBandById(id);
             collectionManager.removeMusicBandById(id);

@@ -2,6 +2,7 @@ package org.example.network;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.UserLoginPasswordContainer;
 import org.example.base.response.ClientCommandRequest;
 import org.example.base.response.ClientCommandRequestWithLoginAndPassword;
 import org.example.base.response.ServerResponse;
@@ -28,13 +29,10 @@ public class NetworkClient {
     private final Logger logger = LogManager.getRootLogger();
     private final InetSocketAddress serverAddress;
     private final DatagramChannel channel;
-    private String login;
-    private String password;
+    private UserLoginPasswordContainer userLoginPasswordContainer;
 
-    public NetworkClient(String ip, int port, String login, String password) {
-        this(ip, port);
-        this.login = login;
-        this.password = password;
+    public NetworkClient(String ip, int port) {
+        this(ip, port, new UserLoginPasswordContainer());
     }
 
     /**
@@ -43,10 +41,9 @@ public class NetworkClient {
      * @param port порт подключения
      * @throws CouldnotConnectException если не удалось подключиться к серверу
      */
-    public NetworkClient(String ip, int port) throws CouldnotConnectException {
+    public NetworkClient(String ip, int port, UserLoginPasswordContainer userLoginPasswordContainer) throws CouldnotConnectException {
         this.serverAddress = new InetSocketAddress(ip, port);
-        this.login = "";
-        this.password = "";
+        this.userLoginPasswordContainer = userLoginPasswordContainer;
 
         try {
             this.channel = ClientConnection.connect(this.serverAddress);
@@ -58,16 +55,16 @@ public class NetworkClient {
     }
 
     public void sendUserCommand(ClientCommandRequest clientCommandRequest) {
-        ClientCommandRequestWithLoginAndPassword request = new ClientCommandRequestWithLoginAndPassword(clientCommandRequest, login, password);
+        ClientCommandRequestWithLoginAndPassword request = new ClientCommandRequestWithLoginAndPassword(clientCommandRequest, userLoginPasswordContainer.getLogin(), userLoginPasswordContainer.getPassword());
         NetworkSender.sendUserCommand(request, channel);
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
+    public void setUserLoginPasswordContainer(UserLoginPasswordContainer userLoginPasswordContainer) {
+        if(userLoginPasswordContainer == null) {
+            throw new NullPointerException("userLoginPasswordContainer is null");
+        }
 
-    public void setPassword(String password) {
-        this.password = password;
+        this.userLoginPasswordContainer = userLoginPasswordContainer;
     }
 
     /**
@@ -91,6 +88,11 @@ public class NetworkClient {
             if(serverResponse.getType() == ServerResponseType.CORRUPTED) {
                 logger.warn("Ответ сервера пришел поврежденным");
                 throw new ServerErrorResponseExcpetion("Ответ сервера пришел поврежденным", false);
+            }
+
+            if(serverResponse.getType() == ServerResponseType.UNAUTHORIZED) {
+                logger.warn("Неавторизованный вход");
+                throw new ServerErrorResponseExcpetion("Пользователь не авторизовался на сервере", true);
             }
 
 

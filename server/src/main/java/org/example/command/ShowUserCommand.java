@@ -42,10 +42,10 @@ public class ShowUserCommand extends UserCommand {
 
         var collection = collectionManager.getCollection();
 
-        StringBuilder builder = new StringBuilder();
+        String builder = "";
 
         var sortedCollection = collection.stream().sorted().toList();
 
-        return new ServerResponseWithMusicBandList(ServerResponseType.SUCCESS, builder.toString(), sortedCollection);
+        return new ServerResponseWithMusicBandList(ServerResponseType.SUCCESS, builder, sortedCollection);
     }
 }

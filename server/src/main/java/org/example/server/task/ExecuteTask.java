@@ -2,9 +2,11 @@ package org.example.server.task;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.response.ClientCommandRequestWithLoginAndPassword;
 import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
+import org.example.command.RegisterServerCommand;
 import org.example.exception.CannotConnectToDataBaseException;
 import org.example.manager.ServerCommandManager;
 import org.example.manager.UserManager;
@@ -41,10 +43,19 @@ public class ExecuteTask implements Runnable {
     @Override
     public void run() {
         if(request.getCommandName().equals("register")) {
-            logger.info("Пользователь хочет зарегистрироваться");
-            register(request.getLogin(), request.getPassword());
+            ServerResponse response;
+            try {
+                response = new RegisterServerCommand(userManager, address.getAddress()).execute(request.getArguments(), request.getLogin());
+                server.send(channel, address, response);
+            } catch (CommandArgumentExcetpion ex) {
+                response = new ServerResponse(ServerResponseType.ERROR, ex.getMessage());
+            }
+
+            server.send(channel, address, response);
             return;
         }
+
+        logger.info(String.format("Пользователь отправил запрос с логином: %s; паролем %s", request.getLogin(), request.getPassword()));
 
         if(!checkisAuthorized(request.getLogin(), request.getPassword())) {
             return;
@@ -65,29 +76,16 @@ public class ExecuteTask implements Runnable {
     public boolean checkisAuthorized(String login, String password) {
         try {
             if(!userManager.isAuthorized(address.getAddress(), request.getLogin(), request.getPassword())) {
+                logger.warn("Не удалось авторизовать пользователя");
                 server.send(channel, address, ServerResponseType.UNAUTHORIZED, "Логин и/или пароль неверны");
                 return false;
             }
 
             return true;
         } catch (CannotConnectToDataBaseException e) {
+            logger.error("Внутренняя ошибка сервера при работой с базой данных");
             server.send(channel, address, ServerResponseType.ERROR, "Внутренняя ошибка сервера при работой с базой данных");
             return false;
-        }
-    }
-
-    public void register(String login, String password) {
-        try {
-            ServerResponse response;
-            if(userManager.registerNewUser(new UserData(login, password, address.getAddress()))) {
-                response = new ServerResponse(ServerResponseType.SUCCESS, "Вы успешно зарегистрированы");
-            }
-            else {
-                response = new ServerResponse(ServerResponseType.FAILURE, "Ваш логин не уникален");
-            }
-            server.send(channel, address, response);
-        } catch (CannotConnectToDataBaseException e) {
-            server.send(channel, address, ServerResponseType.ERROR, "Ошибка соединения с базой данных");
         }
     }
 

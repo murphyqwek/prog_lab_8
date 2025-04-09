@@ -64,7 +64,7 @@ public class UpdateUserCommand extends UserCommand {
         }
 
         if(!collectionManager.checkOwner(id, login)) {
-            return new ServerResponse(ServerResponseType.FAILURE, "Элемент коллекции не принадлежит пользователю");
+            return new ServerResponse(ServerResponseType.FAILURE, "Невозможно изменить этот элемент коллекции, так как он не принадлежит пользователю");
         }
 
         try {

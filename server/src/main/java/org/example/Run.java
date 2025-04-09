@@ -6,6 +6,7 @@ import org.example.base.exception.DeserializationException;
 import org.example.base.model.MusicBand;
 import org.example.base.parser.CsvCollectionManager;
 import org.example.database.CollectionDataBaseService;
+import org.example.database.DatabaseConnector;
 import org.example.database.HeliousDataBase;
 import org.example.database.UserDataBaseService;
 import org.example.manager.CollectionManager;
@@ -44,13 +45,13 @@ public class Run {
 
     private void setupDataBased() {
         try {
-            var connection = new HeliousDataBase("s467579", "PeqkzPCjCkOrpElt").getConnection();
+            var connection = DatabaseConnector.getConnection();
             userDataBaseService = new UserDataBaseService(connection);
             collectionDataBaseService = new CollectionDataBaseService(connection);
 
             userDataBaseService.init();
             collectionDataBaseService.init();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             logger.error("Не удалось подключиться к базе данных или её проинициализировать:\n" + e.getMessage());
             logger.error("Аварийное отключение");
             System.exit(1);

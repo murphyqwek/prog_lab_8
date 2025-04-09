@@ -47,14 +47,11 @@ public class UserDataBaseService {
     public void registerNewUser(String login, String password) throws LoginIsAlreadyRegisteredException, CannotConnectToDataBaseException {
         String sql = "INSERT INTO Users (login, password) VALUES (?, ?)";
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, password);
 
             preparedStatement.executeUpdate();
-            preparedStatement.close();
-
         } catch (SQLException ex) {
             if(ex.getSQLState().equals("23505")) {
                 logger.warn("Не удалось зарегистрировать нового пользователя, так как его логин уже есть в базе данных");
@@ -70,13 +67,11 @@ public class UserDataBaseService {
     public boolean validateCredentials(String login, String password) throws CannotConnectToDataBaseException {
         String sql = "SELECT 1 FROM users WHERE login = ? AND password = ? LIMIT 1;";
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)){
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, password);
 
             ResultSet result = preparedStatement.executeQuery();
-            preparedStatement.close();
             return result.next();
 
         } catch (SQLException ex) {
