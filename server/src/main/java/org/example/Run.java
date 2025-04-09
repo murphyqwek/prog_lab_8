@@ -53,6 +53,7 @@ public class Run {
             collectionDataBaseService.init();
         } catch (Exception e) {
             logger.error("Не удалось подключиться к базе данных или её проинициализировать:\n" + e.getMessage());
+            e.printStackTrace();
             logger.error("Аварийное отключение");
             System.exit(1);
         }

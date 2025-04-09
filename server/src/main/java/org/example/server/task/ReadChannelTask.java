@@ -28,7 +28,7 @@ import org.example.server.util.ExtractClientRequestUtil;
 
 public class ReadChannelTask implements Runnable {
     private final DatagramChannel channel;
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
     private final Server server;
     private final UserManager userManager;
     private final ServerCommandManager serverCommandManager;

@@ -23,7 +23,7 @@ import java.util.List;
 
 public class CollectionDataBaseService {
     private final Connection connection;
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
 
     public CollectionDataBaseService(Connection connection) {
         this.connection = connection;

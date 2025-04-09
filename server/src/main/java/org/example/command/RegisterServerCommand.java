@@ -22,7 +22,7 @@ import java.util.List;
 
 public class RegisterServerCommand extends UserCommand {
     private final UserManager userManager;
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
     private final InetAddress userIP;
     /**
      * Конструктор класса

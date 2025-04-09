@@ -10,7 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnector {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getRootLogger();
+
     private static Session sshSession;
     private static Connection connection;
 
@@ -52,12 +53,14 @@ public class DatabaseConnector {
         sshSession.connect();
 
         sshSession.setPortForwardingL(LOCAL_FORWARD_PORT, REMOTE_DB_HOST, REMOTE_DB_PORT);
+
         logger.info("SSH соединение установлено");
     }
 
     private static void setupDatabaseConnection() throws SQLException {
         String url = "jdbc:postgresql://localhost:" + LOCAL_FORWARD_PORT + "/" + DB_NAME;
         connection = DriverManager.getConnection(url, DB_USER, DB_PASSWORD);
+
         logger.info("Соединение с базой данной установлено");
     }
 
@@ -65,9 +68,9 @@ public class DatabaseConnector {
         try {
             if (connection != null && !connection.isClosed()) connection.close();
             if (sshSession != null && sshSession.isConnected()) sshSession.disconnect();
-            logger.info("Соединение с базой данных закрыто");
+            System.out.println("Соединение с базой данных закрыто");
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
         } finally {
             connection = null;
             sshSession = null;

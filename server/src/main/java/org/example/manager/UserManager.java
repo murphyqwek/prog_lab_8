@@ -30,7 +30,7 @@ public class UserManager {
     private final ConcurrentHashMap<InetAddress, Set<UserData>> sessions = new ConcurrentHashMap<>();
     private final ScheduledExecutorService cleaner = Executors.newSingleThreadScheduledExecutor();
     private final Duration sessionTimeout = Duration.ofMinutes(30);
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
 
     private final UserDataBaseService userDataBase;
     private HashStrategy hashStrategy;

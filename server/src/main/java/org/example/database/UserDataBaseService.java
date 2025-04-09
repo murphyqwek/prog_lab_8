@@ -19,13 +19,14 @@ import java.sql.SQLException;
 
 public class UserDataBaseService {
     private final Connection connection;
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getRootLogger();
 
     public UserDataBaseService(Connection connection) {
         this.connection = connection;
     }
 
     public void init() {
+        logger.info("Инициализация базы данных пользователей");
         String sql = "CREATE TABLE IF NOT EXISTS Users(id SERIAL PRIMARY KEY, login TEXT NOT NULL UNIQUE, password TEXT NOT NULL);";
         try {
             var statement = connection.createStatement();
