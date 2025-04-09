@@ -33,8 +33,7 @@ public class Main {
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 } catch (RuntimeException e) {
-                    System.err.println("Ошибка работы сервера: " + e.getMessage());
-                    logger.error("Не удалось сохранить коллекцию");
+                    logger.error("Ошибка работы сервера: " + e.getMessage());
                 }
                 logger.info("Завершение работы сервера");
             }));

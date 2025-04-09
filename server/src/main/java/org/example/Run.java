@@ -82,9 +82,11 @@ public class Run {
 
         UserManager userManager = new UserManager(userDataBaseService);
         server = new Server(commandManager, port, userManager);
+        logger.info("Инициализация сервера завершилась успешно");
     }
 
     public void run() throws IOException {
+        logger.info("Запуск работы сервера");
         server.cycle();
     }
 
