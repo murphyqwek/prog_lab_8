@@ -18,6 +18,7 @@ import org.example.base.iomanager.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.concurrent.ForkJoinPool;
 
 /**
  * Run - класс для запуска приложения.
@@ -53,7 +54,7 @@ public class Run {
             collectionDataBaseService.init();
         } catch (Exception e) {
             logger.error("Не удалось подключиться к базе данных или её проинициализировать:\n" + e.getMessage());
-            e.printStackTrace();
+
             logger.error("Аварийное отключение");
             System.exit(1);
         }
@@ -84,6 +85,8 @@ public class Run {
         UserManager userManager = new UserManager(userDataBaseService);
         server = new Server(commandManager, port, userManager);
         logger.info("Инициализация сервера завершилась успешно");
+
+        ForkJoinPool
     }
 
     public void run() throws IOException {

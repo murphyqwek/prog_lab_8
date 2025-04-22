@@ -824,3 +824,99 @@ MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, cr
 2025-04-09 15:11:06 [main] INFO   - Сообщение от сервера пришло
 2025-04-09 15:11:06 [main] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно зарегистрированы}
 2025-04-09 15:12:01 [main] INFO   - Регистрация прошла успешно!
+2025-04-09 16:58:34 [main] INFO   - Запуск приложения
+2025-04-09 16:58:59 [main] INFO   - Вызов команды show
+2025-04-09 16:58:59 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 16:58:59 [main] INFO   - show{ login: qweka; password: qweka}
+2025-04-09 16:58:59 [main] INFO   - Сообщение отправлено
+2025-04-09 16:58:59 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 16:58:59 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 16:58:59 [main] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-04-09 16:59:19 [main] INFO   - Вызов команды execute_script
+2025-04-09 16:59:19 [main] INFO   - Запуск менедежра скриптов
+2025-04-09 16:59:19 [main] INFO   - Загрузка всех команд
+2025-04-09 16:59:19 [main] INFO   - Чтения скрипта D:\Projects\ITMO\proga\Lab6\.\script1.txt
+2025-04-09 16:59:19 [main] INFO   - Скрипт прочитан
+2025-04-09 16:59:19 [main] INFO   - Скрипт прочитан, ошибок нет
+2025-04-09 16:59:19 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 16:59:19 [main] INFO   - add{ login: qweka; password: qweka}
+2025-04-09 16:59:19 [main] INFO   - Сообщение отправлено
+2025-04-09 16:59:19 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 16:59:20 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 16:59:20 [main] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-04-09 16:59:20 [main] INFO   - Скрипт выполнен успешно
+2025-04-09 16:59:23 [main] INFO   - Вызов команды show
+2025-04-09 16:59:23 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 16:59:23 [main] INFO   - show{ login: qweka; password: qweka}
+2025-04-09 16:59:23 [main] INFO   - Сообщение отправлено
+2025-04-09 16:59:23 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 16:59:24 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 16:59:24 [main] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-04-09 16:59:50 [main] INFO   - Запуск приложения
+2025-04-09 16:59:58 [main] INFO   - Вызов команды show
+2025-04-09 16:59:58 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 16:59:58 [main] INFO   - show{ login: kokqwe; password: qwefsdgrtq}
+2025-04-09 16:59:58 [main] INFO   - Сообщение отправлено
+2025-04-09 16:59:58 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 16:59:58 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 16:59:58 [main] WARN   - Неавторизованный вход
+2025-04-09 16:59:58 [main] ERROR  - Ошибка общения с сервером
+2025-04-09 16:59:58 [main] ERROR  - Пользователь не авторизовался на сервере
+2025-04-09 16:59:58 [main] INFO   - Завершение работы
+2025-04-09 17:00:11 [main] INFO   - Запуск приложения
+2025-04-09 17:00:25 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 17:00:25 [main] INFO   - register{ login: testUser; password: 123}
+2025-04-09 17:00:25 [main] INFO   - Сообщение отправлено
+2025-04-09 17:00:25 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 17:00:25 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 17:00:25 [main] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно зарегистрированы}
+2025-04-09 17:00:25 [main] INFO   - Регистрация прошла успешно!
+2025-04-09 17:00:35 [main] INFO   - Вызов команды show
+2025-04-09 17:00:35 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 17:00:35 [main] INFO   - show{ login: testUser; password: 123}
+2025-04-09 17:00:35 [main] INFO   - Сообщение отправлено
+2025-04-09 17:00:35 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 17:00:36 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 17:00:36 [main] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-04-09 17:00:47 [main] INFO   - Вызов команды help
+2025-04-09 17:00:47 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 17:00:47 [main] INFO   - help{ login: testUser; password: 123}
+2025-04-09 17:00:47 [main] INFO   - Сообщение отправлено
+2025-04-09 17:00:47 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 17:00:48 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 17:00:48 [main] INFO   - ServerResponse {type: SUCCESS, message: add {element}: добавить новый элемент в коллекцию
+add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции
+clear : очистить коллекцию
+filter_contains_name name : вывести элементы, значение поля name которых содержит заданную подстроку
+help: вывести справку по доступным командам
+history: вывести последние 10 команд (без их аргументов)
+info: вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
+print_ascending : вывести элементы коллекции в порядке возрастания
+remove_by_id id : удалить элемент из коллекции по его id
+remove_lower {element} : удалить из коллекции все элементы, меньшие, чем заданный
+show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении
+sum_of_albums_count: вывести сумму значений поля albumsCount для всех элементов коллекции
+update id {element} : обновить значение элемента коллекции, id которого равен заданному
+}
+2025-04-09 17:00:59 [main] INFO   - Вызов команды remove_by_id
+2025-04-09 17:00:59 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 17:00:59 [main] INFO   - remove_by_id{ login: testUser; password: 123}
+2025-04-09 17:00:59 [main] INFO   - Сообщение отправлено
+2025-04-09 17:00:59 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 17:01:00 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 17:01:00 [main] INFO   - ServerResponse {type: FAILURE, message: У вас нет прав на удаление этого объекта}
+2025-04-09 17:01:39 [main] INFO   - Запуск приложения
+2025-04-09 17:01:44 [main] INFO   - Отправка сообщения на сервер
+2025-04-09 17:01:44 [main] INFO   - register{ login: qweka; password: 1234}
+2025-04-09 17:01:44 [main] INFO   - Сообщение отправлено
+2025-04-09 17:01:44 [main] INFO   - Ожидание ответа от сервера...
+2025-04-09 17:01:45 [main] INFO   - Сообщение от сервера пришло
+2025-04-09 17:01:45 [main] INFO   - ServerResponse {type: FAILURE, message: Ваш логин не уникален}
