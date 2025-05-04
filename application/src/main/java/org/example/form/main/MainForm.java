@@ -1,5 +1,12 @@
 package org.example.form.main;
 
+import org.example.component.CircleIcon;
+import org.example.component.MagnifierIcon;
+import org.example.component.PlaneWithRoundedBorder;
+import org.example.component.RoundButtonUI;
+import org.example.controller.MainController;
+import org.example.network.NetworkClient;
+
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -17,7 +24,16 @@ import java.awt.geom.RoundRectangle2D;
  */
 
 public class MainForm extends JFrame {
-    public MainForm() {
+    private MainController controller;
+    private DefaultTableModel model;
+    private JTable table;
+    private final String[] musicBandFields = {"id", "name", "x", "y", "creation date", "albums count", "number of participants", "genre", "sales"};
+
+    public MainForm(MainController controller) {
+        this.controller = controller;
+    }
+
+    public void gui() {
         setTitle("Lab8 Starikov Arseny");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1100, 800);
@@ -91,6 +107,12 @@ public class MainForm extends JFrame {
 
         //Update table
         var updateTableButton = createSidebarButton("Update table");
+        updateTableButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateTable(false);
+            }
+        });
+
         leftCommandsPanel.add(updateTableButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
@@ -198,8 +220,7 @@ public class MainForm extends JFrame {
         filterPanel.setAlignmentX(LEFT_ALIGNMENT);
 
         // Выпадающий список
-        String[] options = {"id", "name", "x", "y", "creation date", "albums count", "number of participants", "genre", "sales"}; // Пример вариантов
-        JComboBox<String> comboBox = new JComboBox<>(options);
+        JComboBox<String> comboBox = new JComboBox<>(musicBandFields);
         comboBox.setFont(new Font("SansSerif", Font.PLAIN, 14));
         comboBox.setBackground(new Color(230, 230, 230));
         comboBox.setForeground(Color.BLACK);
@@ -273,7 +294,7 @@ public class MainForm extends JFrame {
         editButton.setForeground(Color.BLACK);
         editButton.setFont(new Font("SansSerif", Font.BOLD, 14));
         editButton.setBorder(BorderFactory.createEmptyBorder());
-        editButton.setBackground(new Color(200, 200, 200));
+        editButton.setBackground(new Color(224, 224, 224));
         editButton.setFocusPainted(false);
         editButton.setMargin(new Insets(0, 0, 0, 0));
         editButton.setPreferredSize(new Dimension(80, 50));
@@ -283,7 +304,7 @@ public class MainForm extends JFrame {
 
         var plusButton = new JButton("+");
         plusButton.setForeground(Color.BLACK);
-        plusButton.setBackground(new Color(35, 237, 35));
+        plusButton.setBackground(new Color(40, 250, 33));
         plusButton.setFont(new Font("SansSerif", Font.BOLD, 20));
         plusButton.setBorder(BorderFactory.createEmptyBorder());
         plusButton.setFocusPainted(false);
@@ -293,7 +314,7 @@ public class MainForm extends JFrame {
         plusButton.setAlignmentX(RIGHT_ALIGNMENT);
 
         var minusButton = new JButton("-");
-        minusButton.setBackground(new Color(255, 46, 46));
+        minusButton.setBackground(new Color(255, 70, 45));
         minusButton.setForeground(Color.BLACK);
         minusButton.setFont(new Font("SansSerif", Font.BOLD, 20));
         minusButton.setBorder(BorderFactory.createEmptyBorder());
@@ -323,21 +344,15 @@ public class MainForm extends JFrame {
         tablePanelConstraints.weighty = 0.95;
         tablePanelConstraints.fill = GridBagConstraints.BOTH;
 
-        // Создаем модель таблицы
-        String[] columnNames = {"id", "name", "x", "y", "creation date", "albums count", "number of participants", "genre", "sales"};
-        Object[][] data = {
-                {1, "Alice", 25},
-                {2, "Bob", 30},
-                {3, "Charlie", 35}
-        };
-        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+        model = new DefaultTableModel(musicBandFields, 5);
 
-        // Создаем таблицу
-        JTable table = new JTable(model);
+        table = new JTable(model);
         table.setFont(new Font("SansSerif", Font.PLAIN, 14));
-        table.setRowHeight(25); // Высота строк
+        table.setRowHeight(25);
 
-        // Добавляем таблицу в JScrollPane для прокрутки
+        updateTable(true);
+
+
         JScrollPane tablePanel = new JScrollPane(table);
         tablePanel.setBorder(BorderFactory.createEmptyBorder());
 
@@ -375,144 +390,28 @@ public class MainForm extends JFrame {
 
         return sidebarButton;
     }
-}
 
-class CircleIcon implements Icon {
-    private int diameter;
-    private Color color;
+    private void updateTable(boolean withoutUserNotification) {
+        DefaultTableModel newModel = new DefaultTableModel(musicBandFields, 0);
 
-    public CircleIcon(int diameter, Color color) {
-        this.diameter = diameter;
-        this.color = color;
-    }
+        try {
+            controller.updateLocalStorage();
+        } catch (Exception e) {
+            if(!withoutUserNotification) {
+                JOptionPane.showMessageDialog(this, "Ошибка при обновлении таблицы: " + e.getMessage(),
+                        "Ошибка", JOptionPane.ERROR_MESSAGE);
+            }
+        }
 
-    @Override
-    public void paintIcon(Component c, Graphics g, int x, int y) {
-        Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setColor(color);
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.fillOval(x, y, diameter, diameter);
-        g2d.dispose();
-    }
+        for (Object[] row : controller.getMusicBandsToDisplay()) {
+            newModel.addRow(row);
+        }
 
-    @Override
-    public int getIconWidth() {
-        return diameter;
-    }
+        table.setModel(newModel);
 
-    @Override
-    public int getIconHeight() {
-        return diameter;
-    }
-}
-
-class RoundButtonUI extends BasicButtonUI {
-
-    @Override
-    public void installUI (JComponent c) {
-        super.installUI(c);
-        AbstractButton button = (AbstractButton) c;
-        button.setOpaque(false);
-        button.setBorder(new EmptyBorder(5, 15, 5, 15));
-    }
-
-    @Override
-    public void paint (Graphics g, JComponent c) {
-        AbstractButton b = (AbstractButton) c;
-        paintBackground(g, b);
-        super.paint(g, c);
-    }
-
-    private void paintBackground (Graphics g, JComponent c) {
-        Dimension size = c.getSize();
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g.setColor(c.getBackground());
-        g.fillRoundRect(0, 0, size.width, size.height, 20, 20);
-    }
-}
-
-class MagnifierIcon implements Icon {
-    private int size;
-    private Color color;
-
-    public MagnifierIcon(int size, Color color) {
-        this.size = size;
-        this.color = color;
-    }
-
-    @Override
-    public void paintIcon(Component c, Graphics g, int x, int y) {
-        Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setColor(color);
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-        g2d.fillOval(x + 2, y + 2, size - 4, size - 4);
-
-        g2d.drawLine(x + size - 2, y + size - 2, x + size + 2, y + size + 2);
-
-        g2d.dispose();
-    }
-
-    @Override
-    public int getIconWidth() {
-        return size + 4;
-    }
-
-    @Override
-    public int getIconHeight() {
-        return size + 4;
-    }
-}
-
-class PlaneWithRoundedBorder extends JPanel {
-    private Color borderColor;
-
-    public PlaneWithRoundedBorder(Color borderColor) {
-        this.borderColor = borderColor;
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-        g2d.setColor(getBackground());
-        g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 20, 20));
-
-        g2d.setColor(borderColor);
-        g2d.draw(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 20, 20));
-        g2d.dispose();
-    }
-
-        @Override
-        public boolean isOpaque() {
-        return false;
-    }
-}
-
-class ButtonWithRoundedBorder extends JButton {
-    private final Color borderColor;
-
-    public ButtonWithRoundedBorder(String text, Color borderColor) {
-        super(text);
-        this.borderColor = borderColor;
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.setColor(borderColor);
-        g2d.fill(new RoundRectangle2D.Double(0, 0, getWidth() - 1, getHeight() - 1, 15, 15));
-        g2d.setColor(getForeground());
-        super.paintComponent(g2d);
-        g2d.dispose();
-    }
-
-    @Override
-    public boolean isOpaque() {
-        return false;
+        if(!withoutUserNotification) {
+            JOptionPane.showMessageDialog(this, "Данные успешно обновлены",
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 }

@@ -920,3 +920,136 @@ update id {element} : обновить значение элемента кол�
 2025-04-09 17:01:44 [main] INFO   - Ожидание ответа от сервера...
 2025-04-09 17:01:45 [main] INFO   - Сообщение от сервера пришло
 2025-04-09 17:01:45 [main] INFO   - ServerResponse {type: FAILURE, message: Ваш логин не уникален}
+2025-05-04 19:36:32 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 19:36:32 [AWT-EventQueue-0] INFO   - register{ login: andrusha; password: isosalbibu}
+2025-05-04 19:36:32 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 19:36:34 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 19:36:34 [AWT-EventQueue-0] ERROR  - Не удалось получить ответ от сервера
+2025-05-04 19:40:09 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 19:40:09 [AWT-EventQueue-0] INFO   - register{ login: andrusha; password: isosalbibu}
+2025-05-04 19:40:09 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 19:40:09 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 19:40:10 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 19:40:10 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно зарегистрированы}
+2025-05-04 20:05:38 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:05:38 [AWT-EventQueue-0] INFO   - login{ login: andrusha; password: isosalbibu}
+2025-05-04 20:05:38 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:05:38 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:05:38 [AWT-EventQueue-0] ERROR  - Не удалось получить ответ от сервера
+2025-05-04 20:06:01 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:06:01 [AWT-EventQueue-0] INFO   - login{ login: andrusha; password: isosalbibu}
+2025-05-04 20:06:01 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:06:01 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:06:01 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:06:01 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 20:07:31 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:07:31 [AWT-EventQueue-0] INFO   - register{ login: andrusha; password: isosalbibu}
+2025-05-04 20:07:31 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:07:31 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:07:31 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:07:31 [AWT-EventQueue-0] INFO   - ServerResponse {type: FAILURE, message: Ваш логин не уникален}
+2025-05-04 20:07:42 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:07:42 [AWT-EventQueue-0] INFO   - login{ login: andrusha; password: isosalbibu}
+2025-05-04 20:07:42 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:07:42 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:07:42 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:07:42 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 20:44:31 [main] INFO   - Запуск приложения
+2025-05-04 20:45:10 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:45:10 [AWT-EventQueue-0] INFO   - login{ login: andrusha; password: isosalbibu}
+2025-05-04 20:45:10 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:45:10 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:45:12 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:45:12 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 20:45:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:45:14 [AWT-EventQueue-0] INFO   - show{ login: andrusha; password: isosalbibu}
+2025-05-04 20:45:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:45:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:45:14 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:45:14 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 20:55:01 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:55:01 [AWT-EventQueue-0] INFO   - register{ login: test; password: test}
+2025-05-04 20:55:01 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:55:01 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:55:01 [AWT-EventQueue-0] ERROR  - Не удалось получить ответ от сервера
+2025-05-04 20:55:21 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:55:21 [AWT-EventQueue-0] INFO   - register{ login: test; password: test}
+2025-05-04 20:55:21 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:55:21 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:55:21 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:55:21 [AWT-EventQueue-0] INFO   - ServerResponse {type: FAILURE, message: Ваш логин не уникален}
+2025-05-04 20:55:42 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:55:42 [AWT-EventQueue-0] INFO   - register{ login: admin; password: admin}
+2025-05-04 20:55:42 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:55:42 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:55:42 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:55:42 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно зарегистрированы}
+2025-05-04 20:55:44 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:55:44 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 20:55:44 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:55:44 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:55:44 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:55:44 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 20:55:50 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:55:50 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 20:55:50 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:55:50 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:55:50 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:55:50 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 20:56:31 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:56:31 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 20:56:31 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:56:31 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:56:31 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:56:31 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 20:56:32 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:56:32 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 20:56:32 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:56:32 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:56:33 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:56:33 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 20:56:40 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:56:40 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 20:56:40 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:56:40 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:56:41 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:56:41 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 20:57:54 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:57:54 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 20:57:54 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:57:54 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:57:54 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:57:54 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 20:57:55 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:57:55 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 20:57:55 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:57:55 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:57:56 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:57:56 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 20:57:58 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 20:57:58 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 20:57:58 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 20:57:58 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 20:57:59 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 20:57:59 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}

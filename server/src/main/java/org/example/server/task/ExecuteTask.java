@@ -6,12 +6,12 @@ import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.response.ClientCommandRequestWithLoginAndPassword;
 import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
+import org.example.command.LoginServerCommand;
 import org.example.command.RegisterServerCommand;
 import org.example.exception.CannotConnectToDataBaseException;
 import org.example.manager.ServerCommandManager;
 import org.example.manager.UserManager;
 import org.example.server.Server;
-import org.example.server.UserData;
 
 import java.net.InetSocketAddress;
 import java.nio.channels.DatagramChannel;
@@ -46,6 +46,18 @@ public class ExecuteTask implements Runnable {
             ServerResponse response;
             try {
                 response = new RegisterServerCommand(userManager, address.getAddress()).execute(request.getArguments(), request.getLogin());
+            } catch (CommandArgumentExcetpion ex) {
+                response = new ServerResponse(ServerResponseType.ERROR, ex.getMessage());
+            }
+
+            server.send(channel, address, response);
+            return;
+        }
+
+        if(request.getCommandName().equals("login")) {
+            ServerResponse response;
+            try {
+                response = new LoginServerCommand(userManager, address.getAddress()).execute(request.getArguments(), request.getLogin());
             } catch (CommandArgumentExcetpion ex) {
                 response = new ServerResponse(ServerResponseType.ERROR, ex.getMessage());
             }

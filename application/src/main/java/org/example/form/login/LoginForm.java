@@ -6,13 +6,24 @@ package org.example.form.login;
  * @version 1.0
  */
 
+import org.example.controller.LoginController;
+import org.example.exception.WrongLoginPasswordException;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class LoginForm extends JFrame {
+    private LoginController controller;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
 
-    public LoginForm() {
+    public LoginForm(LoginController controller) {
+        this.controller = controller;
+    }
+
+    public void gui() {
         setTitle("Lab8 Starikov Arseny");
         getContentPane().setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,7 +63,7 @@ public class LoginForm extends JFrame {
         JLabel usernameLabel = new JLabel("Username");
         usernameLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JTextField usernameField = new JTextField();
+        usernameField = new JTextField();
         stylizeField(usernameField);
         usernameField.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -69,7 +80,7 @@ public class LoginForm extends JFrame {
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JTextField passwordField = new JPasswordField();
+        passwordField = new JPasswordField();
         stylizeField(passwordField);
         passwordField.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -82,13 +93,18 @@ public class LoginForm extends JFrame {
         passwordBlock.add(Box.createVerticalStrut(5));
         passwordBlock.add(passwordField);
 
-        // Кнопка регистрации
-        JButton registerButton = new JButton("Log in");
-        registerButton.setBackground(Color.BLACK);
-        registerButton.setForeground(Color.WHITE);
-        registerButton.setFocusPainted(false);
-        registerButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
-        registerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // Кнопка авторизоваться
+        JButton loginButton = new JButton("Log in");
+        loginButton.setBackground(Color.BLACK);
+        loginButton.setForeground(Color.WHITE);
+        loginButton.setFocusPainted(false);
+        loginButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginClickHandler(evt);
+            }
+        });
 
         // Кликабельное Текстовое поля для входа
         JLabel signupLabel = new JLabel("Don’t have an account? Sign up");
@@ -98,7 +114,7 @@ public class LoginForm extends JFrame {
 
         signupLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JOptionPane.showMessageDialog(null, "Вы авторизовались!", "Успешно", JOptionPane.INFORMATION_MESSAGE);
+                swithToRegisterFrameClickHandler(evt);
             }
         });
 
@@ -107,7 +123,7 @@ public class LoginForm extends JFrame {
         container.add(Box.createVerticalStrut(10));
         container.add(passwordBlock);
         container.add(Box.createVerticalStrut(20));
-        container.add(registerButton);
+        container.add(loginButton);
         container.add(Box.createVerticalStrut(15));
         container.add(signupLabel);
 
@@ -126,6 +142,29 @@ public class LoginForm extends JFrame {
                 BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1, true),
                 BorderFactory.createEmptyBorder(5, 10, 5, 10)
         ));
+    }
+
+    private void swithToRegisterFrameClickHandler(MouseEvent evt) {
+        controller.switchToRegisterFrame(this);
+    }
+
+    private void loginClickHandler(MouseEvent evt) {
+        try {
+            String login = usernameField.getText();
+            String password = new String(passwordField.getPassword());
+            controller.login(login, password);
+            JOptionPane.showMessageDialog(this, "Вы успешно авторизовались!",
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+
+            controller.switchToMainFrame(this);
+        } catch (WrongLoginPasswordException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),
+                    "Ошибка", JOptionPane.WARNING_MESSAGE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ошибка при регистрации: " + e.getMessage(),
+                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
 

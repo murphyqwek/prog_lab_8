@@ -3,6 +3,7 @@ package org.example.command;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
 import org.example.base.response.ServerResponseWithMusicBandList;
@@ -22,6 +23,10 @@ import java.util.List;
 public class ShowUserCommand extends NetworkUserCommand {
     private final Logger logger = LogManager.getRootLogger();
 
+    public ShowUserCommand(NetworkClient networkClient) {
+        super("show", "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении", new EmptyIOManager(), networkClient);
+    }
+
     /**
      * Конструктор класса
      *
@@ -29,6 +34,24 @@ public class ShowUserCommand extends NetworkUserCommand {
      */
     public ShowUserCommand(IOManager ioManager, NetworkClient networkClient) {
         super("show", "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении", ioManager, networkClient);
+    }
+
+    public ServerResponseWithMusicBandList appExecute() {
+        ClientCommandRequest clientCommandRequest = new ClientCommandRequest(this.getName(), Collections.emptyList());
+        networkClient.sendUserCommand(clientCommandRequest);
+
+        var response = networkClient.getServerResponse();
+
+        if(!(response instanceof ServerResponseWithMusicBandList responseWithList)) {
+            throw new ServerErrorResponseExcpetion("Сервер вернул не тот тип данных, который ожидался", true);
+        }
+
+        if(responseWithList.getMusicBandList().stream().anyMatch(mb -> !mb.isValid())) {
+            logger.warn("Сообщение пришло поврежденным");
+            throw new ServerErrorResponseExcpetion("Сообщение пришло поврежденным", false);
+        }
+
+        return responseWithList;
     }
 
     /**

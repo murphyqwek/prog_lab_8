@@ -4,8 +4,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.UserLoginPasswordContainer;
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
 import org.example.base.response.ServerResponseWithMusicBandList;
 import org.example.exception.CouldnotSendExcpetion;
@@ -25,6 +27,12 @@ import java.util.List;
 public class RegisterUserCommand extends NetworkUserCommand {
     private final UserLoginPasswordContainer userLoginPasswordContainer;
     private final Logger logger = LogManager.getRootLogger();
+
+    public RegisterUserCommand(NetworkClient networkClient, UserLoginPasswordContainer userLoginPasswordContainer) {
+        super("register", "register - регистрация", new EmptyIOManager(), networkClient);
+        this.userLoginPasswordContainer = userLoginPasswordContainer;
+    }
+
     /**
      * Конструктор класса
      *
@@ -34,6 +42,17 @@ public class RegisterUserCommand extends NetworkUserCommand {
     public RegisterUserCommand(IOManager ioManager, NetworkClient networkClient, UserLoginPasswordContainer userLoginPasswordContainer) {
         super("register", "register - регистрация", ioManager, networkClient);
         this.userLoginPasswordContainer = userLoginPasswordContainer;
+    }
+
+    public ServerResponse app_execute(String login, String password) {
+        List<Serializable> arguments = new ArrayList<>();
+        arguments.add(userLoginPasswordContainer.getLogin());
+        arguments.add(userLoginPasswordContainer.getPassword());
+
+        ClientCommandRequest request = new ClientCommandRequest(this.getName(), arguments);
+        networkClient.sendUserCommand(request);
+
+        return networkClient.getServerResponse();
     }
 
     /**

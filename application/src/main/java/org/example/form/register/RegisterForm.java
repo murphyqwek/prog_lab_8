@@ -1,14 +1,35 @@
 package org.example.form.register;
 
+import org.example.controller.RegisterContorller;
+import org.example.network.NetworkClient;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
 public class RegisterForm extends JFrame {
+    private RegisterContorller registerContorller;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
 
-    public RegisterForm() {
+    public RegisterForm(RegisterContorller controller) {
+        this.registerContorller = controller;
+    }
+
+    private void stylizeField(JTextField field) {
+        field.setPreferredSize(new Dimension(300, 30));
+        field.setMaximumSize(new Dimension(300, 30));
+        field.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1, true),
+                BorderFactory.createEmptyBorder(5, 10, 5, 10)
+        ));
+    }
+
+    public void gui() {
         setTitle("Lab8 Starikov Arseny");
         getContentPane().setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,7 +61,7 @@ public class RegisterForm extends JFrame {
         JLabel usernameLabel = new JLabel("Username");
         usernameLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JTextField usernameField = new JTextField();
+        usernameField = new JTextField();
         stylizeField(usernameField);
         usernameField.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -57,7 +78,7 @@ public class RegisterForm extends JFrame {
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JTextField passwordField = new JPasswordField();
+        passwordField = new JPasswordField();
         stylizeField(passwordField);
         passwordField.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -78,6 +99,12 @@ public class RegisterForm extends JFrame {
         registerButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
         registerButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerClickHandler(evt);
+            }
+        });
+
         // Кликабельное Текстовое поля для входа
         JLabel loginLabel = new JLabel("Have an account? Log in");
         loginLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -86,7 +113,7 @@ public class RegisterForm extends JFrame {
 
         loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JOptionPane.showMessageDialog(null, "Вы зарегистрировались!", "Успешно", JOptionPane.INFORMATION_MESSAGE);
+                swithToLogingHandler(evt);
             }
         });
 
@@ -107,12 +134,23 @@ public class RegisterForm extends JFrame {
         setVisible(true);
     }
 
-    private void stylizeField(JTextField field) {
-        field.setPreferredSize(new Dimension(300, 30));
-        field.setMaximumSize(new Dimension(300, 30));
-        field.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1, true),
-                BorderFactory.createEmptyBorder(5, 10, 5, 10)
-        ));
+    private void swithToLogingHandler(MouseEvent evt) {
+        registerContorller.switchToLoginFrame(this);
+    }
+
+    private void registerClickHandler(MouseEvent evt) {
+        try {
+            String login = usernameField.getText();
+            String password = new String(passwordField.getPassword());
+            registerContorller.register(login, password);
+            JOptionPane.showMessageDialog(this, "Вы успешно зарегистрировались!",
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+
+            registerContorller.switchToMainFrame(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ошибка при регистрации: " + e.getMessage(),
+                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
