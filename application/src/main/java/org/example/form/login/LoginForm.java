@@ -98,7 +98,6 @@ public class LoginForm extends JFrame {
 
         signupLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                // Показать MessageBox при клике
                 JOptionPane.showMessageDialog(null, "Вы авторизовались!", "Успешно", JOptionPane.INFORMATION_MESSAGE);
             }
         });

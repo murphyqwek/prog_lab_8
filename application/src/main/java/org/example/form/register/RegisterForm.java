@@ -3,6 +3,8 @@ package org.example.form.register;
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RegisterForm extends JFrame {
 
@@ -84,7 +86,6 @@ public class RegisterForm extends JFrame {
 
         loginLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                // Показать MessageBox при клике
                 JOptionPane.showMessageDialog(null, "Вы зарегистрировались!", "Успешно", JOptionPane.INFORMATION_MESSAGE);
             }
         });
@@ -98,7 +99,6 @@ public class RegisterForm extends JFrame {
         container.add(Box.createVerticalStrut(15));
         container.add(loginLabel);
 
-        // === ВНЕШНИЙ ОБЁРТКА ===
         JPanel wrapperPanel = new JPanel(new GridBagLayout());
         wrapperPanel.add(container);
         wrapperPanel.setBackground(Color.WHITE);
