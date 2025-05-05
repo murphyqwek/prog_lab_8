@@ -9,10 +9,12 @@ import org.example.base.response.ServerResponseType;
 import org.example.database.CollectionDataBaseService;
 import org.example.database.UserDataBaseService;
 import org.example.manager.ServerCommandManager;
+import org.example.manager.UpdateCollectionManager;
 import org.example.manager.UserManager;
 import org.example.server.task.ReadChannelTask;
 import org.example.server.util.DeserializationUtil;
 import org.example.server.util.SerializationUtil;
+import org.example.util.hash.SendUpdates;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -38,6 +40,7 @@ public class Server {
     private final DatagramChannel channel;
     private final Selector selector;
     private final UserManager userManager;
+    private final UpdateCollectionManager updateCollectionManager;
 
     /**
      * Конструктор класса
@@ -49,6 +52,9 @@ public class Server {
         this.commandManager = commandManager;
         this.port = port;
         this.selector = Selector.open();
+        this.updateCollectionManager = new UpdateCollectionManager();
+        SendUpdates.updateCollectionManager = this.updateCollectionManager;
+        SendUpdates.server = this;
 
         DatagramChannel channel = DatagramChannel.open();
         channel.bind(new InetSocketAddress("0.0.0.0", this.port));
@@ -80,7 +86,7 @@ public class Server {
                     buffer.flip();
                     logger.info("Получены данные от {}", clientAddress);
 
-                    ReadChannelTask readChannelTask = new ReadChannelTask(channel, buffer, clientAddress, this, userManager, commandManager);
+                    ReadChannelTask readChannelTask = new ReadChannelTask(channel, buffer, clientAddress, this, userManager, commandManager, updateCollectionManager);
 
                     new Thread(readChannelTask).start();
                 }

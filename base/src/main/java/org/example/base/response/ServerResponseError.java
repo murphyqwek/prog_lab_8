@@ -7,7 +7,7 @@ package org.example.base.response;
  */
 
 public class ServerResponseError extends ServerResponse {
-    private static ServerErrorType serverErrorType;
+    private ServerErrorType serverErrorType;
 
     public ServerResponseError(ServerResponseType type, String message, ServerErrorType serverErrorType) {
         super(type, message);

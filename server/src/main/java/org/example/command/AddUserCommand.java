@@ -10,6 +10,7 @@ import org.example.exception.CannotConnectToDataBaseException;
 import org.example.exception.CouldnotAddMusicBandToDataBaseExcpetion;
 import org.example.manager.CollectionManager;
 import org.example.base.model.MusicBand;
+import org.example.util.hash.SendUpdates;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -74,6 +75,8 @@ public class AddUserCommand extends UserCommand {
         }
 
         collectionManager.addNewMusicBand(newMusicBand, login);
+
+        SendUpdates.sendUpdates();
 
         return new ServerResponse(ServerResponseType.SUCCESS, "Группа успешно добавлена в коллекцию");
     }

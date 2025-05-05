@@ -29,5 +29,6 @@ public class ServerCommandManagerSetuper {
         commandManager.addCommand(new UpdateUserCommand(collectionManager, collectionDataBaseService));
         commandManager.addCommand(new RemoveLowerUserCommand(collectionManager, collectionDataBaseService));
         commandManager.addCommand(new AddIfMaxUserCommand(collectionManager, collectionDataBaseService));
+        commandManager.addCommand(new ShowWithOwnersServerCommand(collectionManager));
     }
 }

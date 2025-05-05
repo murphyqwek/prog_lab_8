@@ -18,5 +18,6 @@ public enum ServerErrorType {
     DID_NOT_UPDATE,
     NO_RESPONSE,
     UNEXPECTED_RESPONSE,
-    INTERRUPTED
+    INTERRUPTED,
+    EXISTING_LOGIN,
 }

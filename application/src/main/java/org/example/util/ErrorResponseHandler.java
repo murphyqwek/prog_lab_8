@@ -47,6 +47,7 @@ public class ErrorResponseHandler {
             case UNEXPECTED_RESPONSE -> Localization.get("unexpected_response");
             case DO_NOT_OWN_BY_USER -> Localization.get("do_not_own_by_user");
             case DID_NOT_FIND_ELEMENT -> Localization.get("did_not_find_element");
+            case EXISTING_LOGIN -> Localization.get("existing_login");
             default -> Localization.get("unknown_error");
         };
 

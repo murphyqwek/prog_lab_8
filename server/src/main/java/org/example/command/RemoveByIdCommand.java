@@ -10,6 +10,7 @@ import org.example.database.CollectionDataBaseService;
 import org.example.exception.CannotConnectToDataBaseException;
 import org.example.exception.CannotDeleteFromDataBaseException;
 import org.example.manager.CollectionManager;
+import org.example.util.hash.SendUpdates;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -73,6 +74,8 @@ public class RemoveByIdCommand extends UserCommand {
         }
 
         String response = String.format("MusicBand с id %d успешно удален из коллекции", id);
+
+        SendUpdates.sendUpdates();
 
         return new ServerResponse(ServerResponseType.SUCCESS, response);
     }

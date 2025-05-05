@@ -10,6 +10,7 @@ import org.example.exception.CannotConnectToDataBaseException;
 import org.example.exception.CouldnotAddMusicBandToDataBaseExcpetion;
 import org.example.manager.CollectionManager;
 import org.example.base.model.MusicBand;
+import org.example.util.hash.SendUpdates;
 
 import java.io.Serializable;
 import java.util.List;
@@ -74,6 +75,8 @@ public class RemoveLowerUserCommand extends UserCommand {
         }
 
         String response = "Успешно. Удалилось: " + count + " объектов";
+
+        SendUpdates.sendUpdates();
 
         return new ServerResponse(ServerResponseType.SUCCESS, response);
     }

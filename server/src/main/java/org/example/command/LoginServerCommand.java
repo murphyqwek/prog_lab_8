@@ -3,7 +3,9 @@ package org.example.command;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.response.ServerErrorType;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseError;
 import org.example.base.response.ServerResponseType;
 import org.example.exception.CannotConnectToDataBaseException;
 import org.example.exception.UserIsNotAuthorizedException;
@@ -68,9 +70,9 @@ public class LoginServerCommand extends UserCommand {
             response = new ServerResponse(ServerResponseType.SUCCESS, "Вы успешно авторизовались!");
             logger.info("Пользователь " + login + " успешно авторизовался");
         } catch (CannotConnectToDataBaseException e) {
-            response = new ServerResponse(ServerResponseType.ERROR, "Ошибка соединения с базой данных");
+            response = new ServerResponseError(ServerResponseType.ERROR, "Ошибка соединения с базой данных", ServerErrorType.BD_FALL);
         } catch (UserIsNotAuthorizedException e) {
-            response = new ServerResponse(ServerResponseType.UNAUTHORIZED, "Ваш логин или пароль неверен");
+            response = new ServerResponseError(ServerResponseType.ERROR, "Ваш логин или пароль неверен", ServerErrorType.UNAUTHORIZED);
         }
 
         return response;

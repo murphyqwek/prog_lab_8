@@ -9,6 +9,7 @@ import org.example.exception.ExecuteAppCommandExcpetion;
 import org.example.form.add.AddDialog;
 import org.example.form.edit.EditDialog;
 import org.example.form.removelower.RemoveLowerDialog;
+import org.example.form.visualise.VisualiseForm;
 import org.example.localization.Localization;
 import org.example.model.LocalStorage;
 import org.example.network.NetworkClient;
@@ -16,6 +17,9 @@ import org.example.util.ErrorResponseHandler;
 
 import javax.swing.*;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,13 +65,20 @@ public class MainController {
         return result;
     }
 
+    private String foramtDate(Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MMMM yyyy HH:mm:ss", Localization.getLocale());
+
+        return formatter.format(date);
+    }
+
     private Object[] getMusicBandToDisplay(MusicBand musicBand) {
+
         return new Object[] {
                 musicBand.getId(),
                 musicBand.getName(),
                 musicBand.getCoordinates().getX(),
                 musicBand.getCoordinates().getY(),
-                musicBand.getCreationDate().getTime(),
+                foramtDate(musicBand.getCreationDate()),
                 musicBand.getAlbumsCount(),
                 musicBand.getNumberOfParticipants(),
                 musicBand.getGenre().name(),
@@ -89,8 +100,7 @@ public class MainController {
         var responseInfo = (ServerResponseInfo) response;
 
         var text = Localization.get("info");
-        //TODO: локализовать дату
-        String formatted = MessageFormat.format(text, responseInfo.getCollectionType(), responseInfo.getCreationDate(), responseInfo.getElementsCount());
+        String formatted = MessageFormat.format(text, responseInfo.getCollectionType(), foramtDate(responseInfo.getCreationDate()), responseInfo.getElementsCount());
 
         return formatted;
     }
@@ -185,5 +195,13 @@ public class MainController {
         var status = executeScriptUserCommand.appExecute(filepath);
 
         ErrorResponseHandler.checkForScriptError(status);
+    }
+
+    public void openVisualizeFrame() {
+        VisualiseController visualiseController = new VisualiseController(networkClient.getIp(), networkClient.getPort(), networkClient.getUserLoginPasswordContainer());
+
+        VisualiseForm visualiseForm = new VisualiseForm(visualiseController);
+
+        visualiseForm.gui();
     }
 }

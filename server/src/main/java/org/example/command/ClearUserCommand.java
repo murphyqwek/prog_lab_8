@@ -5,6 +5,7 @@ import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
 import org.example.database.CollectionDataBaseService;
 import org.example.manager.CollectionManager;
+import org.example.util.hash.SendUpdates;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -45,6 +46,8 @@ public class ClearUserCommand extends UserCommand {
 
         collectionDataBaseService.clearCollection();
         this.collectionManager.clear();
+
+        SendUpdates.sendUpdates();
 
         return new ServerResponse(ServerResponseType.SUCCESS, "Коллекция очищена");
     }

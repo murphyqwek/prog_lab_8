@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.exception.UnknownCommandException;
+import org.example.base.response.ServerErrorType;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseError;
 import org.example.base.response.ServerResponseType;
 import org.example.command.UserCommand;
 
@@ -66,7 +68,7 @@ public class ServerCommandManager {
         }
         catch (CommandArgumentExcetpion e) {
             logger.error(String.format("ОШИБКА исполнения команды %s: %s", commandName, e.getMessage()));
-            return new ServerResponse(ServerResponseType.ERROR, "ОШИБКА исполнения команды : " + e.getMessage());
+            return new ServerResponseError(ServerResponseType.ERROR, "ОШИБКА исполнения команды : " + e.getMessage(), ServerErrorType.NO_RESPONSE);
         }
     }
 

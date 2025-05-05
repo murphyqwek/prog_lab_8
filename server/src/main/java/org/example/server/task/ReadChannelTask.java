@@ -7,6 +7,7 @@ import org.example.base.response.ClientCommandRequestWithLoginAndPassword;
 import org.example.base.response.ServerResponse;
 import org.example.base.response.ServerResponseType;
 import org.example.manager.ServerCommandManager;
+import org.example.manager.UpdateCollectionManager;
 import org.example.manager.UserManager;
 import org.example.server.ClientRequestWithIP;
 
@@ -34,14 +35,16 @@ public class ReadChannelTask implements Runnable {
     private final ServerCommandManager serverCommandManager;
     private final ByteBuffer buffer;
     private final InetSocketAddress socketAddress;
+    private final UpdateCollectionManager updateCollectionManager;
 
-    public ReadChannelTask(DatagramChannel channel, ByteBuffer buffer, SocketAddress address, Server server, UserManager userManager, ServerCommandManager serverCommandManager) {
+    public ReadChannelTask(DatagramChannel channel, ByteBuffer buffer, SocketAddress address, Server server, UserManager userManager, ServerCommandManager serverCommandManager, UpdateCollectionManager updateCollectionManager) {
         this.channel = channel;
         this.server = server;
         this.userManager = userManager;
         this.serverCommandManager = serverCommandManager;
         this.buffer = buffer;
         this.socketAddress = (InetSocketAddress)address;
+        this.updateCollectionManager = updateCollectionManager;
     }
 
     @Override
@@ -77,7 +80,7 @@ public class ReadChannelTask implements Runnable {
         logger.info(String.format("Пришло сообщения от %s в потоке %s:\n%s", socketAddress, Thread.currentThread().getName(), commandRequest));
         logger.info("Передаем задачу обработки запроса другому потоку");
 
-        var executeTask = new ExecuteTask(userManager, server, serverCommandManager, requestWithLoginAndPassword, channel, socketAddress);
+        var executeTask = new ExecuteTask(userManager, server, serverCommandManager, requestWithLoginAndPassword, channel, socketAddress, updateCollectionManager);
 
         new Thread(executeTask).start();
     }

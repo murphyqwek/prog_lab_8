@@ -1,14 +1,8 @@
-package org.example.manager;
+package org.example.base.model;
 
-import org.example.base.model.MusicBand;
+import java.io.Serializable;
 
-/**
- * MusicBandWithOwner - класс для хранения MusicBand и владельца.
- *
- * @version 1.0
- */
-
-public class MusicBandWithOwner {
+public class MusicBandWithOwner implements Serializable {
     private MusicBand musicBand;
     private final String owner;
 

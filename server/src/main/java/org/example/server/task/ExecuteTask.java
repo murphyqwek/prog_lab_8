@@ -3,15 +3,17 @@ package org.example.server.task;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.base.exception.CommandArgumentExcetpion;
-import org.example.base.response.ClientCommandRequestWithLoginAndPassword;
-import org.example.base.response.ServerResponse;
-import org.example.base.response.ServerResponseType;
+import org.example.base.response.*;
 import org.example.command.LoginServerCommand;
 import org.example.command.RegisterServerCommand;
+import org.example.command.SubscribeServerCommand;
+import org.example.command.UnsubscribeServerCommand;
 import org.example.exception.CannotConnectToDataBaseException;
 import org.example.manager.ServerCommandManager;
+import org.example.manager.UpdateCollectionManager;
 import org.example.manager.UserManager;
 import org.example.server.Server;
+import org.example.util.hash.SendUpdates;
 
 import java.net.InetSocketAddress;
 import java.nio.channels.DatagramChannel;
@@ -30,14 +32,16 @@ public class ExecuteTask implements Runnable {
     private final DatagramChannel channel;
     private final Logger logger = LogManager.getRootLogger();
     private final InetSocketAddress address;
+    private final UpdateCollectionManager updateCollectionManager;
 
-    public ExecuteTask(UserManager userManager, Server server, ServerCommandManager serverCommandManager, ClientCommandRequestWithLoginAndPassword request, DatagramChannel channel, InetSocketAddress address) {
+    public ExecuteTask(UserManager userManager, Server server, ServerCommandManager serverCommandManager, ClientCommandRequestWithLoginAndPassword request, DatagramChannel channel, InetSocketAddress address, UpdateCollectionManager updateCollectionManager) {
         this.userManager = userManager;
         this.server = server;
         this.serverCommandManager = serverCommandManager;
         this.request = request;
         this.channel = channel;
         this.address = address;
+        this.updateCollectionManager = updateCollectionManager;
     }
 
     @Override
@@ -47,7 +51,7 @@ public class ExecuteTask implements Runnable {
             try {
                 response = new RegisterServerCommand(userManager, address.getAddress()).execute(request.getArguments(), request.getLogin());
             } catch (CommandArgumentExcetpion ex) {
-                response = new ServerResponse(ServerResponseType.ERROR, ex.getMessage());
+                response = new ServerResponseError(ServerResponseType.ERROR, ex.getMessage(), ServerErrorType.UNAUTHORIZED);
             }
 
             server.send(channel, address, response);
@@ -59,7 +63,31 @@ public class ExecuteTask implements Runnable {
             try {
                 response = new LoginServerCommand(userManager, address.getAddress()).execute(request.getArguments(), request.getLogin());
             } catch (CommandArgumentExcetpion ex) {
-                response = new ServerResponse(ServerResponseType.ERROR, ex.getMessage());
+                response = new ServerResponseError(ServerResponseType.ERROR, ex.getMessage(), ServerErrorType.UNAUTHORIZED);
+            }
+
+            server.send(channel, address, response);
+            return;
+        }
+
+        if(request.getCommandName().equals("subscribe")) {
+            ServerResponse response;
+            try {
+                response = new SubscribeServerCommand(updateCollectionManager).execute(address, channel);
+            } catch (CommandArgumentExcetpion ex) {
+                response = new ServerResponseError(ServerResponseType.ERROR, ex.getMessage(), ServerErrorType.NO_RESPONSE);
+            }
+
+            server.send(channel, address, response);
+            return;
+        }
+
+        if(request.getCommandName().equals("unsubscribe")) {
+            ServerResponse response;
+            try {
+                response = new UnsubscribeServerCommand(updateCollectionManager).execute(address);
+            } catch (CommandArgumentExcetpion ex) {
+                response = new ServerResponseError(ServerResponseType.ERROR, ex.getMessage(), ServerErrorType.NO_RESPONSE);
             }
 
             server.send(channel, address, response);
@@ -88,14 +116,16 @@ public class ExecuteTask implements Runnable {
         try {
             if(!userManager.isAuthorized(address.getAddress(), request.getLogin(), request.getPassword())) {
                 logger.warn("Не удалось авторизовать пользователя");
-                server.send(channel, address, ServerResponseType.UNAUTHORIZED, "Логин и/или пароль неверны");
+                ServerResponseError serverResponseError = new ServerResponseError(ServerResponseType.ERROR, "Логин и/или пароль неверны", ServerErrorType.UNAUTHORIZED);
+                server.send(channel, address, serverResponseError);
                 return false;
             }
 
             return true;
         } catch (CannotConnectToDataBaseException e) {
             logger.error("Внутренняя ошибка сервера при работой с базой данных");
-            server.send(channel, address, ServerResponseType.ERROR, "Внутренняя ошибка сервера при работой с базой данных");
+            ServerResponseError serverResponseError = new ServerResponseError(ServerResponseType.ERROR, "Внутренняя ошибка сервера при работой с базой данных", ServerErrorType.BD_FALL);
+            server.send(channel, address, serverResponseError);
             return false;
         }
     }

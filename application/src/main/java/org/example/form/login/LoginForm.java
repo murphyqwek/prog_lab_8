@@ -48,6 +48,8 @@ public class LoginForm extends JFrame {
         setSize(900, 700);
         setLocationRelativeTo(null);
 
+
+
         // Конейнер регистрации
         JPanel container = new JPanel();
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));

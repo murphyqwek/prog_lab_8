@@ -10,6 +10,7 @@ import org.example.exception.CannotConnectToDataBaseException;
 import org.example.exception.CannotUpdateMusicBandException;
 import org.example.manager.CollectionManager;
 import org.example.base.model.MusicBand;
+import org.example.util.hash.SendUpdates;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -62,11 +63,11 @@ public class UpdateUserCommand extends UserCommand {
         }
 
         if(!newMusicBand.isValid()) {
-            return new ServerResponseError(ServerResponseType.CORRUPTED, "Данные повреждены", ServerErrorType.CORRUPTED);
+            return new ServerResponseError(ServerResponseType.ERROR, "Данные повреждены", ServerErrorType.CORRUPTED);
         }
 
         if(!collectionManager.checkOwner(id, login)) {
-            return new ServerResponseError(ServerResponseType.FAILURE, "Невозможно изменить этот элемент коллекции, так как он не принадлежит пользователю", ServerErrorType.DO_NOT_OWN_BY_USER);
+            return new ServerResponseError(ServerResponseType.ERROR, "Невозможно изменить этот элемент коллекции, так как он не принадлежит пользователю", ServerErrorType.DO_NOT_OWN_BY_USER);
         }
 
         try {
@@ -77,6 +78,8 @@ public class UpdateUserCommand extends UserCommand {
         } catch (CannotUpdateMusicBandException e) {
             return new ServerResponseError(ServerResponseType.ERROR, "Не удалось обновить элемент коллекции", ServerErrorType.DID_NOT_UPDATE);
         }
+
+        SendUpdates.sendUpdates();
 
         return new ServerResponse(ServerResponseType.SUCCESS, "Элемент с id " + id + " был успешно обновлен");
     }

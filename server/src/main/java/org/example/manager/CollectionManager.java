@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.base.exception.ElementNotFoundException;
 import org.example.base.exception.IdAlreadyExistsException;
 import org.example.base.model.MusicBand;
+import org.example.base.model.MusicBandWithOwner;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -81,6 +82,10 @@ public class CollectionManager {
         }catch (ElementNotFoundException e) {
             return null;
         }
+    }
+
+    public List<MusicBandWithOwner> getAllElementsWithOwners() {
+        return this.collection.stream().toList();
     }
 
     /**

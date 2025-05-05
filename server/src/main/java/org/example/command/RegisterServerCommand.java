@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.tools.picocli.CommandLine;
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.response.ServerErrorType;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseError;
 import org.example.base.response.ServerResponseType;
 import org.example.exception.CannotConnectToDataBaseException;
 import org.example.manager.UserManager;
@@ -70,10 +72,10 @@ public class RegisterServerCommand extends UserCommand {
                 response = new ServerResponse(ServerResponseType.SUCCESS, "Вы успешно зарегистрированы");
             }
             else {
-                response = new ServerResponse(ServerResponseType.FAILURE, "Ваш логин не уникален");
+                response = new ServerResponseError(ServerResponseType.ERROR, "Ваш логин не уникален", ServerErrorType.EXISTING_LOGIN);
             }
         } catch (CannotConnectToDataBaseException e) {
-            response = new ServerResponse(ServerResponseType.ERROR, "Ошибка соединения с базой данных");
+            response = new ServerResponseError(ServerResponseType.ERROR, "Ошибка соединения с базой данных", ServerErrorType.BD_FALL);
         }
 
         return response;

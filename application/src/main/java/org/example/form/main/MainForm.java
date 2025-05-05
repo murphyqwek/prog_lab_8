@@ -192,9 +192,16 @@ public class MainForm extends JFrame {
 
         //Visualise
         visualiseButton = createSidebarButton(Localization.get("visualise_button_text"));
+        visualiseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                controller.openVisualizeFrame();
+            }
+        });
         leftCommandsPanel.add(visualiseButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
+
+
 
 
         leftPanel.add(leftCommandsPanel, gbc_leftCommands);
@@ -669,16 +676,17 @@ public class MainForm extends JFrame {
 
     private void updateText() {
         leftTitle.setText(Localization.get("additional_commands_title"));
-        clearCollectionButton.setText(Localization.get("clear_collection_button"));
-        executeScriptButton.setText(Localization.get("execute_script_button"));
-        sumOfAlbumsCountButton.setText(Localization.get("sum_of_albums_count_button"));
-        updateTableButton.setText(Localization.get("update_button"));
-        infoButton.setText(Localization.get("info_button"));
-        removeLowerButton.setText(Localization.get("remove_lower_button"));
-        visualiseButton.setText(Localization.get("visualise_button"));
+        clearCollectionButton.setText(Localization.get("clear_collection_button_text"));
+        executeScriptButton.setText(Localization.get("execute_script_button_text"));
+        sumOfAlbumsCountButton.setText(Localization.get("sum_albums_button_text"));
+        updateTableButton.setText(Localization.get("update_button_text"));
+        infoButton.setText(Localization.get("info_button_text"));
+        removeLowerButton.setText(Localization.get("remove_lower_button_text"));
+        visualiseButton.setText(Localization.get("visualise_button_text"));
         rightTitle.setText(Localization.get("music_band_list_title")  + " " + controller.getUsername());
         filterLabel.setText(Localization.get("filter_by_title"));
         editButton.setText(Localization.get("edit_button_text"));
+        displayMusicBands(controller.getMusicBandsToDisplay());
     }
 
     private void selectLangChangedHandler() {

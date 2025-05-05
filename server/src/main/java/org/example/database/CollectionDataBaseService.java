@@ -3,12 +3,8 @@ package org.example.database;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.base.exception.InvalidArgumentsException;
-import org.example.base.model.Coordinates;
-import org.example.base.model.Label;
-import org.example.base.model.MusicBand;
-import org.example.base.model.MusicGenre;
+import org.example.base.model.*;
 import org.example.exception.*;
-import org.example.manager.MusicBandWithOwner;
 
 import java.sql.*;
 import java.util.ArrayList;

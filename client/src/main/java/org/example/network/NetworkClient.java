@@ -25,6 +25,8 @@ public class NetworkClient {
     private final InetSocketAddress serverAddress;
     private final DatagramChannel channel;
     private UserLoginPasswordContainer userLoginPasswordContainer;
+    private String ip;
+    private int port;
 
     public NetworkClient(String ip, int port) {
         this(ip, port, new UserLoginPasswordContainer());
@@ -39,6 +41,8 @@ public class NetworkClient {
     public NetworkClient(String ip, int port, UserLoginPasswordContainer userLoginPasswordContainer) throws CouldnotConnectException {
         this.serverAddress = new InetSocketAddress(ip, port);
         this.userLoginPasswordContainer = userLoginPasswordContainer;
+        this.ip = ip;
+        this.port = port;
 
         try {
             this.channel = ClientConnection.connect(this.serverAddress);
@@ -47,6 +51,14 @@ public class NetworkClient {
         } catch (InvalidPortException e) {
             throw new CouldnotConnectException("Неверный порт");
         }
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public int getPort() {
+        return port;
     }
 
     public void sendUserCommand(ClientCommandRequest clientCommandRequest) {
