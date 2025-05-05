@@ -1,7 +1,9 @@
 package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.response.ServerErrorType;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseError;
 import org.example.base.response.ServerResponseType;
 import org.example.database.CollectionDataBaseService;
 import org.example.exception.CannotConnectToDataBaseException;
@@ -65,7 +67,7 @@ public class RemoveLowerUserCommand extends UserCommand {
                 collectionManager.removeMusicBandById(elementToDelete.getId());
                 count++;
             } catch (CannotConnectToDataBaseException ex) {
-                return new ServerResponse(ServerResponseType.ERROR, "Внутренняя ошибка сервера - не удалось подключиться к базе данных");
+                return new ServerResponseError(ServerResponseType.ERROR, "Внутренняя ошибка сервера - не удалось подключиться к базе данных", ServerErrorType.BD_FALL);
             } catch (Exception e) {
                 continue;
             }

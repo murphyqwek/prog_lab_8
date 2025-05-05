@@ -1,7 +1,9 @@
 package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.response.ServerErrorType;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseError;
 import org.example.base.response.ServerResponseType;
 import org.example.database.CollectionDataBaseService;
 import org.example.exception.CannotConnectToDataBaseException;
@@ -56,24 +58,24 @@ public class UpdateUserCommand extends UserCommand {
         }
 
         if(!collectionManager.containsId(id)) {
-            return new ServerResponse(ServerResponseType.ERROR, "В коллекции не элемента с id = " + id);
+            return new ServerResponseError(ServerResponseType.ERROR, "В коллекции не элемента с id = " + id, ServerErrorType.DID_NOT_FIND_ELEMENT);
         }
 
         if(!newMusicBand.isValid()) {
-            return new ServerResponse(ServerResponseType.CORRUPTED, "Данные повреждены");
+            return new ServerResponseError(ServerResponseType.CORRUPTED, "Данные повреждены", ServerErrorType.CORRUPTED);
         }
 
         if(!collectionManager.checkOwner(id, login)) {
-            return new ServerResponse(ServerResponseType.FAILURE, "Невозможно изменить этот элемент коллекции, так как он не принадлежит пользователю");
+            return new ServerResponseError(ServerResponseType.FAILURE, "Невозможно изменить этот элемент коллекции, так как он не принадлежит пользователю", ServerErrorType.DO_NOT_OWN_BY_USER);
         }
 
         try {
             collectionDataBaseService.updateMusicBand(newMusicBand, login);
             collectionManager.updateMusicBand(newMusicBand);
         } catch (CannotConnectToDataBaseException e) {
-            return new ServerResponse(ServerResponseType.ERROR, "Внутрення ошибка сервера - не удалось подключиться к базе данных");
+            return new ServerResponseError(ServerResponseType.ERROR, "Внутрення ошибка сервера - не удалось подключиться к базе данных", ServerErrorType.BD_FALL);
         } catch (CannotUpdateMusicBandException e) {
-            return new ServerResponse(ServerResponseType.ERROR, "Не удалось обновить элемент коллекции");
+            return new ServerResponseError(ServerResponseType.ERROR, "Не удалось обновить элемент коллекции", ServerErrorType.DID_NOT_UPDATE);
         }
 
         return new ServerResponse(ServerResponseType.SUCCESS, "Элемент с id " + id + " был успешно обновлен");

@@ -7,7 +7,9 @@ import org.example.base.model.MusicGenre;
 import org.example.command.AddIfMaxUserCommand;
 import org.example.command.AddUserCommand;
 import org.example.command.UpdateUserCommand;
+import org.example.localization.Localization;
 import org.example.network.NetworkClient;
+import org.example.util.ErrorResponseHandler;
 
 import javax.swing.*;
 
@@ -39,7 +41,9 @@ public class EditController {
 
         var response = updateUserCommand.appExecute(musicBand.getId(), newMusicBand);
 
-        return response.getMessage();
+        ErrorResponseHandler.checkForErrorResponse(response);
+
+        return Localization.get("user_updated");
     }
 
     public void close(JDialog dialog, boolean isCanceled) {

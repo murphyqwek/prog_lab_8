@@ -1,6 +1,7 @@
 package org.example.form.register;
 
 import org.example.controller.RegisterContorller;
+import org.example.localization.Localization;
 import org.example.network.NetworkClient;
 
 import javax.swing.*;
@@ -10,11 +11,28 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class RegisterForm extends JFrame {
     private RegisterContorller registerContorller;
     private JTextField usernameField;
     private JPasswordField passwordField;
+
+    private JLabel usernameLabel;
+    private JLabel title;
+    private JLabel passwordLabel;
+    private JButton registerButton;
+    private JLabel loginLabel;
+    private JComboBox<String> languageBox;
+
+
+    Locale[] locales = {
+            new Locale("en"),
+            new Locale("ru"),
+            new Locale("el"),
+            new Locale("sr"),
+            new Locale("es", "HN")
+    };
 
     public RegisterForm(RegisterContorller controller) {
         this.registerContorller = controller;
@@ -41,8 +59,10 @@ public class RegisterForm extends JFrame {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container.setBorder(new EmptyBorder(30, 40, 30, 40)); // внутренние отступы
         container.setBackground(Color.WHITE);
-        container.setMaximumSize(new Dimension(400, 400));
-        container.setPreferredSize(new Dimension(350, 310));
+        container.setMaximumSize(new Dimension(400, 350));
+        container.setPreferredSize(new Dimension(350, 350));
+        container.setMinimumSize(new Dimension(350, 350));
+
 
         // Скруглённая граница
         container.setBorder(BorderFactory.createCompoundBorder(
@@ -51,14 +71,14 @@ public class RegisterForm extends JFrame {
         ));
 
         // Поле Register
-        JLabel title = new JLabel("Create an account");
+        title = new JLabel(Localization.get("register_title"));
         title.setFont(new Font("SansSerif", Font.BOLD, 18));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(title);
         container.add(Box.createVerticalStrut(20));
 
         // Блок для Username
-        JLabel usernameLabel = new JLabel("Username");
+        usernameLabel = new JLabel(Localization.get("username_title"));
         usernameLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         usernameField = new JTextField();
@@ -75,7 +95,7 @@ public class RegisterForm extends JFrame {
         usernameBlock.add(usernameField);
 
         // Блок для Password
-        JLabel passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel(Localization.get("password_title"));
         passwordLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         passwordField = new JPasswordField();
@@ -92,7 +112,7 @@ public class RegisterForm extends JFrame {
         passwordBlock.add(passwordField);
 
         // Кнопка регистрации
-        JButton registerButton = new JButton("Register");
+        registerButton = new JButton(Localization.get("register_button_text"));
         registerButton.setBackground(Color.BLACK);
         registerButton.setForeground(Color.WHITE);
         registerButton.setFocusPainted(false);
@@ -106,7 +126,7 @@ public class RegisterForm extends JFrame {
         });
 
         // Кликабельное Текстовое поля для входа
-        JLabel loginLabel = new JLabel("Have an account? Log in");
+        loginLabel = new JLabel(Localization.get("go_to_log_in_title"));
         loginLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         loginLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
         loginLabel.setForeground(Color.GRAY);
@@ -117,6 +137,19 @@ public class RegisterForm extends JFrame {
             }
         });
 
+        String[] languageNames = {"English", "Русский", "Ελληνικά", "Српски", "Español (HN)"};
+
+        languageBox = new JComboBox<>(languageNames);
+        languageBox.setPreferredSize(new Dimension(150, 25));
+        languageBox.setMinimumSize(new Dimension(150, 25));
+        languageBox.setMaximumSize(new Dimension(150, 25));
+        languageBox.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        languageBox.setSelectedIndex(1);
+
+        languageBox.addActionListener(e -> {
+            selectLangChangedHandler();
+        });
+
         // Добавляем элементы в container
         container.add(usernameBlock);
         container.add(Box.createVerticalStrut(10));
@@ -125,10 +158,15 @@ public class RegisterForm extends JFrame {
         container.add(registerButton);
         container.add(Box.createVerticalStrut(15));
         container.add(loginLabel);
+        container.add(Box.createVerticalStrut(5));
+        container.add(languageBox);
+
 
         JPanel wrapperPanel = new JPanel(new GridBagLayout());
+
         wrapperPanel.add(container);
         wrapperPanel.setBackground(Color.WHITE);
+
 
         add(wrapperPanel);
         setVisible(true);
@@ -138,19 +176,33 @@ public class RegisterForm extends JFrame {
         registerContorller.switchToLoginFrame(this);
     }
 
+    private void updateText() {
+        usernameLabel.setText(Localization.get("username_title"));
+        title.setText(Localization.get("register_title"));
+        passwordLabel.setText(Localization.get("password_title"));
+        registerButton.setText(Localization.get("register_button_text"));
+        loginLabel.setText(Localization.get("go_to_log_in_title"));
+    }
+
+    private void selectLangChangedHandler() {
+        Locale selected = locales[languageBox.getSelectedIndex()];
+        Localization.setLocale(selected);
+        updateText();
+    }
+
     private void registerClickHandler(MouseEvent evt) {
         try {
             String login = usernameField.getText();
             String password = new String(passwordField.getPassword());
             registerContorller.register(login, password);
-            JOptionPane.showMessageDialog(this, "Вы успешно зарегистрировались!",
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("success_register"),
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
 
             registerContorller.switchToMainFrame(this);
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ошибка при регистрации: " + e.getMessage(),
-                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("error_with_register") + " "  + e.getMessage(),
+                    Localization.get("error_title"), JOptionPane.ERROR_MESSAGE);
         }
     }
 }

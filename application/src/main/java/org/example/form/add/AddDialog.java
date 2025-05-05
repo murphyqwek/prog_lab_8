@@ -1,6 +1,7 @@
 package org.example.form.add;
 
 import org.example.controller.AddController;
+import org.example.localization.Localization;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -44,7 +45,7 @@ public class AddDialog extends JDialog {
         setResizable(false);
         setLocationRelativeTo(parent);
 
-        JLabel titleLabel = new JLabel("Adding");
+        JLabel titleLabel = new JLabel(Localization.get("adding_title"));
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 20));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         titleLabel.setBackground(Color.WHITE);
@@ -135,15 +136,15 @@ public class AddDialog extends JDialog {
         addField(formPanel, gbc, "Albums count:", albumsField);
         addField(formPanel, gbc, "Music genre:", genreBox);
         addField(formPanel, gbc, "Sales:", salesField);
-        addField(formPanel, gbc, "Add if max:", addIfMaxCheck);
+        addField(formPanel, gbc, Localization.get("add_if_max_title"), addIfMaxCheck);
 
         JPanel buttonPanel = new JPanel();
 
-        JButton saveButton = new JButton("Save");
+        JButton saveButton = new JButton(Localization.get("save_button_text"));
         saveButton.setBackground(Color.GREEN);
         saveButton.setFocusPainted(false);
 
-        JButton cancelButton = new JButton("Cancel");
+        JButton cancelButton = new JButton(Localization.get("cancel_button_text"));
         cancelButton.setBackground(new Color(221, 222, 219));
         cancelButton.setFocusPainted(false);
 
@@ -214,21 +215,21 @@ public class AddDialog extends JDialog {
 
             var response = controller.save(name, x, y, participants, albums, musicGenre, sales, addIfMax);
             JOptionPane.showMessageDialog(this, response,
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
             controller.close(this, false);
         } catch (ParseException e) {
-            JOptionPane.showMessageDialog(this, "Не все данные корректны, возможно, какие-то ячейки пустые, или выходят за свои границы.",
-                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("invalid_fields"),
+                    Localization.get("error_title"), JOptionPane.ERROR_MESSAGE);
         }
         catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ошибка:" + e.getMessage(),
-                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("error_message_box") + " "+ e.getMessage(),
+                    Localization.get("error_title"), JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void cancelClickHandler(MouseEvent evt) {
-        int option = JOptionPane.showConfirmDialog(this, "Вы уверены, что хотите выйти? Данные не сохранятся", "Подтверждение", JOptionPane.YES_NO_CANCEL_OPTION);
+        int option = JOptionPane.showConfirmDialog(this, Localization.get("confirmation_request_for_exit"), Localization.get("confirmation_title"), JOptionPane.YES_NO_CANCEL_OPTION);
 
         if(option != JOptionPane.YES_OPTION) {
             return;

@@ -2,6 +2,7 @@ package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseInfo;
 import org.example.base.response.ServerResponseType;
 import org.example.manager.CollectionManager;
 
@@ -46,6 +47,6 @@ public class InfoUserCommand extends UserCommand {
         int countElements = collection.size();
 
         String response = String.format("Тип коллекции: %s\nДата создания: %s\nКол-во элементов: %d", collectionType, date, countElements);
-        return new ServerResponse(ServerResponseType.SUCCESS, response);
+        return new ServerResponseInfo(ServerResponseType.SUCCESS, response, collectionType, this.collectionManager.getCollectionCreationDate(), countElements);
     }
 }

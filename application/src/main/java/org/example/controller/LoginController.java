@@ -10,6 +10,7 @@ import org.example.form.login.LoginForm;
 import org.example.form.main.MainForm;
 import org.example.form.register.RegisterForm;
 import org.example.network.NetworkClient;
+import org.example.util.ErrorResponseHandler;
 
 import javax.swing.*;
 
@@ -20,7 +21,7 @@ import javax.swing.*;
  */
 
 public class LoginController {
-    private NetworkClient networkClient;
+    private final NetworkClient networkClient;
 
     public LoginController(NetworkClient networkClient) {
         this.networkClient = networkClient;
@@ -38,13 +39,8 @@ public class LoginController {
 
         var response = loginAppCommand.app_execute(login, password);
 
-        if(response.getType() == ServerResponseType.FAILURE) {
-            throw new ServerErrorResponseExcpetion(response.getMessage(), false);
-        }
+        ErrorResponseHandler.checkForErrorResponse(response);
 
-        if(response.getType() == ServerResponseType.UNAUTHORIZED) {
-            throw new WrongLoginPasswordException();
-        }
     }
 
     public void switchToMainFrame(JFrame loginFrame) {

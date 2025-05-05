@@ -2,7 +2,9 @@ package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.exception.ElementNotFoundException;
+import org.example.base.response.ServerErrorType;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseError;
 import org.example.base.response.ServerResponseType;
 import org.example.database.CollectionDataBaseService;
 import org.example.exception.CannotConnectToDataBaseException;
@@ -56,18 +58,18 @@ public class RemoveByIdCommand extends UserCommand {
         }
 
         if(!collectionManager.checkOwner(id, login)) {
-            return new ServerResponse(ServerResponseType.FAILURE, "У вас нет прав на удаление этого объекта");
+            return new ServerResponseError(ServerResponseType.FAILURE, "У вас нет прав на удаление этого объекта", ServerErrorType.UNAUTHORIZED);
         }
 
         try {
             collectionDataBaseService.deleteMusicBandById(id);
             collectionManager.removeMusicBandById(id);
         } catch (CannotConnectToDataBaseException e) {
-            return new ServerResponse(ServerResponseType.ERROR, "Внутрення ошибка сервера - не удалось подключиться к базе данных");
+            return new ServerResponseError(ServerResponseType.ERROR, "Внутрення ошибка сервера - не удалось подключиться к базе данных", ServerErrorType.BD_FALL);
         } catch (CannotDeleteFromDataBaseException e) {
-            return new ServerResponse(ServerResponseType.ERROR, "Не удалось удалить элемент из коллекции");
+            return new ServerResponseError(ServerResponseType.ERROR, "Не удалось удалить элемент из коллекции", ServerErrorType.CANNOT_DELETE);
         } catch (ElementNotFoundException e) {
-            return new ServerResponse(ServerResponseType.ERROR, "MusicBand с id " + id + " не найден в коллекции");
+            return new ServerResponseError(ServerResponseType.ERROR, "MusicBand с id " + id + " не найден в коллекции", ServerErrorType.DID_NOT_FIND_ELEMENT);
         }
 
         String response = String.format("MusicBand с id %d успешно удален из коллекции", id);

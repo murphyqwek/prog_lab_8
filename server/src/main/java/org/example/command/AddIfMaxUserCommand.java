@@ -1,8 +1,7 @@
 package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
-import org.example.base.response.ServerResponse;
-import org.example.base.response.ServerResponseType;
+import org.example.base.response.*;
 import org.example.database.CollectionDataBaseService;
 import org.example.exception.CannotConnectToDataBaseException;
 import org.example.exception.CouldnotAddMusicBandToDataBaseExcpetion;
@@ -63,7 +62,7 @@ public class AddIfMaxUserCommand extends UserCommand {
         MusicBand maxElement = collectionManager.getCollection().stream().max(MusicBand::compareTo).get();
         if(maxElement.compareTo(newMusicBand) >= 0) {
             responseMessage = "Ваша группа не превышает наибольшего элемента в коллекции, поэтому она не будет туда добавлена";
-            return new ServerResponse(ServerResponseType.SUCCESS, responseMessage);
+            return new ServerResponseBollean(ServerResponseType.SUCCESS, responseMessage, false);
         }
 
         responseMessage = "Ваша группа больше наибольшего элемента в коллекции. Добавляем её в коллекцию\nГруппа успешно добавлена в коллекцию";
@@ -72,14 +71,14 @@ public class AddIfMaxUserCommand extends UserCommand {
             collectionDataBaseService.addNewMusicBand(newMusicBand, login);
         } catch (CannotConnectToDataBaseException e) {
             responseMessage = "Внутрення ошибка с базой данных";
-            return new ServerResponse(ServerResponseType.ERROR, responseMessage);
+            return new ServerResponseError(ServerResponseType.ERROR, responseMessage, ServerErrorType.BD_FALL);
         } catch (CouldnotAddMusicBandToDataBaseExcpetion e) {
             responseMessage = "Не удалось добавить элемент в базу данных";
-            return new ServerResponse(ServerResponseType.ERROR, responseMessage);
+            return new ServerResponseError(ServerResponseType.ERROR, responseMessage, ServerErrorType.CANNOT_ADD_TO_BD);
         }
 
         collectionManager.addNewMusicBand(newMusicBand, login);
 
-        return new ServerResponse(ServerResponseType.SUCCESS, responseMessage);
+        return new ServerResponseBollean(ServerResponseType.SUCCESS, responseMessage, true);
     }
 }

@@ -8,6 +8,7 @@ import org.example.exception.ServerErrorResponseExcpetion;
 import org.example.form.login.LoginForm;
 import org.example.form.main.MainForm;
 import org.example.network.NetworkClient;
+import org.example.util.ErrorResponseHandler;
 
 import javax.swing.*;
 
@@ -36,9 +37,7 @@ public class RegisterContorller {
 
         var response = registerUserCommand.app_execute(login, password);
 
-        if(response.getType() == ServerResponseType.FAILURE) {
-            throw new ServerErrorResponseExcpetion(response.getMessage(), false);
-        }
+        ErrorResponseHandler.checkForErrorResponse(response);
     }
 
     public void switchToMainFrame(JFrame registerFrame) {

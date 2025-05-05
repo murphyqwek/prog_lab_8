@@ -8,16 +8,34 @@ package org.example.form.login;
 
 import org.example.controller.LoginController;
 import org.example.exception.WrongLoginPasswordException;
+import org.example.localization.Localization;
 
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.Locale;
 
 public class LoginForm extends JFrame {
     private LoginController controller;
     private JTextField usernameField;
     private JPasswordField passwordField;
+
+    private JLabel usernameLabel;
+    private JLabel title;
+    private JLabel detailsLabel;
+    private JLabel passwordLabel;
+    private JButton loginButton;
+    private JLabel signupLabel;
+    private JComboBox<String> languageBox;
+
+    Locale[] locales = {
+            new Locale("en"),
+            new Locale("ru"),
+            new Locale("el"),
+            new Locale("sr"),
+            new Locale("es", "HN")
+    };
 
     public LoginForm(LoginController controller) {
         this.controller = controller;
@@ -35,8 +53,9 @@ public class LoginForm extends JFrame {
         container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         container.setBorder(new EmptyBorder(30, 40, 30, 40)); // внутренние отступы
         container.setBackground(Color.WHITE);
-        container.setMaximumSize(new Dimension(400, 400));
-        container.setPreferredSize(new Dimension(350, 330));
+        container.setMaximumSize(new Dimension(400, 350));
+        container.setPreferredSize(new Dimension(350, 350));
+        container.setMinimumSize(new Dimension(350, 350));
 
         // Скруглённая граница
         container.setBorder(BorderFactory.createCompoundBorder(
@@ -45,14 +64,14 @@ public class LoginForm extends JFrame {
         ));
 
         // Поле Welcome back
-        JLabel title = new JLabel("Welcome back!");
+        title = new JLabel(Localization.get("welcome_back_title"));
         title.setFont(new Font("SansSerif", Font.BOLD, 18));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
         container.add(title);
         container.add(Box.createVerticalStrut(10));
 
         // Поле Please, enter your details
-        JLabel detailsLabel = new JLabel("Please, enter your details");
+        detailsLabel = new JLabel(Localization.get("please_enter_title"));
         detailsLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
         detailsLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         detailsLabel.setForeground(Color.GRAY);
@@ -60,7 +79,7 @@ public class LoginForm extends JFrame {
         container.add(Box.createVerticalStrut(20));
 
         // Блок для Username
-        JLabel usernameLabel = new JLabel("Username");
+        usernameLabel = new JLabel(Localization.get("username_title"));
         usernameLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         usernameField = new JTextField();
@@ -77,7 +96,7 @@ public class LoginForm extends JFrame {
         usernameBlock.add(usernameField);
 
         // Блок для Password
-        JLabel passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel(Localization.get("password_title"));
         passwordLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         passwordField = new JPasswordField();
@@ -94,7 +113,7 @@ public class LoginForm extends JFrame {
         passwordBlock.add(passwordField);
 
         // Кнопка авторизоваться
-        JButton loginButton = new JButton("Log in");
+        loginButton = new JButton(Localization.get("login_button_text"));
         loginButton.setBackground(Color.BLACK);
         loginButton.setForeground(Color.WHITE);
         loginButton.setFocusPainted(false);
@@ -107,7 +126,7 @@ public class LoginForm extends JFrame {
         });
 
         // Кликабельное Текстовое поля для входа
-        JLabel signupLabel = new JLabel("Don’t have an account? Sign up");
+        signupLabel = new JLabel(Localization.get("go_to_sign_up_title"));
         signupLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         signupLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
         signupLabel.setForeground(Color.GRAY);
@@ -118,6 +137,19 @@ public class LoginForm extends JFrame {
             }
         });
 
+        String[] languageNames = {"English", "Русский", "Ελληνικά", "Српски", "Español (HN)"};
+
+        languageBox = new JComboBox<>(languageNames);
+        languageBox.setPreferredSize(new Dimension(150, 25));
+        languageBox.setMinimumSize(new Dimension(150, 25));
+        languageBox.setMaximumSize(new Dimension(150, 25));
+        languageBox.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        languageBox.setSelectedItem(Localization.getLocaleString());
+
+        languageBox.addActionListener(e -> {
+            selectLangChangedHandler();
+        });
+
         // Добавляем элементы в container
         container.add(usernameBlock);
         container.add(Box.createVerticalStrut(10));
@@ -126,6 +158,8 @@ public class LoginForm extends JFrame {
         container.add(loginButton);
         container.add(Box.createVerticalStrut(15));
         container.add(signupLabel);
+        container.add(Box.createVerticalStrut(5));
+        container.add(languageBox);
 
         JPanel wrapperPanel = new JPanel(new GridBagLayout());
         wrapperPanel.add(container);
@@ -153,18 +187,33 @@ public class LoginForm extends JFrame {
             String login = usernameField.getText();
             String password = new String(passwordField.getPassword());
             controller.login(login, password);
-            JOptionPane.showMessageDialog(this, "Вы успешно авторизовались!",
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("success_authorized"),
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
 
             controller.switchToMainFrame(this);
         } catch (WrongLoginPasswordException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(),
-                    "Ошибка", JOptionPane.WARNING_MESSAGE);
+                    Localization.get("error_title"), JOptionPane.WARNING_MESSAGE);
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ошибка при регистрации: " + e.getMessage(),
-                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("error_with_login") + " " + e.getMessage(),
+                    Localization.get("error_title"), JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    private void updateText() {
+        detailsLabel.setText(Localization.get("please_enter_title"));
+        usernameLabel.setText(Localization.get("username_title"));
+        title.setText(Localization.get("welcome_back_title"));
+        passwordLabel.setText(Localization.get("password_title"));
+        loginButton.setText(Localization.get("login_button_text"));
+        signupLabel.setText(Localization.get("go_to_sign_up_title"));
+    }
+
+    private void selectLangChangedHandler() {
+        Locale selected = locales[languageBox.getSelectedIndex()];
+        Localization.setLocale(selected);
+        updateText();
     }
 }
 

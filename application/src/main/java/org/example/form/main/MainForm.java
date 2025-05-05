@@ -6,6 +6,7 @@ import org.example.component.MagnifierIcon;
 import org.example.component.PlaneWithRoundedBorder;
 import org.example.component.RoundButtonUI;
 import org.example.controller.MainController;
+import org.example.localization.Localization;
 import org.example.network.NetworkClient;
 
 import javax.swing.*;
@@ -21,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.io.File;
+import java.util.Locale;
 
 /**
  * MainForm - описание класса.
@@ -35,6 +37,29 @@ public class MainForm extends JFrame {
     private final String[] musicBandFields = {"id", "name", "x", "y", "creation date", "albums count", "number of participants", "genre", "sales"};
     private JTextField searchField;
     private JComboBox<String> comboBox;
+
+    private JComboBox<String> languageBox;
+
+    private JLabel leftTitle;
+    private JButton clearCollectionButton;
+    private JButton executeScriptButton;
+    private JButton sumOfAlbumsCountButton;
+    private JButton updateTableButton;
+    private JButton infoButton;
+    private JButton removeLowerButton;
+    private JButton visualiseButton;
+    private JLabel rightTitle;
+    private JLabel filterLabel;
+    private JButton editButton;
+
+
+    Locale[] locales = {
+            new Locale("en"),
+            new Locale("ru"),
+            new Locale("el"),
+            new Locale("sr"),
+            new Locale("es", "HN")
+    };
 
     public MainForm(MainController controller) {
         this.controller = controller;
@@ -73,7 +98,7 @@ public class MainForm extends JFrame {
         gbc_leftTitlePanel.weighty = 0.05;
         gbc_leftTitlePanel.insets = new Insets(5, 0, 0, 0);
 
-        JLabel leftTitle = new JLabel("Additional commands");
+        leftTitle = new JLabel(Localization.get("additional_commands_title"));
         leftTitle.setHorizontalAlignment(SwingConstants.CENTER);
         leftTitle.setVerticalAlignment(SwingConstants.CENTER);
         leftTitle.setFont(new Font("SansSerif", Font.BOLD, 25));
@@ -96,7 +121,7 @@ public class MainForm extends JFrame {
 
 
         //Clear Collection
-        var clearCollectionButton = createSidebarButton("Clear Collection");
+        clearCollectionButton = createSidebarButton(Localization.get("clear_collection_button_text"));
         clearCollectionButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 clearCollection();
@@ -108,7 +133,7 @@ public class MainForm extends JFrame {
         leftCommandsPanel.add(Box.createVerticalStrut(5));
 
         //Execute Script
-        var executeScriptButton = createSidebarButton("Execute Script");
+        executeScriptButton = createSidebarButton(Localization.get("execute_script_button_text"));
         leftCommandsPanel.add(executeScriptButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
@@ -119,7 +144,7 @@ public class MainForm extends JFrame {
         });
 
         //Sum of albums count
-        var sumOfAlbumsCountButton = createSidebarButton("Sum of albums count");
+        sumOfAlbumsCountButton = createSidebarButton(Localization.get("sum_albums_button_text"));
         sumOfAlbumsCountButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sumOfAlbumsCount();
@@ -131,7 +156,7 @@ public class MainForm extends JFrame {
         leftCommandsPanel.add(Box.createVerticalStrut(5));
 
         //Update table
-        var updateTableButton = createSidebarButton("Update table");
+        updateTableButton = createSidebarButton(Localization.get("update_button_text"));
         updateTableButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updateTable(false);
@@ -144,7 +169,7 @@ public class MainForm extends JFrame {
 
 
         //Info
-        var infoButton = createSidebarButton("Info");
+        infoButton = createSidebarButton(Localization.get("info_button_text"));
         infoButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 info();
@@ -155,7 +180,7 @@ public class MainForm extends JFrame {
         leftCommandsPanel.add(Box.createVerticalStrut(5));
 
         //Remove lower
-        var removeLowerButton = createSidebarButton("Remove lower");
+        removeLowerButton = createSidebarButton(Localization.get("remove_lower_button_text"));
         removeLowerButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLowerClickHandler(evt);
@@ -166,14 +191,32 @@ public class MainForm extends JFrame {
         leftCommandsPanel.add(Box.createVerticalStrut(5));
 
         //Visualise
-        var visualiseButton = createSidebarButton("Visualise");
+        visualiseButton = createSidebarButton(Localization.get("visualise_button_text"));
         leftCommandsPanel.add(visualiseButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
 
 
-
         leftPanel.add(leftCommandsPanel, gbc_leftCommands);
+
+        String[] languageNames = {"English", "Русский", "Ελληνικά", "Српски", "Español (HN)"};
+
+        languageBox = new JComboBox<>(languageNames);
+        languageBox.setPreferredSize(new Dimension(150, 25));
+        languageBox.setMinimumSize(new Dimension(150, 25));
+        languageBox.setMaximumSize(new Dimension(150, 25));
+        languageBox.setFont(new Font("SansSerif", Font.PLAIN, 12));
+        languageBox.setSelectedItem(Localization.getLocaleString());
+        languageBox.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        languageBox.addActionListener(e -> {
+            selectLangChangedHandler();
+        });
+
+        leftCommandsPanel.add(Box.createVerticalGlue());
+
+        leftCommandsPanel.add(languageBox);
+
 
 
         panel.add(leftPanel, gbc_l);
@@ -210,7 +253,7 @@ public class MainForm extends JFrame {
         JPanel rightTitlePanel = new JPanel();
         rightTitlePanel.setBackground(Color.WHITE);
         rightTitlePanel.setLayout(new BoxLayout(rightTitlePanel, BoxLayout.Y_AXIS));
-        JLabel rightTitle = new JLabel("Music band list - " + controller.getUsername());
+        rightTitle = new JLabel(Localization.get("music_band_list_title")  + " " + controller.getUsername());
         rightTitle.setHorizontalAlignment(SwingConstants.LEFT);
 
         rightTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -249,7 +292,7 @@ public class MainForm extends JFrame {
         filterPanel.setLayout(new BoxLayout(filterPanel, BoxLayout.X_AXIS));
         filterPanel.setBorder(BorderFactory.createEmptyBorder(2, 3, 2, 3));
 
-        JLabel filterLabel = new JLabel("Filter by:");
+        filterLabel = new JLabel(Localization.get("filter_by_title"));
         filterLabel.setFont(new Font("SansSerif", Font.PLAIN, 14));
         filterLabel.setForeground(Color.BLACK);
         filterPanel.setAlignmentX(LEFT_ALIGNMENT);
@@ -337,7 +380,7 @@ public class MainForm extends JFrame {
         buttonsPanel.setAlignmentX(RIGHT_ALIGNMENT);
         buttonsPanel.setBackground(Color.WHITE);
 
-        var editButton = new JButton("edit");
+        editButton = new JButton(Localization.get("edit_button_text"));
         editButton.setForeground(Color.BLACK);
         editButton.setFont(new Font("SansSerif", Font.BOLD, 14));
         editButton.setBorder(BorderFactory.createEmptyBorder());
@@ -461,16 +504,15 @@ public class MainForm extends JFrame {
             controller.updateLocalStorage();
         } catch (Exception e) {
             if(!withoutUserNotification) {
-                JOptionPane.showMessageDialog(this, "Ошибка при обновлении таблицы: " + e.getMessage(),
-                        "Ошибка", JOptionPane.ERROR_MESSAGE);
+                messageBoxWithError(e.getMessage());
             }
         }
 
         displayMusicBands(controller.getMusicBandsToDisplay());
 
         if(!withoutUserNotification) {
-            JOptionPane.showMessageDialog(this, "Данные успешно обновлены",
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("update_table_success"),
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
@@ -487,8 +529,8 @@ public class MainForm extends JFrame {
     private void info() {
         try {
             var info = controller.getInfo();
-            JOptionPane.showMessageDialog(this, "Данные о коллекции:\n"+info,
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, info,
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             messageBoxWithError(e.getMessage());
         }
@@ -497,8 +539,8 @@ public class MainForm extends JFrame {
     private void sumOfAlbumsCount() {
         try {
             var sumOfAlbums = controller.getSumOfAlbumsCount();
-            JOptionPane.showMessageDialog(this, "Суммарное кол-во альбомов: " + sumOfAlbums,
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("sum_of_albums_text") + " " + sumOfAlbums,
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             messageBoxWithError(e.getMessage());
         }
@@ -508,7 +550,7 @@ public class MainForm extends JFrame {
         try {
             var response = controller.clearCollection();
             JOptionPane.showMessageDialog(this, response,
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
             updateTable(true);
         } catch (Exception e) {
             messageBoxWithError(e.getMessage());
@@ -516,8 +558,8 @@ public class MainForm extends JFrame {
     }
 
     private void messageBoxWithError(String errorMessage) {
-        JOptionPane.showMessageDialog(this, "Ошибка: " + errorMessage,
-                "Ошибка", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, Localization.get("error_title") + ": " + errorMessage,
+                Localization.get("error_title"), JOptionPane.ERROR_MESSAGE);
     }
 
     private void filterContainsName() {
@@ -531,8 +573,8 @@ public class MainForm extends JFrame {
             return;
         }
 
-        JOptionPane.showMessageDialog(this, "Элементы успешно найдены",
-                "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, Localization.get("elements_found_text"),
+                Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void changeFilterFieldHandler(ActionEvent e) {
@@ -553,7 +595,7 @@ public class MainForm extends JFrame {
     }
 
     private void deleteClickHandler(MouseEvent evt) {
-        int option = JOptionPane.showConfirmDialog(this, "Вы уверены, что хотите удалить элементы?", "Подтверждение", JOptionPane.YES_NO_CANCEL_OPTION);
+        int option = JOptionPane.showConfirmDialog(this, Localization.get("confirmation_request_for_delete"), Localization.get("confirmation_title"), JOptionPane.YES_NO_CANCEL_OPTION);
 
         if(option != JOptionPane.YES_OPTION) {
             return;
@@ -561,7 +603,7 @@ public class MainForm extends JFrame {
 
         int selectedRow = table.getSelectedRow();
         if (selectedRow == -1) {
-            messageBoxWithError("Выберите строку, которую хотите удалить");
+            messageBoxWithError(Localization.get("choose_row_to_delete"));
             return;
         }
 
@@ -569,7 +611,7 @@ public class MainForm extends JFrame {
         try {
             var response = controller.deleteMusicBand(id);
             JOptionPane.showMessageDialog(this, response,
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             messageBoxWithError(e.getMessage());
         }
@@ -588,7 +630,7 @@ public class MainForm extends JFrame {
     private void updateClickHandler(MouseEvent evt) {
         int selectedRow = table.getSelectedRow();
         if (selectedRow == -1) {
-            messageBoxWithError("Выберите строку, которую хотите модифицировать");
+            messageBoxWithError(Localization.get("choose_row_to_update"));
             return;
         }
 
@@ -605,12 +647,11 @@ public class MainForm extends JFrame {
     private void executeScirptClickHandler(MouseEvent evt) {
         JFileChooser fileChooser = new JFileChooser();
 
-        fileChooser.setDialogTitle("Выберите файл");
+        fileChooser.setDialogTitle(Localization.get("choose_file"));
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         int result = fileChooser.showOpenDialog(null);
 
-        // Если пользователь выбрал файл, вывести его путь
         if (result != JFileChooser.APPROVE_OPTION) {
             return;
         }
@@ -618,11 +659,31 @@ public class MainForm extends JFrame {
         File selectedFile = fileChooser.getSelectedFile();
         try {
             controller.executeScript(selectedFile.getAbsolutePath());
-            JOptionPane.showMessageDialog(this, "Скрипт был успешно выполнен",
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("script_executed_success"),
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
             updateTable(true);
         } catch (Exception e) {
             messageBoxWithError(e.getMessage());
         }
+    }
+
+    private void updateText() {
+        leftTitle.setText(Localization.get("additional_commands_title"));
+        clearCollectionButton.setText(Localization.get("clear_collection_button"));
+        executeScriptButton.setText(Localization.get("execute_script_button"));
+        sumOfAlbumsCountButton.setText(Localization.get("sum_of_albums_count_button"));
+        updateTableButton.setText(Localization.get("update_button"));
+        infoButton.setText(Localization.get("info_button"));
+        removeLowerButton.setText(Localization.get("remove_lower_button"));
+        visualiseButton.setText(Localization.get("visualise_button"));
+        rightTitle.setText(Localization.get("music_band_list_title")  + " " + controller.getUsername());
+        filterLabel.setText(Localization.get("filter_by_title"));
+        editButton.setText(Localization.get("edit_button_text"));
+    }
+
+    private void selectLangChangedHandler() {
+        Locale selected = locales[languageBox.getSelectedIndex()];
+        Localization.setLocale(selected);
+        updateText();
     }
 }

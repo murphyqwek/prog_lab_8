@@ -8,7 +8,9 @@ import org.example.command.AddIfMaxUserCommand;
 import org.example.command.AddUserCommand;
 import org.example.command.RemoveLowerUserCommand;
 import org.example.exception.InvalidMusicBandExcpetion;
+import org.example.localization.Localization;
 import org.example.network.NetworkClient;
+import org.example.util.ErrorResponseHandler;
 
 import javax.swing.*;
 
@@ -35,8 +37,11 @@ public class RemoveLowerController {
         MusicBand musicBand = new MusicBand(1, name, new Coordinates(x, y), numberofParticipants, albumsCount, MusicGenre.valueOf(genre), new Label(sales));
 
         RemoveLowerUserCommand removeLowerUserCommand = new RemoveLowerUserCommand(networkClient);
-        var response = removeLowerUserCommand.appExecute(musicBand).getMessage();
-        return response;
+        var response = removeLowerUserCommand.appExecute(musicBand);
+
+        ErrorResponseHandler.checkForErrorResponse(response);
+
+        return Localization.get("remove_lower");
     }
 
     public void close(JDialog dialog, boolean isCanceled) {

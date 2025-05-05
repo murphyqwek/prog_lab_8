@@ -4,10 +4,16 @@ import org.example.base.model.Coordinates;
 import org.example.base.model.Label;
 import org.example.base.model.MusicBand;
 import org.example.base.model.MusicGenre;
+import org.example.base.response.ServerErrorType;
+import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseBollean;
+import org.example.base.response.ServerResponseError;
 import org.example.command.AddIfMaxUserCommand;
 import org.example.command.AddUserCommand;
 import org.example.exception.InvalidMusicBandExcpetion;
+import org.example.localization.Localization;
 import org.example.network.NetworkClient;
+import org.example.util.ErrorResponseHandler;
 
 import javax.swing.*;
 
@@ -36,13 +42,28 @@ public class AddController {
 
         if(addIfMax) {
             AddIfMaxUserCommand addIfMaxUserCommand = new AddIfMaxUserCommand(networkClient);
-            var response = addIfMaxUserCommand.appExecute(newMusicBand).getMessage();
-            isSaved = true;
-            return response;
+            var response = addIfMaxUserCommand.appExecute(newMusicBand);
+            ErrorResponseHandler.checkForErrorResponse(response);
+
+            if(!(response instanceof ServerResponseBollean)) {
+                ErrorResponseHandler.handleErrorReponse(ServerErrorType.UNEXPECTED_RESPONSE);
+            }
+
+            var responseWithFlag = (ServerResponseBollean) response;
+
+            if(responseWithFlag.isFlag()) {
+                isSaved = true;
+                return Localization.get("add_if_max_added");
+            }
+            else {
+                return Localization.get("not_add_if_max_added");
+            }
         }
         else {
             AddUserCommand addUserCommand = new AddUserCommand(networkClient);
-            return addUserCommand.appExecute(newMusicBand).getMessage();
+            var response = addUserCommand.appExecute(newMusicBand);
+            ErrorResponseHandler.checkForErrorResponse(response);
+            return Localization.get("add_user_added");
         }
     }
 

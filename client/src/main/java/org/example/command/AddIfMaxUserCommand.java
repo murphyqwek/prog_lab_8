@@ -7,6 +7,7 @@ import org.example.base.iomanager.IOManager;
 import org.example.base.model.MusicBand;
 import org.example.base.response.ClientCommandRequest;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseBollean;
 import org.example.exception.CouldnotSendExcpetion;
 import org.example.network.NetworkClient;
 
@@ -47,7 +48,9 @@ public class AddIfMaxUserCommand extends NetworkUserCommand {
 
         networkClient.sendUserCommand(request);
 
-        return networkClient.getServerResponse();
+        var response = networkClient.getServerResponse();
+
+        return response;
     }
 
     /**

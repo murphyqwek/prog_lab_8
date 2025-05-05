@@ -2,6 +2,7 @@ package org.example.form.removelower;
 
 import org.example.controller.AddController;
 import org.example.controller.RemoveLowerController;
+import org.example.localization.Localization;
 
 import javax.swing.*;
 import javax.swing.text.NumberFormatter;
@@ -40,7 +41,7 @@ public class RemoveLowerDialog extends JDialog {
         setResizable(false);
         setLocationRelativeTo(parent);
 
-        JLabel titleLabel = new JLabel("Remove lower");
+        JLabel titleLabel = new JLabel(Localization.get("remove_lower_title"));
         titleLabel.setFont(new Font("SansSerif", Font.BOLD, 20));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         titleLabel.setBackground(Color.WHITE);
@@ -132,11 +133,11 @@ public class RemoveLowerDialog extends JDialog {
 
         JPanel buttonPanel = new JPanel();
 
-        JButton deleteButton = new JButton("Delete");
+        JButton deleteButton = new JButton(Localization.get("delete_button_text"));
         deleteButton.setBackground(Color.RED);
         deleteButton.setFocusPainted(false);
 
-        JButton cancelButton = new JButton("Cancel");
+        JButton cancelButton = new JButton(Localization.get("cancel_button_text"));
         cancelButton.setBackground(new Color(221, 222, 219));
         cancelButton.setFocusPainted(false);
 
@@ -184,7 +185,7 @@ public class RemoveLowerDialog extends JDialog {
     }
 
     private void saveClickHandler(MouseEvent evt) {
-        int option = JOptionPane.showConfirmDialog(this, "Вы уверены, что хотите удалить элементы?", "Подтверждение", JOptionPane.YES_NO_CANCEL_OPTION);
+        int option = JOptionPane.showConfirmDialog(this, Localization.get("confirmation_request_for_delete"), Localization.get("confirmation_title"), JOptionPane.YES_NO_CANCEL_OPTION);
 
         if(option != JOptionPane.YES_OPTION) {
             return;
@@ -212,16 +213,16 @@ public class RemoveLowerDialog extends JDialog {
 
             var response = controller.delete(name, x, y, participants, albums, musicGenre, sales);
             JOptionPane.showMessageDialog(this, response,
-                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+                    Localization.get("success_title"), JOptionPane.INFORMATION_MESSAGE);
             controller.close(this, false);
         } catch (ParseException e) {
-            JOptionPane.showMessageDialog(this, "Не все данные корректны, возможно, какие-то ячейки пустые, или выходят за свои границы.",
-                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("invalid_fields"),
+                    Localization.get("error_title"), JOptionPane.ERROR_MESSAGE);
         }
         catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Ошибка:" + e.getMessage(),
-                    "Ошибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, Localization.get("error_message_box") + e.getMessage(),
+                    Localization.get("error_title"), JOptionPane.ERROR_MESSAGE);
         }
     }
 

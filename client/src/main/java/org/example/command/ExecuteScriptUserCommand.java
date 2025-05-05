@@ -28,17 +28,18 @@ public class ExecuteScriptUserCommand extends UserCommand {
         this.networkClient = networkClient;
     }
 
-    public void appExecute(String filepath) {
+    public ExecuteScriptStatus appExecute(String filepath) {
         ScriptManager scriptManager = new ScriptManager(networkClient);
 
         try {
             scriptManager.runScript(filepath);
+            return ExecuteScriptStatus.SUCCESS;
         } catch (DamageScriptException e) {
-            throw new ScriptExecutionException("Ошибка исполнения скрипта - скрипт поврежден");
+            return ExecuteScriptStatus.DAMAGED_SCRIPT;
         } catch (ServerErrorResponseExcpetion e) {
-            throw new ScriptExecutionException("Ошибка со стороны сервера, выполнение скрипта остановлено");
+            return ExecuteScriptStatus.SERVER_ERROR;
         } catch (RecursionException e) {
-            throw new ScriptExecutionException("Обнаружена рекурсия. Выполнение скрипта приостановлена");
+            return ExecuteScriptStatus.RECURSION;
         }
     }
 

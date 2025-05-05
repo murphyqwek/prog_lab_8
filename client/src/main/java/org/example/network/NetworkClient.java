@@ -3,19 +3,14 @@ package org.example.network;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.UserLoginPasswordContainer;
-import org.example.base.response.ClientCommandRequest;
-import org.example.base.response.ClientCommandRequestWithLoginAndPassword;
-import org.example.base.response.ServerResponse;
-import org.example.base.response.ServerResponseType;
+import org.example.base.response.*;
 import org.example.exception.CouldnotConnectException;
 import org.example.exception.InvalidPortException;
-import org.example.exception.SerializationException;
 import org.example.exception.ServerErrorResponseExcpetion;
 
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
-import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.util.concurrent.TimeoutException;
 
@@ -86,17 +81,18 @@ public class NetworkClient {
             if(serverResponse.getType() == ServerResponseType.ERROR) {
                 logger.warn("Ответ сервера содержит ошибку");
                 logger.warn(serverResponse.toString());
-                throw new ServerErrorResponseExcpetion(serverResponse.getMessage(), false);
+                var errorResponse = (ServerResponseError) serverResponse;
+                return errorResponse;
             }
 
             if(serverResponse.getType() == ServerResponseType.CORRUPTED) {
                 logger.warn("Ответ сервера пришел поврежденным");
-                throw new ServerErrorResponseExcpetion("Ответ сервера пришел поврежденным", false);
+                return new ServerResponseError(ServerResponseType.ERROR, "", ServerErrorType.CORRUPTED);
             }
 
             if(serverResponse.getType() == ServerResponseType.UNAUTHORIZED) {
                 logger.warn("Неавторизованный вход");
-                throw new ServerErrorResponseExcpetion("Пользователь не авторизовался на сервере", true);
+                return new ServerResponseError(ServerResponseType.ERROR, "", ServerErrorType.UNAUTHORIZED);
             }
 
 
@@ -105,19 +101,19 @@ public class NetworkClient {
         }
         catch (IOException e) {
             logger.error("Не удалось получить ответ от сервера");
-            throw new ServerErrorResponseExcpetion("Не удалось получить ответ от сервера", true);
+            return new ServerResponseError(ServerResponseType.ERROR, "", ServerErrorType.NO_RESPONSE);
         }
         catch (InterruptedException ex) {
             logger.error(ex.getMessage());
-            throw new ServerErrorResponseExcpetion(ex.getMessage(), true);
+            return new ServerResponseError(ServerResponseType.ERROR, "", ServerErrorType.INTERRUPTED);
         }
         catch (TimeoutException ex) {
             logger.error("Timeout - сервер не отвечает");
-            throw new ServerErrorResponseExcpetion("Timeout - сервер не отвечает", true);
+            return new ServerResponseError(ServerResponseType.ERROR, "", ServerErrorType.TIMEOUT);
         }
         catch (ClassNotFoundException ex) {
             logger.error("Сервер вернул неожиданный ответ");
-            throw new ServerErrorResponseExcpetion("Сервер вернул неожиданный ответ", true);
+            return new ServerResponseError(ServerResponseType.ERROR, "", ServerErrorType.UNEXPECTED_RESPONSE);
         }
     }
 }

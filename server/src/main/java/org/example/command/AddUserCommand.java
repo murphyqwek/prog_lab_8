@@ -1,7 +1,9 @@
 package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.response.ServerErrorType;
 import org.example.base.response.ServerResponse;
+import org.example.base.response.ServerResponseError;
 import org.example.base.response.ServerResponseType;
 import org.example.database.CollectionDataBaseService;
 import org.example.exception.CannotConnectToDataBaseException;
@@ -65,10 +67,10 @@ public class AddUserCommand extends UserCommand {
             collectionDataBaseService.addNewMusicBand(newMusicBand, login);
         } catch (CannotConnectToDataBaseException e) {
             responseMessage = "Внутрення ошибка с базой данных";
-            return new ServerResponse(ServerResponseType.ERROR, responseMessage);
+            return new ServerResponseError(ServerResponseType.ERROR, responseMessage, ServerErrorType.BD_FALL);
         } catch (CouldnotAddMusicBandToDataBaseExcpetion e) {
             responseMessage = "Не удалось добавить элемент в базу данных";
-            return new ServerResponse(ServerResponseType.ERROR, responseMessage);
+            return new ServerResponseError(ServerResponseType.ERROR, responseMessage, ServerErrorType.CANNOT_ADD_TO_BD);
         }
 
         collectionManager.addNewMusicBand(newMusicBand, login);

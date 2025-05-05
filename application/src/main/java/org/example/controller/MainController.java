@@ -1,16 +1,21 @@
 package org.example.controller;
 
 import org.example.base.model.MusicBand;
+import org.example.base.response.ServerErrorType;
+import org.example.base.response.ServerResponseInfo;
 import org.example.base.response.ServerResponseType;
 import org.example.command.*;
 import org.example.exception.ExecuteAppCommandExcpetion;
 import org.example.form.add.AddDialog;
 import org.example.form.edit.EditDialog;
 import org.example.form.removelower.RemoveLowerDialog;
+import org.example.localization.Localization;
 import org.example.model.LocalStorage;
 import org.example.network.NetworkClient;
+import org.example.util.ErrorResponseHandler;
 
 import javax.swing.*;
+import java.text.MessageFormat;
 import java.util.List;
 
 /**
@@ -34,9 +39,7 @@ public class MainController {
 
         var response = showUserCommand.appExecute();
 
-        if(response.getType() != ServerResponseType.SUCCESS) {
-            throw new ExecuteAppCommandExcpetion(response.getMessage());
-        }
+        ErrorResponseHandler.checkForErrorResponse(response);
 
         localStorage.setMusicBands(response.getMusicBandList());
     }
@@ -77,11 +80,19 @@ public class MainController {
 
         var response = infoAppCommand.appExecute();
 
-        if(response.getType() != ServerResponseType.SUCCESS) {
-            throw new ExecuteAppCommandExcpetion(response.getMessage());
+        ErrorResponseHandler.checkForErrorResponse(response);
+
+        if(!(response instanceof ServerResponseInfo)) {
+            ErrorResponseHandler.handleErrorReponse(ServerErrorType.UNEXPECTED_RESPONSE);
         }
 
-        return response.getMessage();
+        var responseInfo = (ServerResponseInfo) response;
+
+        var text = Localization.get("info");
+        //TODO: локализовать дату
+        String formatted = MessageFormat.format(text, responseInfo.getCollectionType(), responseInfo.getCreationDate(), responseInfo.getElementsCount());
+
+        return formatted;
     }
 
     public String getUsername() {
@@ -93,9 +104,7 @@ public class MainController {
 
         var response = sumOfAlbumsAppCommand.appExecute();
 
-        if(response.getType() != ServerResponseType.SUCCESS) {
-            throw new ExecuteAppCommandExcpetion(response.getMessage());
-        }
+        ErrorResponseHandler.checkForErrorResponse(response);
 
         return response.getMessage();
     }
@@ -105,17 +114,17 @@ public class MainController {
 
         var response = clearCollectionAppCommand.appExecute();
 
-        if(response.getType() != ServerResponseType.SUCCESS) {
-            throw new ExecuteAppCommandExcpetion(response.getMessage());
-        }
+        ErrorResponseHandler.checkForErrorResponse(response);
 
-        return response.getMessage();
+        return Localization.get("collection_clear");
     }
 
     public void uploadMusicBandWithFilterName(String name) {
         FilterContainsNameUserCommand filterContainsNameUserCommand = new FilterContainsNameUserCommand(networkClient);
 
         var response = filterContainsNameUserCommand.appExecute(name);
+
+        ErrorResponseHandler.checkForErrorResponse(response);
 
         localStorage.setMusicBands(response.getMusicBandList());
     }
@@ -146,6 +155,8 @@ public class MainController {
 
         var response = removeByIdCommand.appExecute(id);
 
+        ErrorResponseHandler.checkForErrorResponse(response);
+
         return response.getMessage();
     }
 
@@ -171,6 +182,8 @@ public class MainController {
 
     public void executeScript(String filepath) {
         ExecuteScriptUserCommand executeScriptUserCommand = new ExecuteScriptUserCommand(networkClient);
-        executeScriptUserCommand.appExecute(filepath);
+        var status = executeScriptUserCommand.appExecute(filepath);
+
+        ErrorResponseHandler.checkForScriptError(status);
     }
 }
