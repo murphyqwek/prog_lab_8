@@ -83,6 +83,18 @@ public class MusicBand implements Comparable<MusicBand>, Serializable {
         return this.coordinates;
     }
 
+    public Integer getX() {
+        return this.coordinates.getX();
+    }
+
+    public long getY() {
+        return this.coordinates.getY();
+    }
+
+    public double getSales() {
+        return this.label.getSales();
+    }
+
     /**
      * Метод для получения даты создания
      */
@@ -109,6 +121,10 @@ public class MusicBand implements Comparable<MusicBand>, Serializable {
      */
     public MusicGenre getGenre() {
         return this.genre;
+    }
+
+    public String getGenreString() {
+        return this.genre.name();
     }
 
     /**

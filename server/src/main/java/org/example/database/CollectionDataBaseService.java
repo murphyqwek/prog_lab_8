@@ -78,7 +78,7 @@ public class CollectionDataBaseService {
         }
     }
 
-    public synchronized void updateMusicBand(MusicBand newMusicBand) throws CannotConnectToDataBaseException, CannotUpdateMusicBandException  {
+    public synchronized void updateMusicBand(MusicBand newMusicBand, String ownerLogin) throws CannotConnectToDataBaseException, CannotUpdateMusicBandException  {
         String sqlInsert = "UPDATE Collection SET(name, x, y, creationDate, numberOfParticipants, albumsCount, " +
                 "genre, sales, owner) = (?, ?, ?, ?, ?, ?, ?, ?, ?) " +
                 "WHERE id = ?";
@@ -92,7 +92,8 @@ public class CollectionDataBaseService {
                 ps.setLong(6, newMusicBand.getAlbumsCount());
                 ps.setString(7, newMusicBand.getGenre().toString());
                 ps.setDouble(8, newMusicBand.getLabel().getSales());
-                ps.setInt(9, newMusicBand.getId());
+                ps.setString(9, ownerLogin);
+                ps.setInt(10, newMusicBand.getId());
                 int musicBandUpdated = ps.executeUpdate();
 
                 if(musicBandUpdated == 0) {
@@ -138,7 +139,7 @@ public class CollectionDataBaseService {
     }
 
     public synchronized void clearCollection() {
-        String sqlTruncate = "TRUNCATE TABLE Collection";
+        String sqlTruncate = "TRUNCATE TABLE Collection RESTART IDENTITY CASCADE";
 
         try (Statement stmt = connection.createStatement()) {
             stmt.executeUpdate(sqlTruncate);

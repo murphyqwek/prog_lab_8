@@ -1,6 +1,8 @@
 package org.example.command;
 
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ServerResponse;
 import org.example.exception.CouldnotSendExcpetion;
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.fieldReader.MusicBandFieldReader;
@@ -20,6 +22,10 @@ import java.util.List;
  */
 
 public class UpdateUserCommand extends NetworkUserCommand {
+    public UpdateUserCommand(NetworkClient networkClient) {
+        super("update", "update id {element} : обновить значение элемента коллекции, id которого равен заданному", new EmptyIOManager(), networkClient);
+    }
+
     /**
      * Конструктор класса
      * @param networkClient класс для работы с коллекцией
@@ -27,6 +33,18 @@ public class UpdateUserCommand extends NetworkUserCommand {
      */
     public UpdateUserCommand(NetworkClient networkClient, IOManager ioManager) {
         super("update", "update id {element} : обновить значение элемента коллекции, id которого равен заданному", ioManager, networkClient);
+    }
+
+    public ServerResponse appExecute(int id, MusicBand newMusicBand) {
+        List<Serializable> arguments = new ArrayList<>();
+        arguments.add(id);
+        arguments.add(newMusicBand);
+
+        ClientCommandRequest request = new ClientCommandRequest(this.getName(), arguments);
+
+        networkClient.sendUserCommand(request);
+
+        return networkClient.getServerResponse();
     }
 
     /**

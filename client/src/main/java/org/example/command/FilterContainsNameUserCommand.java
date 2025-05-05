@@ -3,6 +3,7 @@ package org.example.command;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
 import org.example.base.response.ServerResponseWithMusicBandList;
@@ -23,6 +24,31 @@ import java.util.List;
 
 public class FilterContainsNameUserCommand extends NetworkUserCommand{
     private final Logger logger = LogManager.getRootLogger();
+
+    public FilterContainsNameUserCommand(NetworkClient networkClient) {
+        super("filter_contains_name", "filter_contains_name name : вывести элементы, значение поля name которых содержит заданную подстроку", new EmptyIOManager(), networkClient);
+    }
+
+    public ServerResponseWithMusicBandList appExecute(String filter) {
+        var argument = new ArrayList<String>();
+        argument.add(filter);
+        var request = getClientCommandRequest(argument);
+
+        networkClient.sendUserCommand(request);
+
+        var serverResponse = networkClient.getServerResponse();
+
+        if(!(serverResponse instanceof ServerResponseWithMusicBandList responseWithList)) {
+            throw new ServerErrorResponseExcpetion("Сервер вернул не тот тип данных, который ожидался", true);
+        }
+
+        if(responseWithList.getMusicBandList().stream().anyMatch(mb -> !mb.isValid())) {
+            throw new ServerErrorResponseExcpetion("Сообщение пришло поврежденным", false);
+        }
+
+        return responseWithList;
+    }
+
     /**
      * Конструктор класса
      * @param networkClient класс для управления коллекцией

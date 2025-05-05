@@ -1,8 +1,10 @@
 package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.iomanager.IOManager;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ServerResponse;
 import org.example.network.NetworkClient;
 
 import java.io.Serializable;
@@ -17,7 +19,9 @@ import java.util.List;
  */
 
 public class RemoveByIdCommand extends NetworkUserCommand {
-    private NetworkClient networkClient;
+    public RemoveByIdCommand(NetworkClient networkClient) {
+        super("remove_by_id", "remove_by_id id : удалить элемент из коллекции по его id", new EmptyIOManager(), networkClient);
+    }
 
     /**
      * Конструктор класса
@@ -26,8 +30,17 @@ public class RemoveByIdCommand extends NetworkUserCommand {
      */
     public RemoveByIdCommand(NetworkClient networkClient, IOManager out) {
         super("remove_by_id", "remove_by_id id : удалить элемент из коллекции по его id", out, networkClient);
+    }
 
-        this.networkClient = networkClient;
+    public ServerResponse appExecute(int id) {
+        List<Serializable> arguments = new ArrayList<>();
+        arguments.add(id);
+
+        ClientCommandRequest request = new ClientCommandRequest(this.getName(), arguments);
+
+        networkClient.sendUserCommand(request);
+
+        return networkClient.getServerResponse();
     }
 
     /**

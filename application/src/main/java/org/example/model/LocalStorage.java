@@ -29,4 +29,10 @@ public class LocalStorage {
     public List<MusicBand> getStorage() {
         return localList;
     }
+
+    public MusicBand getMusicBand(int id) {
+        var mb = localList.stream().filter(band -> band.getId() == id).findFirst().orElse(null);
+
+        return mb;
+    }
 }

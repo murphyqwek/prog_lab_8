@@ -2,9 +2,11 @@ package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.fieldReader.MusicBandFieldReader;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.iomanager.IOManager;
 import org.example.base.model.MusicBand;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ServerResponse;
 import org.example.exception.CouldnotSendExcpetion;
 import org.example.network.NetworkClient;
 
@@ -20,12 +22,32 @@ import java.util.List;
  */
 
 public class AddIfMaxUserCommand extends NetworkUserCommand {
+
+    public AddIfMaxUserCommand(NetworkClient networkClient) {
+        super("add_if_max", "add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции", new EmptyIOManager(), networkClient);
+    }
+
     /**
      * Конструктор класса
      * @param ioManager класс для управления ввода-вывода
      */
     public AddIfMaxUserCommand(NetworkClient networkClient, IOManager ioManager) {
         super("add_if_max", "add_if_max {element} : добавить новый элемент в коллекцию, если его значение превышает значение наибольшего элемента этой коллекции", ioManager, networkClient);
+    }
+
+    public ServerResponse appExecute(MusicBand musicBand) {
+        if(!musicBand.isValid()) {
+            throw new IllegalArgumentException("Не все поля валидны. Проверьте корректность всех введенных данных");
+        }
+
+        List<Serializable> arguments = new ArrayList<>();
+        arguments.add(musicBand);
+
+        ClientCommandRequest request = new ClientCommandRequest(this.getName(), arguments);
+
+        networkClient.sendUserCommand(request);
+
+        return networkClient.getServerResponse();
     }
 
     /**

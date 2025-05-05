@@ -1,5 +1,6 @@
 package org.example.form.main;
 
+import org.example.base.model.MusicBand;
 import org.example.component.CircleIcon;
 import org.example.component.MagnifierIcon;
 import org.example.component.PlaneWithRoundedBorder;
@@ -15,7 +16,11 @@ import javax.swing.border.MatteBorder;
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
 
 /**
  * MainForm - описание класса.
@@ -24,13 +29,16 @@ import java.awt.geom.RoundRectangle2D;
  */
 
 public class MainForm extends JFrame {
-    private MainController controller;
+    private final MainController controller;
     private DefaultTableModel model;
     private JTable table;
     private final String[] musicBandFields = {"id", "name", "x", "y", "creation date", "albums count", "number of participants", "genre", "sales"};
+    private JTextField searchField;
+    private JComboBox<String> comboBox;
 
     public MainForm(MainController controller) {
         this.controller = controller;
+        controller.setFilteringFieldName("id");
     }
 
     public void gui() {
@@ -89,6 +97,12 @@ public class MainForm extends JFrame {
 
         //Clear Collection
         var clearCollectionButton = createSidebarButton("Clear Collection");
+        clearCollectionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearCollection();
+            }
+        });
+
         leftCommandsPanel.add(clearCollectionButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
@@ -98,9 +112,20 @@ public class MainForm extends JFrame {
         leftCommandsPanel.add(executeScriptButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
+        executeScriptButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                executeScirptClickHandler(evt);
+            }
+        });
 
         //Sum of albums count
         var sumOfAlbumsCountButton = createSidebarButton("Sum of albums count");
+        sumOfAlbumsCountButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sumOfAlbumsCount();
+            }
+        });
+
         leftCommandsPanel.add(sumOfAlbumsCountButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
@@ -120,12 +145,22 @@ public class MainForm extends JFrame {
 
         //Info
         var infoButton = createSidebarButton("Info");
+        infoButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                info();
+            }
+        });
         leftCommandsPanel.add(infoButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
 
         //Remove lower
         var removeLowerButton = createSidebarButton("Remove lower");
+        removeLowerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeLowerClickHandler(evt);
+            }
+        });
         leftCommandsPanel.add(removeLowerButton);
         leftCommandsPanel.add(Box.createHorizontalGlue());
         leftCommandsPanel.add(Box.createVerticalStrut(5));
@@ -175,7 +210,7 @@ public class MainForm extends JFrame {
         JPanel rightTitlePanel = new JPanel();
         rightTitlePanel.setBackground(Color.WHITE);
         rightTitlePanel.setLayout(new BoxLayout(rightTitlePanel, BoxLayout.Y_AXIS));
-        JLabel rightTitle = new JLabel("Music band list");
+        JLabel rightTitle = new JLabel("Music band list - " + controller.getUsername());
         rightTitle.setHorizontalAlignment(SwingConstants.LEFT);
 
         rightTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -220,7 +255,14 @@ public class MainForm extends JFrame {
         filterPanel.setAlignmentX(LEFT_ALIGNMENT);
 
         // Выпадающий список
-        JComboBox<String> comboBox = new JComboBox<>(musicBandFields);
+        comboBox = new JComboBox<>(musicBandFields);
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeFilterFieldHandler(e);
+            }
+        });
+
         comboBox.setFont(new Font("SansSerif", Font.PLAIN, 14));
         comboBox.setBackground(new Color(230, 230, 230));
         comboBox.setForeground(Color.BLACK);
@@ -259,8 +301,13 @@ public class MainForm extends JFrame {
         searchButton.setFocusPainted(false);
         searchButton.setMargin(new Insets(0, 0, 0, 0));
         searchButton.setAlignmentY(CENTER_ALIGNMENT);
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                filterContainsName();
+            }
+        });
 
-        JTextField searchField = new JTextField();
+        searchField = new JTextField();
         searchField.setFont(new Font("SansSerif", Font.PLAIN, 14));
         searchField.setBorder(BorderFactory.createEmptyBorder());
         searchField.setBackground(Color.WHITE);
@@ -301,6 +348,12 @@ public class MainForm extends JFrame {
         editButton.setMinimumSize(new Dimension(80, 30));
         editButton.setMaximumSize(new Dimension(80, 30));
         editButton.setAlignmentX(RIGHT_ALIGNMENT);
+        editButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateClickHandler(evt);
+            }
+        });
+
 
         var plusButton = new JButton("+");
         plusButton.setForeground(Color.BLACK);
@@ -312,6 +365,11 @@ public class MainForm extends JFrame {
         plusButton.setMinimumSize(new Dimension(30, 30));
         plusButton.setMaximumSize(new Dimension(30, 30));
         plusButton.setAlignmentX(RIGHT_ALIGNMENT);
+        plusButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addClickHandler(evt);
+            }
+        });
 
         var minusButton = new JButton("-");
         minusButton.setBackground(new Color(255, 70, 45));
@@ -323,6 +381,11 @@ public class MainForm extends JFrame {
         minusButton.setMinimumSize(new Dimension(30, 30));
         minusButton.setMaximumSize(new Dimension(30, 30));
         minusButton.setAlignmentX(RIGHT_ALIGNMENT);
+        minusButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteClickHandler(evt);
+            }
+        });
 
         buttonsPanel.add(editButton);
         buttonsPanel.add(Box.createHorizontalStrut(10));
@@ -347,6 +410,8 @@ public class MainForm extends JFrame {
         model = new DefaultTableModel(musicBandFields, 5);
 
         table = new JTable(model);
+        table.setDefaultEditor(Object.class, null);
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.setFont(new Font("SansSerif", Font.PLAIN, 14));
         table.setRowHeight(25);
 
@@ -392,8 +457,6 @@ public class MainForm extends JFrame {
     }
 
     private void updateTable(boolean withoutUserNotification) {
-        DefaultTableModel newModel = new DefaultTableModel(musicBandFields, 0);
-
         try {
             controller.updateLocalStorage();
         } catch (Exception e) {
@@ -403,15 +466,163 @@ public class MainForm extends JFrame {
             }
         }
 
-        for (Object[] row : controller.getMusicBandsToDisplay()) {
-            newModel.addRow(row);
-        }
-
-        table.setModel(newModel);
+        displayMusicBands(controller.getMusicBandsToDisplay());
 
         if(!withoutUserNotification) {
             JOptionPane.showMessageDialog(this, "Данные успешно обновлены",
                     "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void displayMusicBands(Object[][] musicBands) {
+        DefaultTableModel newModel = new DefaultTableModel(musicBandFields, 0);
+
+        for (Object[] row : musicBands) {
+            newModel.addRow(row);
+        }
+
+        table.setModel(newModel);
+    }
+
+    private void info() {
+        try {
+            var info = controller.getInfo();
+            JOptionPane.showMessageDialog(this, "Данные о коллекции:\n"+info,
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            messageBoxWithError(e.getMessage());
+        }
+    }
+
+    private void sumOfAlbumsCount() {
+        try {
+            var sumOfAlbums = controller.getSumOfAlbumsCount();
+            JOptionPane.showMessageDialog(this, "Суммарное кол-во альбомов: " + sumOfAlbums,
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            messageBoxWithError(e.getMessage());
+        }
+    }
+
+    private void clearCollection() {
+        try {
+            var response = controller.clearCollection();
+            JOptionPane.showMessageDialog(this, response,
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            updateTable(true);
+        } catch (Exception e) {
+            messageBoxWithError(e.getMessage());
+        }
+    }
+
+    private void messageBoxWithError(String errorMessage) {
+        JOptionPane.showMessageDialog(this, "Ошибка: " + errorMessage,
+                "Ошибка", JOptionPane.ERROR_MESSAGE);
+    }
+
+    private void filterContainsName() {
+        String filter = searchField.getText();
+
+        try {
+            controller.uploadMusicBandWithFilterName(filter);
+            displayMusicBands(controller.getMusicBandsToDisplay());
+        } catch (Exception ex) {
+            messageBoxWithError(ex.getMessage());
+            return;
+        }
+
+        JOptionPane.showMessageDialog(this, "Элементы успешно найдены",
+                "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void changeFilterFieldHandler(ActionEvent e) {
+        String selected = (String) comboBox.getSelectedItem();
+        controller.setFilteringFieldName(selected);
+
+        var sortedMusicBands = controller.getMusicBands();
+
+        displayMusicBands(controller.getMusicBandsToDisplay(sortedMusicBands));
+    }
+
+    private void addClickHandler(MouseEvent evt) {
+        var isCanceled = controller.openAddingDiaglog(this);
+
+        if(!isCanceled) {
+            updateTable(true);
+        }
+    }
+
+    private void deleteClickHandler(MouseEvent evt) {
+        int option = JOptionPane.showConfirmDialog(this, "Вы уверены, что хотите удалить элементы?", "Подтверждение", JOptionPane.YES_NO_CANCEL_OPTION);
+
+        if(option != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            messageBoxWithError("Выберите строку, которую хотите удалить");
+            return;
+        }
+
+        int id = (int) table.getValueAt(selectedRow, 0);
+        try {
+            var response = controller.deleteMusicBand(id);
+            JOptionPane.showMessageDialog(this, response,
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            messageBoxWithError(e.getMessage());
+        }
+
+        updateTable(true);
+    }
+
+    private void removeLowerClickHandler(MouseEvent evt) {
+        var isCanceled = controller.openRemoveLowerDiaglog(this);
+
+        if(!isCanceled) {
+            updateTable(true);
+        }
+    }
+
+    private void updateClickHandler(MouseEvent evt) {
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow == -1) {
+            messageBoxWithError("Выберите строку, которую хотите модифицировать");
+            return;
+        }
+
+        int id = (int) table.getValueAt(selectedRow, 0);
+        var isCanceled = controller.openUpdateDialog(this, id);
+
+        if(!isCanceled) {
+            updateTable(true);
+        }
+
+        updateTable(true);
+    }
+
+    private void executeScirptClickHandler(MouseEvent evt) {
+        JFileChooser fileChooser = new JFileChooser();
+
+        fileChooser.setDialogTitle("Выберите файл");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        int result = fileChooser.showOpenDialog(null);
+
+        // Если пользователь выбрал файл, вывести его путь
+        if (result != JFileChooser.APPROVE_OPTION) {
+            return;
+        }
+
+        File selectedFile = fileChooser.getSelectedFile();
+        try {
+            controller.executeScript(selectedFile.getAbsolutePath());
+            JOptionPane.showMessageDialog(this, "Скрипт был успешно выполнен",
+                    "Успешно!", JOptionPane.INFORMATION_MESSAGE);
+            updateTable(true);
+        } catch (Exception e) {
+            messageBoxWithError(e.getMessage());
         }
     }
 }

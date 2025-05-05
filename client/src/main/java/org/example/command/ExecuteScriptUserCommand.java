@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.iomanager.IOManager;
 import org.example.base.exception.*;
+import org.example.exception.ScriptExecutionException;
 import org.example.exception.ServerErrorResponseExcpetion;
 import org.example.network.NetworkClient;
 import org.example.script.ScriptManager;
@@ -20,6 +22,26 @@ import org.example.script.ScriptManager;
 public class ExecuteScriptUserCommand extends UserCommand {
     private final NetworkClient networkClient;
     private final Logger logger = LogManager.getRootLogger();
+
+    public ExecuteScriptUserCommand(NetworkClient networkClient) {
+        super("execute_script", "execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.", new EmptyIOManager());
+        this.networkClient = networkClient;
+    }
+
+    public void appExecute(String filepath) {
+        ScriptManager scriptManager = new ScriptManager(networkClient);
+
+        try {
+            scriptManager.runScript(filepath);
+        } catch (DamageScriptException e) {
+            throw new ScriptExecutionException("Ошибка исполнения скрипта - скрипт поврежден");
+        } catch (ServerErrorResponseExcpetion e) {
+            throw new ScriptExecutionException("Ошибка со стороны сервера, выполнение скрипта остановлено");
+        } catch (RecursionException e) {
+            throw new ScriptExecutionException("Обнаружена рекурсия. Выполнение скрипта приостановлена");
+        }
+    }
+
     /**
      * Конструктор класса
      * @param networkClient класс для общения с сервером

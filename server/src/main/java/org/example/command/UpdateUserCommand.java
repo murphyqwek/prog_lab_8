@@ -68,7 +68,7 @@ public class UpdateUserCommand extends UserCommand {
         }
 
         try {
-            collectionDataBaseService.updateMusicBand(newMusicBand);
+            collectionDataBaseService.updateMusicBand(newMusicBand, login);
             collectionManager.updateMusicBand(newMusicBand);
         } catch (CannotConnectToDataBaseException e) {
             return new ServerResponse(ServerResponseType.ERROR, "Внутрення ошибка сервера - не удалось подключиться к базе данных");

@@ -146,7 +146,7 @@ public class CollectionManager {
      * @param newMusicBand новый элемент коллекции. Старый элемент коллекции находится по id нового элемента
      */
     public void updateMusicBand(MusicBand newMusicBand) {
-        var musicBandWithOnwer = this.collection.stream().filter((m) -> m.getMusicBand().equals(newMusicBand)).findFirst();
+        var musicBandWithOnwer = this.collection.stream().filter((m) -> m.getMusicBand().getId() == newMusicBand.getId()).findFirst();
 
         musicBandWithOnwer.ifPresent(m -> m.setMusicBand(newMusicBand));
 

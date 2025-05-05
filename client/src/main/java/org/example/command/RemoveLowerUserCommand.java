@@ -2,9 +2,11 @@ package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.fieldReader.MusicBandFieldReader;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.iomanager.IOManager;
 import org.example.base.model.MusicBand;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ServerResponse;
 import org.example.network.NetworkClient;
 
 import java.io.Serializable;
@@ -19,6 +21,10 @@ import java.util.List;
  */
 
 public class RemoveLowerUserCommand extends NetworkUserCommand{
+    public RemoveLowerUserCommand(NetworkClient networkClient) {
+        super("remove_lower", "remove_lower {element} : удалить из коллекции все элементы, меньшие, чем заданный", new EmptyIOManager(), networkClient);
+    }
+
     /**
      * Конструктор класса
      * @param networkClient класс для работы с коллекцией
@@ -26,6 +32,19 @@ public class RemoveLowerUserCommand extends NetworkUserCommand{
      */
     public RemoveLowerUserCommand(NetworkClient networkClient, IOManager ioManager) {
         super("remove_lower", "remove_lower {element} : удалить из коллекции все элементы, меньшие, чем заданный", ioManager, networkClient);
+    }
+
+    public ServerResponse appExecute(MusicBand musicBand) {
+        List<Serializable> arguments = new ArrayList<>();
+
+        musicBand.setId(1);
+        arguments.add(musicBand);
+
+        ClientCommandRequest request = new ClientCommandRequest(this.getName(), arguments);
+
+        networkClient.sendUserCommand(request);
+
+        return networkClient.getServerResponse();
     }
 
     /**

@@ -2,8 +2,10 @@ package org.example.command;
 
 import org.example.base.exception.CommandArgumentExcetpion;
 import org.example.base.fieldReader.MusicBandFieldReader;
+import org.example.base.iomanager.EmptyIOManager;
 import org.example.base.model.MusicBand;
 import org.example.base.response.ClientCommandRequest;
+import org.example.base.response.ServerResponse;
 import org.example.network.NetworkClient;
 import org.example.base.iomanager.IOManager;
 
@@ -19,6 +21,10 @@ import java.util.List;
  */
 
 public class AddUserCommand extends NetworkUserCommand{
+    public AddUserCommand(NetworkClient networkClient) {
+        super("add", "add {element}: добавить новый элемент в коллекцию", new EmptyIOManager(), networkClient);
+    }
+
     /**
      * Конструктор класса
      * @param networkClient класс для управления коллекцией
@@ -26,6 +32,21 @@ public class AddUserCommand extends NetworkUserCommand{
      */
     public AddUserCommand(NetworkClient networkClient, IOManager ioManager) {
         super("add", "add {element}: добавить новый элемент в коллекцию", ioManager, networkClient);
+    }
+
+    public ServerResponse appExecute(MusicBand musicBand) {
+        if(!musicBand.isValid()) {
+            throw new IllegalArgumentException("Не все поля валидны. Проверьте корректность всех введенных данных");
+        }
+
+        List<Serializable> arguments = new ArrayList<>();
+        arguments.add(musicBand);
+
+        ClientCommandRequest request = new ClientCommandRequest(this.getName(), arguments);
+
+        networkClient.sendUserCommand(request);
+
+        return networkClient.getServerResponse();
     }
 
     /**

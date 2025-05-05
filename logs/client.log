@@ -1053,3 +1053,1066 @@ MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, cr
 MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
 MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
 }
+2025-05-04 21:09:06 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:09:06 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 21:09:06 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:09:07 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:09:07 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:09:07 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 21:09:08 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:09:08 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 21:09:08 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:09:08 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:09:09 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:09:09 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 21:09:15 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:09:15 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-04 21:09:15 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:09:15 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:09:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:09:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Sun May 04 21:08:14 MSK 2025
+Кол-во элементов: 3}
+2025-05-04 21:09:29 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:09:29 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 21:09:29 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:09:29 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:09:29 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:09:29 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 21:14:58 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:14:58 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 21:14:58 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:14:58 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:14:59 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:14:59 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 21:15:00 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:15:00 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 21:15:00 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:15:00 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:15:01 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:15:01 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 21:15:07 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:15:07 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-04 21:15:07 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:15:07 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:15:08 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:15:08 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Sun May 04 21:08:14 MSK 2025
+Кол-во элементов: 3}
+2025-05-04 21:15:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:15:14 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-04 21:15:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:15:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:15:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:15:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Sun May 04 21:08:14 MSK 2025
+Кол-во элементов: 3}
+2025-05-04 21:27:47 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:27:47 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 21:27:48 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:27:48 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:27:48 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:27:48 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 21:27:49 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:27:49 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 21:27:49 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:27:49 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:27:50 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:27:50 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 21:27:53 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:27:53 [AWT-EventQueue-0] INFO   - sum_of_albums_count{ login: admin; password: admin}
+2025-05-04 21:27:53 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:27:53 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:27:53 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:27:53 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: 270}
+2025-05-04 21:27:57 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 21:27:57 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-04 21:27:57 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 21:27:57 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 21:27:58 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 21:27:58 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Sun May 04 21:26:54 MSK 2025
+Кол-во элементов: 3}
+2025-05-04 22:54:57 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 22:54:57 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 22:54:57 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 22:54:57 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 22:54:57 [AWT-EventQueue-0] ERROR  - Не удалось получить ответ от сервера
+2025-05-04 22:55:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 22:55:14 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 22:55:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 22:55:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 22:55:14 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 22:55:14 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 22:55:16 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 22:55:16 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 22:55:16 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 22:55:16 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 22:55:16 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 22:55:16 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 22:55:53 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 22:55:53 [AWT-EventQueue-0] INFO   - sum_of_albums_count{ login: admin; password: admin}
+2025-05-04 22:55:53 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 22:55:53 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 22:55:53 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 22:55:53 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: 270}
+2025-05-04 22:55:56 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 22:55:56 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-04 22:55:56 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 22:55:56 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 22:55:56 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 22:55:56 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Sun May 04 22:55:08 MSK 2025
+Кол-во элементов: 3}
+2025-05-04 23:08:52 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:08:52 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 23:08:52 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:08:52 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:08:52 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:08:52 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 23:08:53 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:08:53 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 23:08:53 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:08:53 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:08:54 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:08:54 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:09:00 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:09:00 [AWT-EventQueue-0] INFO   - filter_contains_name{ login: admin; password: admin}
+2025-05-04 23:09:00 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:09:00 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:09:01 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:09:01 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: }
+2025-05-04 23:09:08 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:09:08 [AWT-EventQueue-0] INFO   - filter_contains_name{ login: admin; password: admin}
+2025-05-04 23:09:08 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:09:08 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:09:08 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:09:08 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+}
+2025-05-04 23:09:33 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:09:33 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-04 23:09:33 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:09:33 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:09:33 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:09:33 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Sun May 04 23:08:17 MSK 2025
+Кол-во элементов: 3}
+2025-05-04 23:09:35 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:09:35 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 23:09:35 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:09:35 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:09:36 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:09:36 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:09:44 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:09:44 [AWT-EventQueue-0] INFO   - filter_contains_name{ login: admin; password: admin}
+2025-05-04 23:09:44 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:09:44 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:09:44 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:09:44 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:09:50 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:09:50 [AWT-EventQueue-0] INFO   - sum_of_albums_count{ login: admin; password: admin}
+2025-05-04 23:09:50 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:09:50 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:09:51 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:09:51 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: 270}
+2025-05-04 23:37:33 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:37:33 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 23:37:33 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:37:33 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:37:33 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:37:33 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 23:37:34 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:37:34 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 23:37:34 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:37:34 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:37:35 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:37:35 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:38:59 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:38:59 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 23:38:59 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:38:59 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:39:00 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:39:00 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 23:39:01 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:39:01 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 23:39:01 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:39:01 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:39:02 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:39:02 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:39:51 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:39:51 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 23:39:51 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:39:51 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:39:52 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:39:52 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 23:39:52 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:39:52 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 23:39:52 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:39:52 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:39:53 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:39:53 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:42:25 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:42:25 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-04 23:42:25 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:42:25 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:42:26 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:42:26 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-04 23:42:27 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:42:27 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 23:42:27 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:42:27 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:42:28 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:42:28 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:44:42 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:44:42 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-04 23:44:42 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:44:42 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:44:43 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:44:43 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-04 23:44:52 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-04 23:44:52 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-04 23:44:52 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-04 23:44:52 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-04 23:44:53 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-04 23:44:53 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Sun May 04 23:39:26 MSK 2025
+Кол-во элементов: 3}
+2025-05-05 00:50:35 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 00:50:35 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 00:50:35 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 00:50:35 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 00:50:35 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 00:50:35 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 00:50:37 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 00:50:37 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 00:50:37 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 00:50:37 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 00:50:37 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 00:50:37 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 00:52:33 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 00:52:33 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 00:52:33 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 00:52:33 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 00:52:34 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 00:52:34 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 00:52:35 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 00:52:35 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 00:52:35 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 00:52:35 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 00:52:35 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 00:52:36 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 00:56:21 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 00:56:21 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 00:56:21 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 00:56:21 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 00:56:21 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 00:56:21 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 00:56:22 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 00:56:22 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 00:56:22 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 00:56:22 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 00:56:23 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 00:56:23 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:03:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:03:14 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:03:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:03:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:03:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:03:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:03:16 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:03:16 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:03:16 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:03:16 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:03:16 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:03:16 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:04:09 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:04:09 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:04:10 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:04:10 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:04:10 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:04:10 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:04:11 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:04:11 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:04:11 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:04:11 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:04:12 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:04:12 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:07:05 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:07:05 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:07:05 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:07:05 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:07:05 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:07:05 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:07:07 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:07:07 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:07:07 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:07:07 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:07:07 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:07:07 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:09:16 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:09:16 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:09:16 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:09:16 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:09:17 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:09:17 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:09:18 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:09:18 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:09:18 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:09:18 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:09:19 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:09:19 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:10:13 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:10:13 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:10:13 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:10:13 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:10:13 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:10:13 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:10:15 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:10:15 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:10:15 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:10:15 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:10:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:10:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:17:27 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:17:27 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:17:27 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:17:27 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:17:28 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:17:28 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:17:29 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:17:29 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:17:29 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:17:29 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:17:29 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:17:29 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:18:55 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:18:55 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 01:18:55 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:18:55 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:18:56 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:18:56 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 01:19:07 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:19:07 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:19:07 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:19:07 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:19:08 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:19:08 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:20:58 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:20:58 [AWT-EventQueue-0] INFO   - sum_of_albums_count{ login: admin; password: admin}
+2025-05-05 01:20:58 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:20:58 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:20:59 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:20:59 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: 393}
+2025-05-05 01:23:31 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:23:31 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:23:31 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:23:31 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:23:32 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:23:32 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:23:33 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:23:33 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:23:33 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:23:33 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:23:34 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:23:34 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:25:50 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:25:50 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:25:51 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:25:51 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:25:51 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:25:51 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:25:53 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:25:53 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:25:53 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:25:53 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:25:54 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:25:54 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:27:50 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:27:50 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:27:50 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:27:50 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:27:50 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:27:50 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:27:52 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:27:52 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:27:52 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:27:52 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:27:52 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:27:52 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:28:33 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:28:33 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:28:33 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:28:33 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:28:34 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:28:34 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:28:35 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:28:35 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:28:35 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:28:35 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:28:36 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:28:36 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:30:49 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:30:49 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:30:49 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:30:49 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:30:50 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:30:50 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:30:51 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:30:51 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:30:51 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:30:51 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:30:52 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:30:52 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:35:39 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:35:39 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:35:39 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:35:39 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:35:39 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:35:39 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:35:40 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:35:40 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:35:40 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:35:40 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:35:41 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:35:41 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:42:58 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:42:58 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:42:59 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:42:59 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:43:00 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:43:00 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:43:01 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:43:01 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:43:01 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:43:01 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:43:02 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:43:02 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "5", name: "Led Zeppilin", coordinates:Coordinates {x=12, y=13}, creationDate: "Mon May 05 01:18:55 MSK 2025", number of participants: "123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 9.38"}
+}
+2025-05-05 01:43:04 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:43:04 [AWT-EventQueue-0] INFO   - remove_by_id{ login: admin; password: admin}
+2025-05-05 01:43:04 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:43:04 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:43:05 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:43:05 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: MusicBand с id 5 успешно удален из коллекции}
+2025-05-05 01:44:55 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:44:55 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 01:44:55 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:44:55 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:44:55 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:44:55 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 01:44:57 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:44:57 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:44:57 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:44:57 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:44:57 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:44:57 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:45:08 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:45:08 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 01:45:08 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:45:08 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:45:09 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:45:09 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 01:45:10 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:45:10 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:45:10 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:45:10 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:45:10 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:45:10 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "6", name: "Test", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 01:45:08 MSK 2025", number of participants: "123123", albums count: "123", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 123.0"}
+}
+2025-05-05 01:45:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:45:14 [AWT-EventQueue-0] INFO   - remove_by_id{ login: admin; password: admin}
+2025-05-05 01:45:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:45:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:45:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:45:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: MusicBand с id 6 успешно удален из коллекции}
+2025-05-05 01:45:16 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:45:16 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 01:45:16 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:45:16 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:45:16 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:45:16 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 01:45:36 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:45:36 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-05 01:45:36 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:45:36 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:45:36 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:45:36 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Mon May 05 01:02:48 MSK 2025
+Кол-во элементов: 3}
+2025-05-05 01:45:41 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:45:41 [AWT-EventQueue-0] INFO   - sum_of_albums_count{ login: admin; password: admin}
+2025-05-05 01:45:41 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:45:41 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:45:41 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:45:41 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: 270}
+2025-05-05 01:45:55 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 01:45:55 [AWT-EventQueue-0] INFO   - sum_of_albums_count{ login: admin; password: admin}
+2025-05-05 01:45:55 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 01:45:55 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 01:45:55 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 01:45:55 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: 270}
+2025-05-05 02:09:49 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:09:49 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:09:49 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:09:49 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:09:49 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:09:49 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:09:51 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:09:51 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:09:51 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:09:51 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:09:51 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:09:51 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:10:15 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:10:15 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:10:15 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:10:15 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:10:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:10:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:11:57 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:11:57 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:11:57 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:11:57 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:11:58 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:11:58 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:12:00 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:12:00 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:12:00 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:12:00 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:12:00 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:12:01 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:12:16 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:12:16 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 02:12:16 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:12:16 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:12:16 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:12:16 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 02:12:17 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:12:17 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:12:17 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:12:17 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:12:18 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:12:18 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:12:38 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:12:38 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:12:38 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:12:38 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:12:38 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:12:38 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:14:09 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:14:09 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:14:09 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:14:09 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:14:09 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:14:09 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:14:11 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:14:11 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:14:11 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:14:11 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:14:11 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:14:11 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:14:25 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:14:25 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:14:25 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:14:25 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:14:26 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:14:26 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:18:07 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:18:07 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:18:07 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:18:07 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:18:08 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:18:08 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:18:09 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:18:09 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:18:09 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:18:09 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:18:09 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:18:09 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:20:17 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:20:17 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:20:17 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:20:17 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:20:17 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:20:17 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:20:18 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:20:18 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:20:18 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:20:18 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:20:19 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:20:19 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:23:36 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:23:36 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:23:37 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:23:37 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:23:37 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:23:37 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:23:38 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:23:38 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:23:38 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:23:38 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:23:39 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:23:39 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:24:33 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:24:33 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:24:33 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:24:33 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:24:34 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:24:34 [AWT-EventQueue-0] WARN   - Ответ сервера содержит ошибку
+2025-05-05 02:24:34 [AWT-EventQueue-0] WARN   - ServerResponse {type: ERROR, message: Не удалось обновить элемент коллекции}
+2025-05-05 02:25:39 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:25:39 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:25:39 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:25:39 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:25:44 [AWT-EventQueue-0] ERROR  - Timeout - сервер не отвечает
+2025-05-05 02:28:00 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:28:00 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:28:00 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:28:00 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:28:01 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:28:01 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:28:02 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:28:02 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:28:02 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:28:02 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:28:03 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:28:03 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:28:15 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:28:15 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:28:15 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:28:15 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:28:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:28:15 [AWT-EventQueue-0] WARN   - Ответ сервера содержит ошибку
+2025-05-05 02:28:15 [AWT-EventQueue-0] WARN   - ServerResponse {type: ERROR, message: Не удалось обновить элемент коллекции}
+2025-05-05 02:28:43 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:28:43 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:28:43 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:28:43 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:28:48 [AWT-EventQueue-0] ERROR  - Timeout - сервер не отвечает
+2025-05-05 02:30:54 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:30:54 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:30:54 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:30:54 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:30:54 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:30:54 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:30:56 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:30:56 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:30:56 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:30:56 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:30:56 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:30:56 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:31:07 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:31:07 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:31:07 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:31:07 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:31:07 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:31:07 [AWT-EventQueue-0] WARN   - Ответ сервера содержит ошибку
+2025-05-05 02:31:07 [AWT-EventQueue-0] WARN   - ServerResponse {type: ERROR, message: Не удалось обновить элемент коллекции}
+2025-05-05 02:33:40 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:33:40 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:33:40 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:33:40 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:33:45 [AWT-EventQueue-0] ERROR  - Timeout - сервер не отвечает
+2025-05-05 02:34:00 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:34:00 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:34:00 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:34:00 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:34:00 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:34:01 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:34:09 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:34:09 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 02:34:09 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:34:09 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:34:10 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:34:10 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 02:34:11 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:34:11 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:34:11 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:34:11 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:34:11 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:34:11 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "adminMusicBand", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:12:16 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "8", name: "123", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:34:09 MSK 2025", number of participants: "123", albums count: "123", genre: "BLUES", label: "Label: sales 123.0"}
+}
+2025-05-05 02:34:17 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:34:17 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:34:17 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:34:17 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:34:22 [AWT-EventQueue-0] ERROR  - Timeout - сервер не отвечает
+2025-05-05 02:35:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:35:14 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:35:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:35:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:35:19 [AWT-EventQueue-0] ERROR  - Timeout - сервер не отвечает
+2025-05-05 02:37:35 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:37:35 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:37:35 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:37:35 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:37:40 [AWT-EventQueue-0] ERROR  - Timeout - сервер не отвечает
+2025-05-05 02:38:20 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:38:20 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:38:20 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:38:20 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:38:20 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:38:20 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Элемент с id 8 был успешно обновлен}
+2025-05-05 02:39:03 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:39:03 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:39:03 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:39:03 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:39:04 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:39:04 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:39:05 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:39:05 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:39:05 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:39:05 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:39:05 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:39:06 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "updated by admin", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:33:40 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "8", name: "bruh", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:37:35 MSK 2025", number of participants: "123", albums count: "123", genre: "POST_PUNK", label: "Label: sales 123.0"}
+}
+2025-05-05 02:39:12 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:39:12 [AWT-EventQueue-0] INFO   - update{ login: admin; password: admin}
+2025-05-05 02:39:12 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:39:12 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:39:13 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:39:13 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Элемент с id 8 был успешно обновлен}
+2025-05-05 02:39:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:39:14 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:39:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:39:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "updated by admin", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:33:40 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "8", name: "bruh1", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:39:12 MSK 2025", number of participants: "123", albums count: "123", genre: "POST_PUNK", label: "Label: sales 123.0"}
+}
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:39:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "updated by admin", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:33:40 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "8", name: "bruh1", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:39:12 MSK 2025", number of participants: "123", albums count: "123", genre: "POST_PUNK", label: "Label: sales 123.0"}
+}
+2025-05-05 02:51:45 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:51:45 [AWT-EventQueue-0] INFO   - login{ login: admin; password: a}
+2025-05-05 02:51:45 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:51:45 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:51:47 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:51:47 [AWT-EventQueue-0] WARN   - Неавторизованный вход
+2025-05-05 02:51:54 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:51:54 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:51:54 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:51:54 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:51:54 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:51:54 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:51:56 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:51:56 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:51:56 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:51:56 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:51:56 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:51:56 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "updated by admin", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:33:40 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "8", name: "bruh1", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:39:12 MSK 2025", number of participants: "123", albums count: "123", genre: "POST_PUNK", label: "Label: sales 123.0"}
+}
+2025-05-05 02:52:07 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:52:07 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:52:07 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:52:07 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:52:07 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:52:07 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "7", name: "updated by admin", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:33:40 MSK 2025", number of participants: "3", albums count: "4", genre: "BRIT_POP", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "The Doors", coordinates:Coordinates {x=10, y=23}, creationDate: "Wed Apr 09 13:39:48 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.5"}
+MusicBand: {id: "2", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 13:41:59 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "4", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Wed Apr 09 16:59:19 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "8", name: "bruh1", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:39:12 MSK 2025", number of participants: "123", albums count: "123", genre: "POST_PUNK", label: "Label: sales 123.0"}
+}
+2025-05-05 02:52:14 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:52:14 [AWT-EventQueue-0] INFO   - clear{ login: admin; password: admin}
+2025-05-05 02:52:14 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:52:14 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:52:15 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:52:15 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Коллекция очищена}
+2025-05-05 02:52:16 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:52:16 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:52:16 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:52:16 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:52:17 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:52:17 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: }
+2025-05-05 02:53:38 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:53:38 [AWT-EventQueue-0] INFO   - login{ login: admin; password: admin}
+2025-05-05 02:53:38 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:53:38 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:53:39 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:53:39 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Вы успешно авторизовались!}
+2025-05-05 02:53:41 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:53:41 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:53:41 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:53:41 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:53:42 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:53:42 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: }
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Запуск менедежра скриптов
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Загрузка всех команд
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Чтения скрипта D:\Projects\ITMO\proga\Lab8\script1.txt
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Скрипт прочитан
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Скрипт прочитан, ошибок нет
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 02:54:17 [AWT-EventQueue-0] INFO   - Скрипт выполнен успешно
+2025-05-05 02:54:19 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:54:19 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:54:19 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:54:19 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:54:19 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:54:19 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "9", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:54:17 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:56:54 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:56:54 [AWT-EventQueue-0] INFO   - clear{ login: admin; password: admin}
+2025-05-05 02:56:54 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:56:54 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:56:55 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:56:55 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Коллекция очищена}
+2025-05-05 02:56:56 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:56:56 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:56:56 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:56:56 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:56:57 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:56:57 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: }
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Запуск менедежра скриптов
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Загрузка всех команд
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Чтения скрипта D:\Projects\ITMO\proga\Lab8\script1.txt
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Скрипт прочитан
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Скрипт прочитан, ошибок нет
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 02:57:26 [AWT-EventQueue-0] INFO   - Скрипт выполнен успешно
+2025-05-05 02:57:27 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:57:27 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:57:27 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:57:27 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:57:28 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:57:28 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:57:26 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+}
+2025-05-05 02:59:08 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:59:08 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 02:59:08 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:59:08 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:59:08 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:59:08 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 02:59:09 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:59:09 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:59:09 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:59:09 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:59:10 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:59:10 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "1", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:57:26 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "2", name: "The doors", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:59:08 MSK 2025", number of participants: "322", albums count: "4223", genre: "BLUES", label: "Label: sales 123.0"}
+}
+2025-05-05 02:59:39 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:59:39 [AWT-EventQueue-0] INFO   - add{ login: admin; password: admin}
+2025-05-05 02:59:39 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:59:39 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:59:39 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:59:39 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Группа успешно добавлена в коллекцию}
+2025-05-05 02:59:40 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:59:40 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 02:59:40 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:59:40 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:59:41 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:59:41 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "3", name: "test", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:59:39 MSK 2025", number of participants: "3", albums count: "4", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:57:26 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "2", name: "The doors", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:59:08 MSK 2025", number of participants: "322", albums count: "4223", genre: "BLUES", label: "Label: sales 123.0"}
+}
+2025-05-05 02:59:53 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 02:59:53 [AWT-EventQueue-0] INFO   - info{ login: admin; password: admin}
+2025-05-05 02:59:53 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 02:59:53 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 02:59:54 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 02:59:54 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: Тип коллекции: CopyOnWriteArrayList
+Дата создания: Mon May 05 02:56:44 MSK 2025
+Кол-во элементов: 3}
+2025-05-05 03:00:11 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 03:00:11 [AWT-EventQueue-0] INFO   - show{ login: admin; password: admin}
+2025-05-05 03:00:11 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 03:00:11 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 03:00:11 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 03:00:11 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message:  MusicBands: MusicBand: {id: "3", name: "test", coordinates:Coordinates {x=1, y=2}, creationDate: "Mon May 05 02:59:39 MSK 2025", number of participants: "3", albums count: "4", genre: "PSYCHEDELIC_ROCK", label: "Label: sales 5.0"}
+MusicBand: {id: "1", name: "nirvana", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:57:26 MSK 2025", number of participants: "90", albums count: "90", genre: "JAZZ", label: "Label: sales 4.3"}
+MusicBand: {id: "2", name: "The doors", coordinates:Coordinates {x=123, y=123}, creationDate: "Mon May 05 02:59:08 MSK 2025", number of participants: "322", albums count: "4223", genre: "BLUES", label: "Label: sales 123.0"}
+}
+2025-05-05 03:00:13 [AWT-EventQueue-0] INFO   - Отправка сообщения на сервер
+2025-05-05 03:00:13 [AWT-EventQueue-0] INFO   - sum_of_albums_count{ login: admin; password: admin}
+2025-05-05 03:00:13 [AWT-EventQueue-0] INFO   - Сообщение отправлено
+2025-05-05 03:00:13 [AWT-EventQueue-0] INFO   - Ожидание ответа от сервера...
+2025-05-05 03:00:14 [AWT-EventQueue-0] INFO   - Сообщение от сервера пришло
+2025-05-05 03:00:14 [AWT-EventQueue-0] INFO   - ServerResponse {type: SUCCESS, message: 4317}

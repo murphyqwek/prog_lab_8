@@ -47,7 +47,7 @@ public class SumOfAlbumsCountUserCommand extends UserCommand {
 
         result = collection.stream().mapToLong(MusicBand::getAlbumsCount).sum();
 
-        String response = "Суммарное значение поля albumsCount: " + result;
+        String response = String.valueOf(result);
         return new ServerResponse(ServerResponseType.SUCCESS, response);
     }
 }

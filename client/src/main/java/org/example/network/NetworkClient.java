@@ -67,6 +67,10 @@ public class NetworkClient {
         this.userLoginPasswordContainer = userLoginPasswordContainer;
     }
 
+    public UserLoginPasswordContainer getUserLoginPasswordContainer() {
+        return this.userLoginPasswordContainer;
+    }
+
     /**
      * Метод для получения ответа сервера
      */
