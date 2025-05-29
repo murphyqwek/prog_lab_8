@@ -15,14 +15,14 @@ public class DatabaseConnector {
     private static Session sshSession;
     private static Connection connection;
 
-    private static final String SSH_USER = "s467579";
-    private static final String SSH_PASSWORD = "RzLA-2243";
-    private static final String SSH_HOST = "se.ifmo.ru";
+    private static final String SSH_USER = "*********************************";
+    private static final String SSH_PASSWORD = "*********************************";
+    private static final String SSH_HOST = "*********************************";
     private static final int SSH_PORT = 2222;
 
-    private static final String DB_USER = "s467579";
-    private static final String DB_PASSWORD = "PeqkzPCjCkOrpElt";
-    private static final String DB_NAME = "studs";
+    private static final String DB_USER = "*********************************";
+    private static final String DB_PASSWORD = "*********************************";
+    private static final String DB_NAME = "*********************************";
     private static final String REMOTE_DB_HOST = "localhost";
     private static final int REMOTE_DB_PORT = 5432;
     private static final int LOCAL_FORWARD_PORT = 5432;
